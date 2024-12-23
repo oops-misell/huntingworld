@@ -1,0 +1,193 @@
+{
+  "name": "Header",
+  "type": "header",
+  "sections": {
+    "header": {
+      "type": "header",
+      "blocks": {
+        "1525791872612": {
+          "type": "tape",
+          "settings": {
+            "delay": 0,
+            "style": "1",
+            "transparent_bg": false,
+            "content": "≪ ホリデーフェア開催中 ≫オリジナル手帳をプレゼント"
+          }
+        },
+        "1527372910910": {
+          "type": "megamenu",
+          "settings": {
+            "for_item": "Catalog",
+            "grid": 4,
+            "second_level_column": false,
+            "second_level_column_size": 50,
+            "wrap": true,
+            "wrapper_grid": 6,
+            "column_left_type": "1",
+            "column_left_size": 3,
+            "column_right_type": "1",
+            "column_right_size": 3,
+            "enable_width_limit": false,
+            "width_limit": 630
+          }
+        },
+        "1527384342086": {
+          "type": "megamenu_promobox",
+          "settings": {
+            "title": "",
+            "url": "shopify:\/\/collections",
+            "image_size": 400,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "新機能",
+            "text_line_2": "2023年春夏コレクション",
+            "text_line_3": "テキストライン３",
+            "style": "3",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "ボタンテキスト",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "type": "type-3",
+            "content_position": "center",
+            "content_align": "center",
+            "animation_to": "center",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "customization_class": ""
+          }
+        },
+        "1527385504306": {
+          "type": "megamenu_promobox",
+          "settings": {
+            "title": "",
+            "url": "shopify:\/\/collections",
+            "image_size": 400,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "セール＆スペシャルオファー",
+            "text_line_2": "最大20％オフ",
+            "text_line_3": "Text line 3",
+            "style": "3",
+            "button_1": "",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "Button text #2",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "type": "type-3",
+            "content_position": "center",
+            "content_align": "center",
+            "animation_to": "center",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "customization_class": ""
+          }
+        },
+        "1527422624107": {
+          "type": "megamenu_title_image",
+          "settings": {
+            "for_item": "Catalog+２行のタイトル＃１",
+            "image_size": 170,
+            "for_item_2": "Catalog+２行のタイトル＃２",
+            "image_size_2": 200,
+            "for_item_3": "Catalog+２行のタイトル＃３",
+            "image_size_3": 200,
+            "for_item_4": "",
+            "image_size_4": 200,
+            "for_item_5": "",
+            "image_size_5": 200
+          }
+        },
+        "1582328455745": {
+          "type": "megamenu_label",
+          "settings": {
+            "type": "new",
+            "text": "おすすめ",
+            "for_item": "Catalog",
+            "for_item_2": "Catalog+2行のタイトル",
+            "for_item_3": "",
+            "for_item_4": "",
+            "for_item_5": "",
+            "for_item_6": "",
+            "for_item_7": "",
+            "for_item_8": "",
+            "for_item_9": "",
+            "for_item_10": "",
+            "for_item_11": "",
+            "for_item_12": "",
+            "for_item_13": "",
+            "for_item_14": "",
+            "for_item_15": ""
+          }
+        },
+        "megamenu_promobox_JjYpdU": {
+          "type": "megamenu_promobox",
+          "settings": {
+            "title": "",
+            "url": "",
+            "image_size": 1450,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "テキストライン# 1",
+            "text_line_2": "テキストライン# 2",
+            "text_line_3": "テキストライン# 1",
+            "style": "1",
+            "button_1": "ボタンテキスト #1",
+            "button_1_url": "",
+            "color_button_type_1": "default",
+            "button_2": "ボタンテキスト #2",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "type": "clean",
+            "content_position": "center",
+            "content_align": "center",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none",
+            "customization_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "1525791872612",
+        "1527372910910",
+        "1527384342086",
+        "1527385504306",
+        "1527422624107",
+        "1582328455745",
+        "megamenu_promobox_JjYpdU"
+      ],
+      "settings": {
+        "type": "2",
+        "style": "1",
+        "transparent_bg": "disable",
+        "logo_mobile_centered": false,
+        "height": 0,
+        "items_padding": 0,
+        "menu": "main-menu",
+        "show_menu_arrows": true,
+        "show_menu_hover_underline": false,
+        "vertical_menu": "",
+        "fixed_vertical_menu": false,
+        "additional_line_info_page_content": "",
+        "enable_country_selector": true,
+        "show_country_name": true,
+        "country_selector_max_width": 0,
+        "sticky": "desktop_and_mobile",
+        "desktop_sticky_type": "slim",
+        "hide_sticky_when_scroll_down": false
+      }
+    }
+  },
+  "order": [
+    "header"
+  ]
+}

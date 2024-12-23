@@ -1,0 +1,6 @@
+{% if product.metafields.custom._material.value != blank %}
+<div>
+<br>
+{{ product.metafields.custom._material.value | newline_to_br}}
+</div>
+{% endif %}

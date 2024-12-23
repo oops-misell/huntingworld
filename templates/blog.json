@@ -1,0 +1,47 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "blocks": {
+        "tags": {
+          "type": "tags",
+          "settings": {
+            "title": "タグ",
+            "show_border": true
+          }
+        },
+        "subscription": {
+          "type": "subscription",
+          "settings": {
+            "title": "メルマガ購読",
+            "show_border": false,
+            "paragraph": "『MISEル』のメルマガを購読してお得な情報・最新の情報を受け取ろう!",
+            "button_text": "購読",
+            "placeholder": "Eメールアドレスを入力してください"
+          }
+        }
+      },
+      "block_order": [
+        "tags",
+        "subscription"
+      ],
+      "settings": {
+        "show_title": false,
+        "type": "4",
+        "masonry_enable": true,
+        "max_posts": 12,
+        "show_image": true,
+        "show_information": true,
+        "show_tags": true,
+        "show_content": true,
+        "show_button": true,
+        "show_comments": true,
+        "show_empty_comments": true,
+        "max_post_content_length": 200
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

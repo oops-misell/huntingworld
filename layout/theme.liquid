@@ -1,0 +1,68 @@
+<!doctype html>
+{%- if shop.locale == 'ar' or shop.locale == 'he' -%}
+<!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}" dir="rtl"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}" dir="rtl"> <!--<![endif]-->
+{%- else -%}
+<!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"{% if settings.layout_enable_rtl %} dir="rtl"{% endif %}> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"{% if settings.layout_enable_rtl %} dir="rtl"{% endif %}> <!--<![endif]-->
+{%- endif -%}
+
+<head>
+  {% capture get_content_for_header %}{{ content_for_header }}{% endcapture %}
+  {% include 'head' %}
+</head>
+<body{% render 'layout-get-body-attributes' %}>
+{% include 'layout-get-includes-start' %}
+{%- if settings.product_show_custom_options and settings.product_enable_variants_section -%}
+  {% section 'product-variants' %}
+{%- endif -%}
+{% sections 'header-group' %}
+<main id="MainContent">
+  {%- if request.page_type == 'page' or request.page_type == 'product' or request.page_type == 'cart' or request.page_type == 'list-collections' or request.page_type == 'article' or request.page_type == 'blog' -%}
+    {% include 'breadcrumbs' %}
+  {%- elsif request.page_type == 'collection' -%}
+    <div id="CollectionBreadcrumbs">
+      {% include 'breadcrumbs' %}
+    </div>
+  {%- endif -%}
+  {{ content_for_layout }}
+</main>
+{% sections 'footer-group' %}
+{% include 'popups' %}
+{% include 'footbar' %}
+
+{% include 'templates' %}
+{% include 'layout-get-includes-end' %}
+<!-- START APPS -->
+
+{%- if settings.app_growave_enable -%}
+  <!-- start Growave app -->
+  {% capture the_snippet_content %}{% render 'socialshopwave-helper' %}{% endcapture %}
+  {%- unless the_snippet_content contains 'Liquid error' -%}
+    {{ the_snippet_content }}
+  {%- endunless -%}
+  <script>
+    sswRun(function(){
+      var intervalId = setInterval(function() {
+        if(ssw('.ssw-stars.ssw-stars-large').length) {
+          ssw('.ssw-stars.ssw-stars-large').on('click', function() {
+            ssw('.product-page__tabs .tabs__btn[data-tab="reviews"]').click();
+            ssw('html, body').animate({
+              scrollTop: ssw("#ssw-widget-recommends-html").offset().top - 200
+            }, 100);
+          });
+          clearInterval(intervalId);
+        }
+      },1000);
+    });
+  </script>
+  <!-- end Growave app -->
+{%- endif -%}
+
+<!-- END APPS -->
+<script>window.performance.mark('theme:DOM:loaded');</script>
+{% comment %}
+{% render 'js-api' %}
+{% endcomment %}
+</body>
+</html>

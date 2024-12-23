@@ -1,0 +1,163 @@
+{% include 'global-variables' %}
+
+<style>
+  {%- assign transparent_value = 'rgba(0,0,0,0)' -%}
+  {%- if section.settings.color_bg and section.settings.color_bg != '' and section.settings.color_bg != 'rgba(0,0,0,0)' -%}
+      #TickerSection-{{ section.id }} .ticker {
+        --background: {{ section.settings.color_bg }};
+      }
+  {%- endif -%}
+  {%- if section.settings.color_text and section.settings.color_text != '' and section.settings.color_text != 'rgba(0,0,0,0)' -%}
+      #TickerSection-{{ section.id }} .ticker {
+        --text: {{ section.settings.color_text }};
+      }
+  {%- endif -%}
+</style>
+
+<div{% if section.settings.customization_class != blank %} class="{{ section.settings.customization_class }}"{% endif %}>
+  <div id="TickerSection-{{ section.id }}">
+    <div{% render 'layout-get-container-class' %}>
+      <div class="ticker gradient{% if section.settings.full_width %} ticker--full-width{% endif %}">
+        {% capture content_html %}
+          <div class="ticker__content">
+            {%- for block in section.blocks -%}
+              <div class="ticker__block" {{ block.shopify_attributes }}>
+                {%- if section.settings.show_separator -%}
+                  <span class="ticker__separator">✲</span>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <span class="ticker__text rte">
+                    {{ block.settings.text }}
+                  </span>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        {% endcapture %}
+        <noscript>
+          <marquee behavior="scroll" loop="infinity" truespeed="200" scrolldelay="50">
+            {{ content_html }}
+          </marquee>
+        </noscript>
+        <ticker-section class="hidden" data-speed="{{ section.settings.speed }}" data-referral="{{ section.settings.referral }}">
+          {{ content_html }}
+        </ticker-section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    theme.AssetsLoader.require('scripts', 'ticker');
+</script>
+
+{% schema %}
+{
+  "name": { "en": "Ticker", "ja": "テキストカルーセル"},
+  "settings": [
+    {
+      "type": "header",
+      "content": { "en": "Layout", "ja": "レイアウト"}
+    },
+    {
+        "type": "select",
+        "id": "container",
+        "label": { "en": "Content width", "ja": "コンテンツ幅"},
+        "default": "fullwidth",
+        "options": [
+            {
+                "value": "fullwidth",
+                "label": { "en": "Fullwidth", "ja": "フル幅"}
+            },
+            {
+                "value": "boxed",
+                "label": { "en": "Boxed", "ja": "ボックス幅"}
+            }
+        ]
+    },
+    {
+      "type": "header",
+      "content": { "en": "Content", "ja": "コンテンツ"}
+    },
+    {
+        "type": "checkbox",
+        "id": "show_separator",
+        "label": { "en": "Show separator", "ja": "セパレーターを表示"},
+        "default": false
+    },
+    {
+      "type": "select",
+      "id": "referral",
+      "options": [
+        {
+          "value": "left",
+          "label": { "en": "Left", "ja": "左方向"}
+        },
+        {
+          "value": "right",
+          "label": { "en": "Right", "ja": "右方向"}
+        }
+      ],
+      "default": "left",
+      "label": { "en": "Referral", "ja": "回転方向"}
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": { "en": "Speed", "ja": "速度"},
+      "default": 3
+    },
+    {
+        "type": "header",
+        "content": { "en": "Colorize", "ja": "カラー設定"}
+    },
+    {
+        "type": "color",
+        "id": "color_bg",
+        "label": { "en": "Background", "ja": "背景"}
+    },
+    {
+        "type": "color",
+        "id": "color_text",
+        "label": { "en": "Text", "ja": "テキスト"}
+    },
+    {
+    "type": "header",
+    "content": { "en": "Customization", "ja": "カスタマイズ"}
+    },
+    {
+    "type": "text",
+    "id": "customization_class",
+    "label": { "en": "Customization class", "ja": "追加CSSクラス"},
+    "info": { "en": "[Read user manual for adding extra classes](https://misell-manual.wraptas.site/sections/ticker)", "ja": "CSSクラスを加えるにはユーザーマニュアルを参照してください。こちらは高度な設定です。[追加CSSクラス](https://misell-manual.wraptas.site/theme-settings/developer) [ティッカー - 文字列表示](https://misell-manual.wraptas.site/sections/ticker)"}
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": { "en": "Content", "ja": "コンテンツ"},
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>商品・ストアの紹介・お客様へのお知らせ・ブランドなどの情報をシェアしよう! 商品・ストアの紹介・お客様へのお知らせ・ブランドなどの情報をシェアしよう! 商品・ストアの紹介・お客様へのお知らせ・ブランドなどの情報をシェアしよう!</p>",
+          "label": { "en": "Text", "ja": "テキスト"}
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": { "en": "Ticker", "ja": "テキストカルーセル"},
+      "blocks": [
+        {
+          "type": "content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

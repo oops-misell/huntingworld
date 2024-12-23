@@ -1,0 +1,202 @@
+@import url("https://use.typekit.net/mzr2akz.css");
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, .footer__copyright {
+  font-family: "sweet-sans-pro", "Noto Sans JP", sans-serif;
+}
+.btn {
+  font-weight: 400
+}
+.blog-list-item__date,
+.misell-blog-list-tag {
+  font-family: "sweet-sans-pro", "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  border-color: #C7C9C7 !important;
+  font-size: 14px;
+}
+.blog-list-item__title {
+  font-size: 16px;
+}
+.price {
+  font-weight: 700;
+  font-family: "sweet-sans-pro", "Noto Sans JP", sans-serif;
+}
+.h4.home-section-title span {
+  font-weight: 600;
+}
+.home-section-title .h4 span {
+  font-weight: 600;
+}
+.product-collection__title h4 {
+  font-weight: 600;
+}
+.menu__item {
+  font-weight: 600;
+}
+.menu__item:has(small) {
+  font-weight: 700;
+  font-family: "sweet-sans-pro", "Noto Sans JP", sans-serif;
+  text-align: center;
+}
+
+/* header */
+@media (width < 768px) {
+  .popup-navigation__menu.pt-25.pb-25.px-10 > .container > .menu > .menu__panel > .menu__item:last-child > a {
+      text-align: left;
+      line-height: 1.5;
+      margin-top: 5px;
+  }
+} 
+
+/* mainvisual */
+.mianvisual .promobox__content.absolute-stretch {
+  position: static;
+}
+.mianvisual .promobox__content.absolute-stretch .promobox__content_inner {
+  position: static !important;
+}
+.mianvisual
+  .promobox__content.absolute-stretch
+  .promobox__content_inner
+  .position-relative.px-10.py-50 {
+  padding: 30px 0 !important;
+}
+.mianvisual .slick-dots {
+  display: none !important;
+}
+
+
+/* ボタン */
+.btn.btn--secondary {
+  background: #fff;
+  color: #333 !important;
+}
+
+/* 画像付きブログリスト */
+.blog-list-width-image h2.h4 {
+  text-transform: uppercase;
+}
+.blog-list-width-image .blog-list-item__excerpt {
+  display: none;
+}
+
+@media (width < 768px) {
+ .blog-list-width-image > .row {
+    display: block;
+  }
+  .blog-list-width-image .blog-list-image {
+    max-width: 100%;
+  }
+  .blog-list-width-image .blog-list-item__info {
+    margin-top: 20px;
+  }
+} 
+
+@media (width >= 768px) {
+ .blog-list-width-image > .row > .col {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .blog-list-item__image {
+    object-fit: contain !important;
+  }
+} 
+
+/* フッター */
+#footer .footer__border-top,
+#footer .footer__border-bottom,
+#footer .footer__border {
+  border-color: #3e3e3e;
+}
+
+.footer-pc-grid-box > .footer__border-top {
+  border: none;
+}
+
+#footer p,
+#footer li,
+#footer li a {
+  font-size: 13px;
+  line-height: 1.8;
+}
+#footer li {
+  white-space: nowrap;
+}
+
+#footer h5 a {
+  text-decoration: underline;
+}
+
+.footer__custom-html li {
+  color: #fff;
+}
+.footer__custom-html .footer__section-content > ul > li {
+    padding-left: 0 !important; 
+}
+.footer__custom-html .footer__section-content > ul > li:before {
+  margin: 0 !important;
+  display: inline !important;
+  background: none !important;
+}
+.footer__custom-html ul ul li:before {
+  background: #3e3e3e;
+  border-radius: 0 !important;
+}
+.footer__custom-html ul ul ul li:before {
+  content: "- " !important;
+  background: none !important;
+  color: #888;
+}
+.footer__custom-html li strong {
+  font-weight: 700;
+  color: #ccc;
+}
+
+@media (width >= 1025px) {
+  .footer-pc-grid-box {
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr;
+    grid-template-rows: repeat(3, auto);
+  }
+  
+  .footer-pc-grid-item-01 {
+    max-width: none;
+    grid-column: 2 / 4;
+    grid-row: 2 / 3;
+  }
+  
+  .footer-pc-grid-item-02 {
+    max-width: none;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: subgrid;
+  }
+
+  .footer-pc-grid-item-02 .footer__menus {
+    display: contents;
+  }
+  
+  .footer-pc-grid-item-02 .col-lg {
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+  
+  .footer-pc-grid-item-02 :nth-child(3 of .col-lg),
+  .footer-pc-grid-item-02 :nth-child(4 of .col-lg) {
+    grid-row: 2 / 3;
+  }
+  
+  .footer-pc-grid-item-03 {
+    max-width: none;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+  
+  .footer-pc-grid-item-04 {
+    max-width: none;
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+  }
+}

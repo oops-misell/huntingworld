@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="container container--sm">
+        {%- for block in section.blocks -%}
+            <div class="faqs border-top" data-js-accordion="all">
+                <h2 class="faqs__head h5 d-flex align-items-center py-10 mb-0 cursor-pointer{% if block.settings.is_open %} open{% endif %}" data-js-accordion-button><span class="mr-15">{{ block.settings.question }}</span> <i class="faqs__cross ml-auto">{% render 'icon-theme-190' %}</i> </h2>
+                <div{% unless block.settings.is_open %} class="d-none"{% endunless %} data-js-accordion-content>
+                    <div class="rte pt-10 pb-30">
+                        {%- case forloop.index -%}
+                            {%- when 2 %}{% assign faqs_default_page = 'include-faqs-answer-2' -%}
+                            {%- when 3 %}{% assign faqs_default_page = 'include-faqs-answer-3' -%}
+                            {%- else %}{% assign faqs_default_page = 'include-faqs-answer' -%}
+                        {%- endcase -%}
+                        {% include 'parse-page-html-content' with default_page: faqs_default_page page_content: block.settings.page_content html: block.settings.answer %}
+                    </div>
+                </div>
+            </div>
+        {%- endfor -%}
+    </div>
+</div>
+
+
+{% schema %}
+{
+    "name": { "en": "FAQs", "ja": "FAQs(よくある質問と答え)"},
+    "blocks": [
+        {
+            "type": "section",
+            "name": { "en": "Section", "ja": "セクション"},
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "question",
+                    "label": { "en": "Question", "ja": "質問"},
+                    "default": "質問内容" // "QUESTION"
+                },
+                {
+                    "type": "page",
+                    "id": "page_content",
+                    "label": { "en": "Page content for the answer", "ja": "答えのページコンテンツ"},
+                    "info": { "en": "Default page: 'Include FAQs Answer'", "ja": "デフォルトでは'Include FAQs Answer'のページが適用されます。(ExImアプリでMisell-theme-page.zipがインストールされている場合)"}
+                },
+                {
+                    "type": "paragraph",
+                    "content": { "en": "OR ↓", "ja": "もしくは下記の内容を表示"}
+                },
+                {
+                    "type": "textarea",
+                    "id": "answer",
+                    "label": { "en": "Answer", "ja": "答え"}
+                },
+                {
+                    "type": "checkbox",
+                    "id": "is_open",
+                    "label": { "en": "Is open", "ja": "開いた状態で表示"},
+                    "default": true
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": { "en": "FAQs", "ja": "FAQs(よくある質問と答え)"},
+            "category": "3) Static content"
+        }
+    ]
+}
+{% endschema %}

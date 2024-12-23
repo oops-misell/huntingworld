@@ -1,0 +1,6 @@
+{% if product.metafields.custom._measuretext.value != blank %}
+<div>
+<br>
+{{ product.metafields.custom._measuretext.value | newline_to_br}}
+</div>
+{% endif %}

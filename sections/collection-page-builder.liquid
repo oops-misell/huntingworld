@@ -1,0 +1,1239 @@
+{% include 'global-variables' %}
+{%- if template.name == 'collection' -%}
+    <template class="collection-page-builder-template collection-page-builder-template--type-{{ section.settings.section_type }} d-none">
+        {% capture content_html %}
+            {%- case section.settings.size_of_columns_mobile -%}
+                {%- when '1' -%}{%- assign grid_mobile = 'col-12' -%}
+                {%- when '2' -%}{%- assign grid_mobile = 'col-6' -%}
+            {%- endcase -%}
+            {%- case section.settings.size_of_columns -%}
+                {%- when '1' -%}{%- assign grid = grid_mobile | append: ' col-md-12' -%}
+                {%- when '2' -%}{%- assign grid = grid_mobile | append: ' col-md-6' -%}
+                {%- when '3' -%}{%- assign grid = grid_mobile | append: ' col-md-6 col-lg-4' -%}
+                {%- when '4' -%}{%- assign grid = grid_mobile | append: ' col-md-6 col-lg-3' -%}
+                {%- when '5' -%}{%- assign grid = grid_mobile | append: ' col-sm-6 col-md-4 col-lg-2-5' -%}
+                {%- when '6' -%}{%- assign grid = grid_mobile | append: ' col-sm-6 col-md-4 col-lg-2' -%}
+            {%- endcase -%}
+            {%- case section.settings.margins_for_columns -%}
+                {%- when 'preset_1' %}{% assign margins_for_columns = home_builder_margins_for_columns_preset_1 %}
+                {%- when 'preset_2' %}{% assign margins_for_columns = home_builder_margins_for_columns_preset_2 %}
+                {%- when 'preset_3' %}{% assign margins_for_columns = home_builder_margins_for_columns_preset_3 %}
+                {%- when 'preset_4' %}{% assign margins_for_columns = home_builder_margins_for_columns_preset_4 %}
+                {%- when 'preset_5' %}{% assign margins_for_columns = home_builder_margins_for_columns_preset_5 %}
+            {%- endcase -%}
+            {%- for block in section.blocks -%}
+                {%- if block.settings.for_collection == collection.handle -%}
+                    {%- assign has_blocks_by_handle = true -%}
+                    {% capture block_id %}collection-page-builder-block-id-{{ section.id }}-{{ forloop.index }}{% endcapture %}
+                    <div class="{{ block_id }} {% if section.settings.section_type == 'insert' %}mb-30 mb-lg-{{ offset_collection_page_product_margin_bottom_d }}{% else %}{% if block.settings.size_of_column != blank and block.settings.size_of_column != 'auto' %}{{ grid_mobile }} col-md-{{ block.settings.size_of_column }}{% else %}{{ grid }}{% endif %} {{ margins_for_columns }}{% endif %}"{% if section.settings.section_type == 'insert' %} data-js-promobox data-promobox-grid-visible="{% if section.settings.show_grid_1 %}1{% endif %}{% if section.settings.show_grid_2 %}2{% endif %}{% if section.settings.show_grid_3 %}3{% endif %}{% if section.settings.show_grid_4 %}4{% endif %}{% if section.settings.show_grid_6 %}6{% endif %}{% if section.settings.show_list %}list{% endif %}"{% endif %}">
+                        {%- case block.type -%}
+                        {%- when 'promobox' -%}
+                            {% render 'promobox' with block: block block_id: block_id promobox_curtain_opacity: promobox_curtain_opacity promobox_height_preset_1: promobox_height_preset_1 promobox_height_preset_2: promobox_height_preset_2 promobox_height_preset_3: promobox_height_preset_3 promobox_ultra_height_preset_1: promobox_ultra_height_preset_1 promobox_ultra_height_preset_3: promobox_ultra_height_preset_3 %}
+                        {%- when 'custom_html' -%}
+                            <div class="rte">
+                                {% include 'parse-page-html-content' with page_content: block.settings.page_content %}
+                            </div>
+                        {%- endcase -%}
+                    </div>
+                {%- endif -%}
+            {%- endfor -%}
+        {% endcapture %}
+        {%- if has_blocks_by_handle -%}
+            {%- if section.settings.section_type == 'insert' -%}
+                {{ content_html }}
+            {%- else -%}
+                <div class="collection-page-builder">
+                    <div data-section-id="{{ section.id }}" data-section-type="collection-page-builder">
+                        <div class="row">
+                            {{ content_html }}
+                        </div>
+                    </div>
+                </div>
+            {%- endif -%}
+        {%- endif -%}
+    </template>
+{%- endif -%}
+<script>
+    if(window.renderCollectionPageBuilders) {
+        renderCollectionPageBuilders();
+    }
+</script>
+
+
+{% schema %}
+{
+    "name": { "en": "Banner Builder", "ja": "バナービルダー - コレクションテンプレート"},
+    "settings": [
+    {
+        "type": "paragraph",
+        "content": { "en": "Attention! After making changes in this section, press the \"Save\" button in the admin panel to see the changes on the page.", "ja": "注意: セクションの変更が終わったあと、上部の｢保存する｣のボタンを押して変更を反映させてください。"}
+        },
+        {
+            "type": "select",
+            "id": "section_type",
+            "label": { "en": "Section type", "ja": "セクションのタイプ"},
+            "default": "replace",
+            "options": [
+                {
+                    "value": "replace",
+                    "label": { "en": "Replace products grid", "ja": "商品グリッドの置き換え"}
+                },
+                {
+                    "value": "insert",
+                    "label": { "en": "Insert to product grid", "ja": "商品グリッドに挿入"}
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "content": { "en": "\"Insert to product grid\" settings", "ja": "｢商品グリッドに挿入｣の設定"}
+            },
+        {
+            "type": "checkbox",
+            "id": "show_grid_1",
+            "label": { "en": "Show when grid is 1 in a row", "ja": "1行にグリッドが1つのときに表示"},
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_grid_2",
+            "label": { "en": "Show when grid is 2 in a row", "ja": "1行にグリッドが2つのときに表示"},
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_grid_3",
+            "label": { "en": "Show when grid is 3 in a row", "ja": "1行にグリッドが3つのときに表示"},
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_grid_4",
+            "label": { "en": "Show when grid is 4 in a row", "ja": "1行にグリッドが4つのときに表示"},
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_grid_6",
+            "label": { "en": "Show when grid is 6 in a row", "ja": "1行にグリッドが6つのときに表示"},
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_list",
+            "label": { "en": "Show when list", "ja": "リストのときに表示"},
+            "default": false
+        },
+        {
+        "type": "header",
+        "content": { "en": "Column settings", "ja": "コラムの設定"}
+        },
+        {
+        "type": "select",
+        "id": "size_of_columns",
+        "label": { "en": "Size of the columns", "ja": "コラムのサイズ"},
+        "default": "1",
+        "options": [
+        {
+        "value": "1",
+        "label": { "en": "1 item in the row", "ja": "1行に1アイテム"}
+        },
+        {
+        "value": "2",
+        "label": { "en": "2 items in the row", "ja": "1行に2アイテム"}
+        },
+        {
+        "value": "3",
+        "label": { "en": "3 items in the row", "ja": "1行に3アイテム"}
+        },
+        {
+        "value": "4",
+        "label": { "en": "4 items in the row", "ja": "1行に4アイテム"}
+        },
+        {
+        "value": "5",
+        "label": { "en": "5 items in the row", "ja": "1行に5アイテム"}
+        },
+        {
+        "value": "6",
+        "label": { "en": "6 items in the row", "ja": "1行に6アイテム"}
+        }
+        ]
+        },
+        {
+            "type": "select",
+            "id": "size_of_columns_mobile",
+            "label": { "en": "Size of the columns on mobile", "ja": "コラムのサイズ - モバイル"},
+            "default": "1",
+            "options": [
+                {
+                    "value": "1",
+                    "label": { "en": "1 item in the row", "ja": "1行に1アイテム"}
+                },
+                {
+                    "value": "2",
+                    "label": { "en": "2 items in the row", "ja": "1行に2アイテム"}
+                }
+            ]
+        },
+{
+"type": "select",
+"id": "margins_for_columns",
+"label": { "en": "Margins for the columns", "ja": "コラムのマージン余白"},
+"default": "none",
+"info": { "en": "Quotation marks indicate the value on the desktop and mobile", "ja": "括弧内はデスクトップとモバイルのサイズ"},
+"options": [
+{
+"value": "none",
+"label": { "en": "None", "ja": "なし"}
+},
+{
+"value": "preset_1",
+"label": { "en": "Preset #1 (15px, 10px)", "ja": "プリセット #1 (15px, 10px)"}
+},
+{
+"value": "preset_2",
+"label": { "en": "Preset #2 (60px, 45px)", "ja": "プリセット #2 (60px, 45px)"}
+},
+{
+"value": "preset_3",
+"label": { "en": "Preset #3 (30px, 30px)", "ja": "プリセット #3 (30px, 30px)"}
+},
+{
+"value": "preset_4",
+"label": { "en": "Preset #4 (45px, 30px)", "ja": "プリセット #4 (45px, 30px)"}
+},
+{
+"value": "preset_5",
+"label": { "en": "Preset #5 (40px, 35px)", "ja": "プリセット #5 (40px, 35px)"}
+}
+]
+},
+{
+"type": "header",
+"content": { "en": "Support", "ja": "ビデオチュートリアルとユーザーマニュアル"}
+},
+        {
+          "type": "paragraph",
+          "content": "[MISEル YouTube](https:\/\/www.youtube.com\/channel\/UChCFvSvr3YgbYDcumJ_OqzQ)"
+        },
+        {
+          "type": "paragraph",
+          "content": { "en": "[Bunner Builder](https://misell-manual.wraptas.site/template/collection-page-banner-builder)", "ja": "[バナービルダー](https://misell-manual.wraptas.site/template/collection-page-banner-builder)"}
+        }
+    ],
+    "blocks": [
+        {
+            "type": "promobox",
+            "name": { "en": "Promo box (Banner)", "ja": "プロモボックス (バナー)"},
+            "settings": [
+{
+"type": "header",
+"content": { "en": "General", "ja": "一般設定"}
+},
+{
+"type": "collection",
+"id": "for_collection",
+"label": { "en": "For collection", "ja": "コレクション"}
+},
+{
+"type": "url",
+"id": "url",
+"label": { "en": "URL for banner", "ja": "バナーのリンク先URL"}
+},
+{
+"type": "header",
+"content": { "en": "Image", "ja": "画像"}
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": { "en": "Image", "ja": "画像"},
+"info": { "en": "Recommended size 1440x550 pixels", "ja": "推奨サイズ 1440x550 px"}
+},
+{
+"type": "range",
+"id": "image_size",
+"min": 200,
+"max": 2000,
+"step": 50,
+"unit": "px",
+"label": { "en": "Image size", "ja": "画像サイズ"},
+"info": { "en": "These are the fields for image quality. If images lazy loading is on, the option is ignored", "ja": "画質の設定を行います。レイジーロードが有効の場合、この設定は適用されません。"},
+"default": 1450
+},
+{
+"type": "image_picker",
+"id": "image_mobile",
+"label": { "en": "Mobile image", "ja": "モバイル画像"},
+"info": { "en": "Recommended size 540x550 pixels", "ja": "推奨サイズ 540x550 px"}
+},
+{
+"type": "range",
+"id": "image_mobile_size",
+"min": 200,
+"max": 2000,
+"step": 50,
+"unit": "px",
+"label": { "en": "Mobile image size", "ja": "モバイルの画像サイズ"},
+"info": { "en": "These are the fields for image quality. If images lazy loading is on, the option is ignored", "ja": "画質の設定を行います。レイジーロードが有効の場合、この設定は適用されません。"},
+"default": 550
+},
+{
+"type": "range",
+"id": "image_position_x",
+"min": 0,
+"max": 100,
+"step": 1,
+"unit": "%",
+"label": { "en": "Horizontal position for the mobile image", "ja": "モバイルの画像調整 - 水平軸"},
+"info": { "en": "50% - center, 0% - move to the left, 100% - move to the right. Disabled with the auto image adaptation height", "ja": "50%で中央・0%で左方向・100%で右方向に移動します。"},
+"default": 50
+},
+{
+"type": "color",
+"id": "color_image_mask",
+"label": { "en": "Image mask", "ja": "画像マスク"}
+},
+{
+"type": "range",
+"id": "image_mask_opacity",
+"min": 0.1,
+"max": 1,
+"step": 0.1,
+"label": { "en": "Image mask opacity", "ja": "画像マスクの透明度"},
+"default": 0.5
+},
+{
+"type": "header",
+"content": { "en": "Text", "ja": "テキスト"}
+},
+{
+"type": "paragraph",
+"content": { "en": "Delete the line value for the text or button if you want to hide the element", "ja": "なにも表示したくない場合は空欄にしてください。"}
+},
+{
+"type": "paragraph",
+"content": { "en": "Use '<br>' for the line break", "ja": "<br>のHTMLタグで改行できます。"}
+},
+{
+"type": "text",
+"id": "text_line_1",
+"label": { "en": "Text line #1", "ja": "テキストライン #1"},
+"default": "テキストライン #1" // "Text line #1"
+},
+{
+"type": "text",
+"id": "text_line_2",
+"label": { "en": "Text line #2", "ja": "テキストライン #2"},
+"default": "テキストライン #2" // "Text line #2"
+},
+{
+"type": "text",
+"id": "text_line_3",
+"label": { "en": "Text line #3", "ja": "テキストライン #3"},
+"default": "テキストライン #3" // "Text line #3"
+},
+{
+"type": "select",
+"id": "style",
+"label": { "en": "Colorize style", "ja": "カラースタイル"},
+"default": "1",
+"options": [
+{
+"value": "1",
+"label": { "en": "Style #1", "ja": "スタイル #1"}
+},
+{
+"value": "2",
+"label": { "en": "Style #2", "ja": "スタイル #2"}
+},
+{
+"value": "3",
+"label": { "en": "Style #3", "ja": "スタイル #3"}
+},
+{
+"value": "4",
+"label": { "en": "Style #4", "ja": "スタイル #4"}
+},
+{
+"value": "5",
+"label": { "en": "Style #5", "ja": "スタイル #5"}
+},
+{
+"value": "6",
+"label": { "en": "Style #6", "ja": "スタイル #6"}
+},
+{
+"value": "7",
+"label": { "en": "Style #7", "ja": "スタイル #7"}
+},
+{
+"value": "8",
+"label": { "en": "Style #8", "ja": "スタイル #8"}
+}
+]
+},
+{
+"type": "header",
+"content": { "en": "Button #1", "ja": "ボタン #1"}
+},
+{
+"type": "text",
+"id": "button_1",
+"label": { "en": "Button text", "ja": "ボタンテキスト"},
+"default": "ボタンテキスト #1 " // "Button #1 text"
+},
+{
+"type": "url",
+"id": "button_1_url",
+"label": { "en": "URL for the button", "ja": "ボタンのリンク先URL"}
+},
+{
+"type": "select",
+"id": "color_button_type_1",
+"label": { "en": "Button style", "ja": "ボタンスタイル"},
+"default": "default",
+"options": [
+{
+"value": "default",
+"label": { "en": "Default", "ja": "デフォルト"}
+},
+{
+"value": "secondary",
+"label": { "en": "Secondary", "ja": "セカンダリ"}
+},
+{
+"value": "invert",
+"label": { "en": "Invert", "ja": "反転"}
+},
+{
+"value": "clean",
+"label": { "en": "Clean", "ja": "クリーン"}
+},
+{
+"value": "default-transparent",
+"label": { "en": "Transparent default", "ja": "透明デフォルト"}
+},
+{
+"value": "secondary-transparent",
+"label": { "en": "Transparent secondary", "ja": "透明セカンダリ"}
+},
+{
+"value": "invert-transparent",
+"label": { "en": "Transparent invert", "ja": "透明反転"}
+},
+{
+"value": "clean-transparent",
+"label": { "en": "Transparent clean", "ja": "透明クリーン"}
+}
+]
+},
+{
+"type": "header",
+"content": { "en": "Button #2", "ja": "ボタン #2"}
+},
+{
+"type": "text",
+"id": "button_2",
+"label": { "en": "Button text", "ja": "ボタンテキスト"},
+"default": "ボタンテキスト #2" // "Button #2 text"
+},
+{
+"type": "url",
+"id": "button_2_url",
+"label": { "en": "URL for the button", "ja": "ボタンのリンク先URL"}
+},
+{
+"type": "select",
+"id": "color_button_type_2",
+"label": { "en": "Button style", "ja": "ボタンスタイル"},
+"default": "default",
+"options": [
+{
+"value": "default",
+"label": { "en": "Default", "ja": "デフォルト"}
+},
+{
+"value": "secondary",
+"label": { "en": "Secondary", "ja": "セカンダリ"}
+},
+{
+"value": "invert",
+"label": { "en": "Invert", "ja": "反転"}
+},
+{
+"value": "clean",
+"label": { "en": "Clean", "ja": "クリーン"}
+},
+{
+"value": "default-transparent",
+"label": { "en": "Transparent default", "ja": "透明デフォルト"}
+},
+{
+"value": "secondary-transparent",
+"label": { "en": "Transparent secondary", "ja": "透明セカンダリ"}
+},
+{
+"value": "invert-transparent",
+"label": { "en": "Transparent invert", "ja": "透明反転"}
+},
+{
+"value": "clean-transparent",
+"label": { "en": "Transparent clean", "ja": "透明クリーン"}
+}
+]
+},
+{
+"type": "header",
+"content": { "en": "Other content", "ja": "その他のコンテンツ"}
+},
+{
+"type": "page",
+"id": "list_1",
+"label": { "en": "List", "ja": "リスト"},
+"info": { "en": "Select page with list", "ja": "リストのあるページを選択"}
+},
+{
+"type": "page",
+"id": "custom_html",
+"label": { "en": "Custom HTML", "ja": "カスタムHTML"},
+"info": { "en": "Replace the whole text content to the page content", "ja": "テキストをページコンテンツに置き換え"}
+},
+{
+"type": "header",
+"content": { "en": "Video", "ja": "ビデオ"}
+},
+{
+"type": "video_url",
+"id": "video_external_url",
+"label": { "en": "Youtube or Vimeo video URL", "ja": "YouTube または Vimeo のURL"},
+"accept": ["youtube", "vimeo"]
+},
+{
+"type": "text",
+"id": "video_mp4_url",
+"label": { "en": "Video URL", "ja": "ビデオのURL"},
+"info": { "en": "Upload your video in Admin-> Settings-> Files and add a link here", "ja": "ビデオをアップロードするには｢Shopify管理画面> コンテンツ > ファイル｣を選んでください。"}
+},
+{
+"type": "checkbox",
+"id": "video_autoplay",
+"label": { "en": "Video autoplay", "ja": "ビデオの自動再生を有効化 *自動再生はブラウザのセキュリティにより制限される場合があります。"},
+"default": true
+},
+{
+"type": "checkbox",
+"id": "video_controls",
+"label": { "en": "Video controls", "ja": "ビデオコントロール"},
+"default": false
+},
+{
+"type": "header",
+"content": { "en": "Layout", "ja": "レイアウト"}
+},
+{
+"type": "select",
+"id": "type",
+"label": { "en": "Type", "ja": "タイプ"},
+"default": "clean",
+"options": [
+{
+"value": "clean",
+"label": { "en": "Clean (Image without text)", "ja": "クリーン - テキストなし画像"}
+},
+{
+"value": "clean-bordered",
+"label": { "en": "Clean with border", "ja": "クリーン - ボーダー枠付き"}
+},
+{
+"value": "clean-hover-bordered",
+"label": { "en": "Clean with border on hover", "ja": "クリーン - ホバー時にボーダー"}
+},
+{
+"value": "text",
+"label": { "en": "Text v1", "ja": "テキスト v1"}
+},
+{
+"value": "text-2",
+"label": { "en": "Text v2", "ja": "テキスト v2"}
+},
+{
+"value": "text-3",
+"label": { "en": "Text v3", "ja": "テキスト v3"}
+},
+{
+"value": "text-4",
+"label": { "en": "Text v4", "ja": "テキスト v4"}
+},
+{
+"value": "text-5",
+"label": { "en": "Text v5", "ja": "テキスト v5"}
+},
+{
+"value": "text-6",
+"label": { "en": "Text v6", "ja": "テキスト v6"}
+},
+{
+"value": "text-7",
+"label": { "en": "Text v7", "ja": "テキスト v7"}
+},
+{
+"value": "text-8",
+"label": { "en": "Text v8", "ja": "テキスト v8"}
+},
+{
+"value": "text-9",
+"label": { "en": "Text v9", "ja": "テキスト v9"}
+},
+{
+"value": "text-10",
+"label": { "en": "Text v10", "ja": "テキスト v10"}
+},
+{
+"value": "type-1",
+"label": { "en": "Type #1 v1 (Text over the image)", "ja": "タイプ #1 v1 - 画像の上にテキスト"}
+},
+{
+"value": "type-1-2",
+"label": { "en": "Type #1 v2", "ja": "タイプ #1 v2"}
+},
+{
+"value": "type-1-3",
+"label": { "en": "Type #1 v3", "ja": "タイプ #1 v3"}
+},
+{
+"value": "type-1-4",
+"label": { "en": "Type #1 v4", "ja": "タイプ #1 v4"}
+},
+{
+"value": "type-1-5",
+"label": { "en": "Type #1 v5", "ja": "タイプ #1 v5"}
+},
+{
+"value": "type-1-6",
+"label": { "en": "Type #1 v6", "ja": "タイプ #1 v6"}
+},
+{
+"value": "type-1-7",
+"label": { "en": "Type #1 v7", "ja": "タイプ #1 v7"}
+},
+{
+"value": "type-1-8",
+"label": { "en": "Type #1 v8", "ja": "タイプ #1 v8"}
+},
+{
+"value": "type-1-9",
+"label": { "en": "Type #1 v9", "ja": "タイプ #1 v9"}
+},
+{
+"value": "type-1-10",
+"label": { "en": "Type #1 v10", "ja": "タイプ #1 v10"}
+},
+{
+"value": "type-1-11",
+"label": { "en": "Type #1 v11", "ja": "タイプ #1 v11"}
+},
+{
+"value": "type-1-12",
+"label": { "en": "Type #1 v12", "ja": "タイプ #1 v12"}
+},
+{
+"value": "type-1-13",
+"label": { "en": "Type #1 v13", "ja": "タイプ #1 v13"}
+},
+{
+"value": "type-1-14",
+"label": { "en": "Type #1 v14", "ja": "タイプ #1 v14"}
+},
+{
+"value": "type-1-15",
+"label": { "en": "Type #1 v15", "ja": "タイプ #1 v15"}
+},
+{
+"value": "type-1-16",
+"label": { "en": "Type #1 v16", "ja": "タイプ #1 v16"}
+},
+{
+"value": "type-1-17",
+"label": { "en": "Type #1 v17", "ja": "タイプ #1 v17"}
+},
+{
+"value": "type-1-background",
+"label": { "en": "Type #1 with Background v1", "ja": "タイプ #1 背景付き v1"}
+},
+{
+"value": "type-1-background-2",
+"label": { "en": "Type #1 with Background v2", "ja": "タイプ #1 背景付き v2"}
+},
+{
+"value": "type-1-background-3",
+"label": { "en": "Type #1 with Background v3", "ja": "タイプ #1 背景付き v3"}
+},
+{
+"value": "type-1-background-4",
+"label": { "en": "Type #1 with Background v4", "ja": "タイプ #1 背景付き v4"}
+},
+{
+"value": "type-1-curtain",
+"label": { "en": "Type #1 with Curtain v1", "ja": "タイプ #1 カーテン付き v1"}
+},
+{
+"value": "type-1-curtain-2",
+"label": { "en": "Type #1 with Curtain v2", "ja": "タイプ #1 カーテン付き v2"}
+},
+{
+"value": "type-1-curtain-3",
+"label": { "en": "Type #1 with Curtain v3", "ja": "タイプ #1 カーテン付き v3"}
+},
+{
+"value": "type-2",
+"label": { "en": "Type #2 v1 (Text below the image)", "ja": "タイプ #2 v1 - 画像の下にテキスト"}
+},
+{
+"value": "type-2-2",
+"label": { "en": "Type #2 v2", "ja": "タイプ #2 v2"}
+},
+{
+"value": "type-2-3",
+"label": { "en": "Type #2 v3", "ja": "タイプ #2 v3"}
+},
+{
+"value": "type-2-4",
+"label": { "en": "Type #2 v4", "ja": "タイプ #2 v4"}
+},
+{
+"value": "type-2-5",
+"label": { "en": "Type #2 v5", "ja": "タイプ #2 v5"}
+},
+{
+"value": "type-2-6",
+"label": { "en": "Type #2 v6", "ja": "タイプ #2 v6"}
+},
+{
+"value": "type-2-7",
+"label": { "en": "Type #2 v7", "ja": "タイプ #2 v7"}
+},
+{
+"value": "type-2-8",
+"label": { "en": "Type #2 v8", "ja": "タイプ #2 v8"}
+},
+{
+"value": "type-2-9",
+"label": { "en": "Type #2 v9", "ja": "タイプ #2 v9"}
+},
+{
+"value": "type-2-10",
+"label": { "en": "Type #2 v10", "ja": "タイプ #2 v10"}
+},
+{
+"value": "type-2-11",
+"label": { "en": "Type #2 v11", "ja": "タイプ #2 v11"}
+},
+{
+"value": "type-2-12",
+"label": { "en": "Type #2 v12", "ja": "タイプ #2 v12"}
+},
+{
+"value": "type-2-13",
+"label": { "en": "Type #2 v13", "ja": "タイプ #2 v13"}
+},
+{
+"value": "type-3",
+"label": { "en": "Type #3 (Ribbon bottom the image)", "ja": "タイプ #3 - リボンボタンタイプ"}
+},
+{
+"value": "type-4",
+"label": { "en": "Type #4 (Animation ribbon bottom the image)", "ja": "タイプ #4 アニメーション付きリボンボタン"}
+}
+]
+},
+{
+"type": "select",
+"id": "content_position",
+"label": { "en": "Content position on the desktop", "ja": "コンテンツの位置 - デスクトップ"},
+"info": { "en": "Only for type #1 (Text over the image)", "ja": "｢タイプ #1 - 画像の上にテキスト｣に適用"},
+"default": "center",
+"options": [
+{
+"value": "center",
+"label": { "en": "Center", "ja": "中央"}
+},
+{
+"value": "center_left",
+"label": { "en": "Center & Left", "ja": "中央左"}
+},
+{
+"value": "center_right",
+"label": { "en": "Center & Right", "ja": "中央右"}
+},
+{
+"value": "top_center",
+"label": { "en": "Top & Center", "ja": "中央上"}
+},
+{
+"value": "top_left",
+"label": { "en": "Top & Left", "ja": "左上"}
+},
+{
+"value": "top_right",
+"label": { "en": "Top & Right", "ja": "右上"}
+},
+{
+"value": "bottom_center",
+"label": { "en": "Bottom & Center", "ja": "中央下"}
+},
+{
+"value": "bottom_left",
+"label": { "en": "Bottom & Left", "ja": "左下"}
+},
+{
+"value": "bottom_right",
+"label": { "en": "Bottom & Right", "ja": "右下"}
+}
+]
+},
+{
+"type": "select",
+"id": "content_align",
+"label": { "en": "Content horizontal align", "ja": "コンテンツの水平調整"},
+"default": "center",
+"options": [
+{
+"value": "left",
+"label": { "en": "Left", "ja": "左"}
+},
+{
+"value": "center",
+"label": { "en": "Center", "ja": "中央"}
+},
+{
+"value": "right",
+"label": { "en": "Right", "ja": "右"}
+}
+]
+},
+{
+"type": "checkbox",
+"id": "add_container",
+"label": { "en": "Add container", "ja": "コンテナを加える"},
+"info": { "en": "Only for type #1 (Text over the image)", "ja": "｢タイプ#1 - 画像の上にテキストに適用"},
+"default": false
+},
+{
+"type": "range",
+"id": "content_width",
+"min": 0,
+"max": 100,
+"step": 1,
+"unit": "%",
+"label": { "en": "Content width", "ja": "コンテンツ幅"},
+"info": "0 - オート",
+"default": 100
+},
+{
+"type": "range",
+"id": "text_width",
+"min": 0,
+"max": 1000,
+"step": 10,
+"unit": "px",
+"label": { "en": "Text max width", "ja": "テキストの最大幅"},
+"info": { "en": "0 - auto. 1000px = 100%", "ja": "0 - オート. 1000px = 100%"},
+"default": 0
+},
+{
+"type": "select",
+"id": "height",
+"label": { "en": "Height", "ja": "高さ"},
+"default": "auto",
+"options": [
+{
+"value": "auto",
+"label": { "en": "Auto adaptation to the image", "ja": "画像に応じる"}
+},
+{
+"value": "preset_1",
+"label": { "en": "Preset #1 (height 550px)", "ja": "プリセット #1 (高さ 550px)"}
+},
+{
+"value": "preset_2",
+"label": { "en": "Preset #2 (height 690px)", "ja": "プリセット #2 (高さ 690px)"}
+},
+{
+"value": "preset_3",
+"label": { "en": "Preset #3 (height 730px)", "ja": "プリセット #3 (高さ 730px)"}
+},
+{
+"value": "30",
+"label": { "en": "30% of width", "ja": "30% 幅"}
+},
+{
+"value": "40",
+"label": { "en": "40% of width", "ja": "40% 幅"}
+},
+{
+"value": "50",
+"label": { "en": "50% of width", "ja": "50% 幅"}
+},
+{
+"value": "60",
+"label": { "en": "60% of width", "ja": "60% 幅"}
+},
+{
+"value": "70",
+"label": { "en": "70% of width", "ja": "70% 幅"}
+},
+{
+"value": "80",
+"label": { "en": "80% of width", "ja": "80% 幅"}
+},
+{
+"value": "90",
+"label": { "en": "90% of width", "ja": "90% 幅"}
+},
+{
+"value": "100",
+"label": { "en": "100% of width (Square)", "ja": "100% 幅 - 正方形"}
+},
+{
+"value": "110",
+"label": { "en": "110% of width", "ja": "110% 幅"}
+},
+{
+"value": "120",
+"label": { "en": "120% of width", "ja": "120% 幅"}
+},
+{
+"value": "130",
+"label": { "en": "130% of width", "ja": "130% 幅"}
+},
+{
+"value": "140",
+"label": { "en": "140% of width", "ja": "140% 幅"}
+},
+{
+"value": "150",
+"label": { "en": "150% of width", "ja": "150% 幅"}
+}
+]
+},
+{
+"type": "range",
+"id": "min_height",
+"min": 0,
+"max": 1000,
+"step": 10,
+"unit": "px",
+"label": { "en": "Min height", "ja": "高さの最小値"},
+"info": "0 - オート",
+"default": 0
+},
+{
+"type": "select",
+"id": "size_of_column",
+"label": { "en": "Size of the column", "ja": "コラムのサイズ"},
+"default": "auto",
+"options": [
+{
+"value": "auto",
+"label": { "en": "Auto", "ja": "オート"}
+},
+{
+"value": "12",
+"label": { "en": "1 item in the row", "ja": "1行に1アイテム"}
+},
+{
+"value": "9",
+"label": { "en": "3/4 from the line", "ja": "ラインから 3\/4"}
+},
+{
+"value": "8",
+"label": { "en": "2/3 from the line", "ja": "ラインから 2\/3"}
+},
+{
+"value": "7",
+"label": { "en": "7/12 from the line", "ja": "ラインから 7\/12"}
+},
+{
+"value": "6",
+"label": { "en": "1/2 from the line", "ja": "ラインから 1\/2"}
+},
+{
+"value": "5",
+"label": { "en": "5/12 from the line", "ja": "ラインから 5\/12"}
+},
+{
+"value": "4",
+"label": { "en": "1/3 from the line", "ja": "ラインから 1\/3"}
+},
+{
+"value": "3",
+"label": { "en": "1/4 from the line", "ja": "ラインから 1\/4"}
+},
+{
+"value": "2",
+"label": { "en": "1/6 from the line", "ja": "ラインから 1\/6"}
+},
+{
+"value": "1",
+"label": { "en": "1/12 from the line", "ja": "ラインから 1\/12"}
+}
+]
+},
+{
+"type": "select",
+"id": "visible",
+"label": { "en": "Visible", "ja": "表示"},
+"default": "desktop_mobile",
+"options": [
+{
+"value": "desktop_mobile",
+"label": { "en": "Desktop & mobile", "ja": "デスクトップとモバイル"}
+},
+{
+"value": "desktop",
+"label": { "en": "Only desktop", "ja": "デスクトップのみ"}
+},
+{
+"value": "mobile",
+"label": { "en": "Only mobile", "ja": "モバイルのみ"}
+}
+]
+},
+{
+"type": "header",
+"content": { "en": "Animation", "ja": "アニメーション"}
+},
+{
+"type": "select",
+"id": "parallax",
+"label": { "en": "Image parallax", "ja": "画像パララックス効果"},
+"default": "disable",
+"info": { "en": "If the block height is not in the automatic adaptation mode, then the strength of the parallax effect will be adjusted to the selected height. If the height is too large for the image, the parallax effect may be minimal or not manifested at all. Also \"Fixed\" option is not supported by IOS mobile devices.", "ja": "ブロックの高さが｢画像に応じる｣でない場合、パララックスは選択された高さに応じて効果の強さが決まります。高さが画像に対して大きすぎる場合はパララックスの効果が得られない場合があります。｢固定｣のオプションはiOSではサポートされていません。"},
+"options": [
+{
+"value": "disable",
+"label": { "en": "Disable", "ja": "無効"}
+},
+{
+"value": "to_top",
+"label": { "en": "To top", "ja": "上方向へ"}
+},
+{
+"value": "to_bottom",
+"label": { "en": "To bottom", "ja": "下方向へ"}
+},
+{
+"value": "fixed",
+"label": { "en": "Fixed", "ja": "固定"}
+}
+]
+},
+{
+"type": "select",
+"id": "animation_to",
+"label": { "en": "Move image on hover to", "ja": "ホバー時の移動方向設定"},
+"default": "none",
+"options": [
+{
+"value": "none",
+"label": { "en": "None", "ja": "なし"}
+},
+{
+"value": "center",
+"label": { "en": "Center", "ja": "中央"}
+},
+{
+"value": "top-left",
+"label": { "en": "Top left", "ja": "左上"}
+},
+{
+"value": "top",
+"label": { "en": "Top", "ja": "上"}
+},
+{
+"value": "top-right",
+"label": { "en": "Top right", "ja": "右上"}
+},
+{
+"value": "right",
+"label": { "en": "Right", "ja": "右"}
+},
+{
+"value": "bottom-right",
+"label": { "en": "Bottom right", "ja": "右下"}
+},
+{
+"value": "bottom",
+"label": { "en": "Bottom", "ja": "下"}
+},
+{
+"value": "bottom-left",
+"label": { "en": "Bottom left", "ja": "左下"}
+},
+{
+"value": "left",
+"label": { "en": "Left", "ja": "左"}
+}
+]
+},
+{
+"type": "select",
+"id": "animation_from",
+"label": { "en": "Static image position", "ja": "画像の初期位置設定"},
+"default": "none",
+"options": [
+{
+"value": "none",
+"label": { "en": "None", "ja": "なし"}
+},
+{
+"value": "center",
+"label": { "en": "Center", "ja": "中央"}
+},
+{
+"value": "top-left",
+"label": { "en": "Top left", "ja": "左上"}
+},
+{
+"value": "top",
+"label": { "en": "Top", "ja": "上"}
+},
+{
+"value": "top-right",
+"label": { "en": "Top right", "ja": "右上"}
+},
+{
+"value": "right",
+"label": { "en": "Right", "ja": "右"}
+},
+{
+"value": "bottom-right",
+"label": { "en": "Bottom right", "ja": "右下"}
+},
+{
+"value": "bottom",
+"label": { "en": "Bottom", "ja": "下"}
+},
+{
+"value": "bottom-left",
+"label": { "en": "Bottom left", "ja": "左下"}
+},
+{
+"value": "left",
+"label": { "en": "Left", "ja": "左"}
+}
+]
+},
+{
+"type": "select",
+"id": "animation_opacity",
+"label": { "en": "Image opacity", "ja": "画像の透明化"},
+"default": "none",
+"options": [
+{
+"value": "none",
+"label": { "en": "None", "ja": "なし"}
+},
+{
+"value": "static_n_hover",
+"label": { "en": "Static & hover", "ja": "初期&ホバー"}
+},
+{
+"value": "static",
+"label": { "en": "Static", "ja": "初期"}
+},
+{
+"value": "hover",
+"label": { "en": "Hover", "ja": "ホバー"}
+}
+]
+},
+{
+"type": "select",
+"id": "animation_text",
+"label": { "en": "Text animation", "ja": "テキストのアニメーション"},
+"info": { "en": "Animated on page load. Only for type #1 (Text over the image).", "ja": "ページをロードしたときのアニメ。タイプ#1(画像の上にテキスト)にのみ適用されます。"},
+"default": "none",
+"options": [
+{
+"value": "none",
+"label": { "en": "None", "ja": "なし"}
+},
+{
+"value": "scale-in",
+"label": { "en": "Scale In", "ja": "縮小"}
+},
+{
+"value": "scale-out",
+"label": { "en": "Scale Out", "ja": "拡大"}
+},
+{
+"value": "translate-top",
+"label": { "en": "Move Top", "ja": "上へ移動"}
+},
+{
+"value": "translate-bottom",
+"label": { "en": "Move Bottom", "ja": "下へ移動"}
+},
+{
+"value": "translate-left",
+"label": { "en": "Move Left", "ja": "左へ移動"}
+},
+{
+"value": "translate-right",
+"label": { "en": "Move Right", "ja": "右へ移動"}
+}
+]
+},
+{
+    "type": "header",
+    "content": { "en": "Colorize", "ja": "カラー設定"}
+},
+{
+    "type": "color",
+    "id": "color_text_1",
+    "label": { "en": "Text #1", "ja": "テキスト #1"}
+},
+{
+    "type": "color",
+    "id": "color_text_2",
+    "label": { "en": "Text #2", "ja": "テキスト #2"}
+},
+{
+    "type": "color",
+    "id": "color_text_3",
+    "label": { "en": "Text #3", "ja": "テキスト #3"}
+},
+{
+    "type": "color",
+    "id": "color_text_bg",
+    "label": { "en": "Text background", "ja": "テキスト背景"}
+},
+{
+    "type": "color",
+    "id": "color_curtain_bg",
+    "label": { "en": "Curtain background", "ja": "カーテン背景"}
+},
+{
+"type": "header",
+"content": { "en": "Customization", "ja": "カスタマイズ"}
+},
+{
+"type": "text",
+"id": "customization_class",
+"label": { "en": "Customization class", "ja": "追加CSSクラス"},
+"info": { "en": "[Read user manual for adding extra classes](https://misell-manual.wraptas.site/)", "ja": "CSSクラスを加えるにはユーザーマニュアルを参照してください。こちらは高度な設定です。[追加CSSクラス](https://misell-manual.wraptas.site/theme-settings/developer)"}
+}
+            ]
+        }
+    ],
+    "presets": [
+        {
+        "name": { "en":"Collection banner builder" , "ja": "コレクションバナービルダー"},
+        "category": "6) Collection page sections (2)"
+        }
+    ]
+}
+{% endschema %}

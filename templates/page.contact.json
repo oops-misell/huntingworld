@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_title": false,
+        "show_content": false
+      }
+    },
+    "60dca5b2-2c51-45fd-bea3-391cf2534727": {
+      "type": "contact-form",
+      "settings": {
+        "title": "",
+        "show_input_label": true,
+        "button_type": "default",
+        "show_info_column": true,
+        "page_content": "contact",
+        "contact_map_code": "<iframe width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3239.6531405426076!2d139.80894350150703!3d35.7101523358941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ed0d12f9adf%3A0x7d1d4fb31f43f72a!2sTokyo%20Skytree!5e0!3m2!1sen!2sus!4v1649915336912!5m2!1sen!2sus\" allowfullscreen=\"\"><\/iframe>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "60dca5b2-2c51-45fd-bea3-391cf2534727"
+  ]
+}

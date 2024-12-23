@@ -1,0 +1,467 @@
+<brands-section data-section-id="{{ section.id }}" data-section-type="brands" class="d-block">
+    {%- assign all_vendors_string = 'sections.brands.all_brands' | t | default: 'All' -%}
+    {%- if all_vendors_string contains 'translation missing' -%}
+        {%- assign all_vendors_string = 'All' -%}
+    {%- endif -%}
+    {%- assign alphabet = section.settings.alphabet | default: 'A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,#' -%}
+    {% capture alphabet %}all{% if alphabet != blank %},{% endif %}{{ alphabet }}{% endcapture %}
+    {%- assign alphabet_split = alphabet | downcase | split: ',' -%}
+    {%- assign all_vendors = shop.vendors | join: '|||' -%}
+    {%- if section.settings.brands_list != blank -%}
+    {%- assign all_vendors = null -%}
+        {%- assign brands_list_split = section.settings.brands_list | newline_to_br | split: '<br />' -%}
+        {%- for brand in brands_list_split -%}
+            {% capture all_vendors %}{{ all_vendors }}{% if all_vendors %}|||{% endif %}{{ brand | strip }}{% endcapture %}
+        {%- endfor -%}
+    {%- endif -%}
+    {%- for block in section.blocks -%}
+        {%- unless block.settings.block_type == 'сreate_new' -%}
+            {%- continue -%}
+        {%- endunless -%}
+        {%- for i in (1..10) -%}
+            {%- assign brand_name_prop = 'brand_name' -%}
+            {%- if forloop.index > 1 -%}
+                {%- assign brand_name_prop = 'brand_name' | append: '_' | append: forloop.index -%}
+            {%- endif -%}
+            {%- if block.settings[brand_name_prop] != blank -%}
+                {% unless shop.vendors contains block.settings[brand_name_prop] %}
+                    {%- assign all_vendors = all_vendors | append: '|||' | append: block.settings[brand_name_prop] -%}
+                {% endunless %}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endfor -%}
+    {%- assign all_vendors_split = all_vendors | split: '|||' -%}
+    {%- for vendor in all_vendors_split -%}
+        {%- assign first_letter = vendor | strip_html | downcase | truncate: 1, '' -%}
+        {%- unless alphabet_split contains first_letter -%}
+            {%- assign first_letter = '#' -%}
+        {%- endunless -%}
+        {%- if alphabet_split contains first_letter -%}
+            {% capture vendors_obj %}{{ vendors_obj }}{% if vendors_obj != blank %}|||{% endif %}{{ first_letter }}||{{ vendor }}{% endcapture %}
+            {% capture present_letters %}{{ present_letters }}{% if present_letters != blank %},{% endif %}{{ first_letter }}{% endcapture %}
+        {%- endif -%}
+    {%- endfor -%}
+    {%- assign vendors_obj_split = vendors_obj | split: '|||' -%}
+    {%- assign present_letters_split = present_letters | split: ',' -%}
+    <div class="container">
+        <div class="brands js-brands">
+            {%- if section.settings.title != blank -%}
+                <h2 class="h4 brands__title home-section-title mb-30 text-center">{{ section.settings.title }}</h2>
+            {%- endif -%}
+            <div class="brands__alphabet fs-0 pb-10 mb-20 text-center">
+                <ul class="d-inline-flex border list-unstyled">
+                    {%- for letter in alphabet_split -%}
+                        {%- if section.settings.alphabet == blank -%}
+                            {%- break -%}
+                        {% endif %}
+                        <li class="brands__letter{% unless forloop.last %} border-right{% endunless %}">
+                            <a href="javascript:void(0)" class="fs d-flex flex-center py-5 px-5 cursor-pointer{% if forloop.first %} active{% else %}{% unless present_letters_split contains letter %} disabled{% endunless %}{% endif %}" data-js-brands-letter="{{ letter }}">
+                                {%- if forloop.first -%}
+                                    {{ all_vendors_string }}
+                                {%- else -%}
+                                    {{ letter | upcase }}
+                                {%- endif -%}
+                            </a>
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+            <div class="brands__content" data-js-brands-content>
+                {%- for letter in alphabet_split -%}
+                    {%- assign vendors_list = null -%}
+                    {%- for vendor in vendors_obj_split -%}
+                        {%- assign vendor_split = vendor | split: '||' -%}
+                        {%- if vendor_split[0] == letter -%}
+                            {% capture vendors_list %}{{ vendors_list }}{% if vendors_list != blank %}|||{% endif %}{{ vendor_split[1] }}{% endcapture %}
+                        {%- endif -%}
+                    {%- endfor -%}
+                    {%- if vendors_list != null -%}
+                        {% capture setter_section_html %}
+                            <div class="row pt-30 pb-15 border-top">
+                                {%- if section.settings.section_type == 'with_image' -%}
+                                    {%- if section.settings.image_format_pjpg -%}
+                                        {%- assign image_format = 'pjpg' -%}
+                                    {%- else -%}
+                                        {%- assign image_format = null -%}
+                                    {%- endif -%}
+                                    {%- assign vendors_list_split = vendors_list | split: '|||' -%}
+                                    {%- for vendor in vendors_list_split -%}
+                                        {%- assign vendor_title = vendor | replace: '"', "'" -%}
+                                        {%- assign vendor_block_link = null -%}
+                                        {%- assign vendor_block_image = null -%}
+                                        {%- for block in section.blocks -%}
+                                            {%- for i in (1..10) -%}
+                                                {%- assign brand_block_inner_index = '' -%}
+                                                {%- if forloop.index > 1 -%}
+                                                    {%- assign brand_block_inner_index = brand_block_inner_index | append: '_' | append: forloop.index -%}
+                                                {%- endif -%}
+                                                {%- assign brand_name_prop = 'brand_name' | append: brand_block_inner_index -%}
+                                                {%- if block.settings[brand_name_prop] == vendor -%}
+                                                    {%- assign brand_link_prop = 'link' | append: brand_block_inner_index -%}
+                                                    {%- assign brand_image_prop = 'image' | append: brand_block_inner_index -%}
+                                                    {%- assign vendor_block_link = block.settings[brand_link_prop] -%}
+                                                    {%- assign vendor_block_image = block.settings[brand_image_prop] -%}
+                                                    {%- break -%}
+                                                {%- endif -%}
+                                            {%- endfor -%}
+                                        {%- endfor -%}
+                                        {%- assign vendor_image = vendor_block_image | default: section.settings.default_image -%}
+                                        {% capture vendor_link %}{% if vendor_block_link != null %}{{ vendor_block_link }}{% else %}{{ vendor | link_to_vendor | split: 'href="' | last | split: '"' | first }}{% endif %}{% endcapture %}
+                                        <div class="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-2 text-center">
+                                            <a href="{{ vendor_link }}" class="d-block mb-15" title="{{ vendor_title }}">
+                                                {% render 'rimage' with image: vendor_image format: image_format size: '400x' height_procent: section.settings.image_height stretch_size: 'contain' alt: vendor_title %}
+                                            </a>
+                                            <a href="{{ vendor_link }}" class="h5 mb-15 text-underline-hover" title="{{ vendor_title }}">{{ vendor | strip_html | upcase }}</a>
+                                        </div>
+                                    {%- endfor -%}
+                                {%- else -%}
+                                    <div class="col-3 col-md-2 brands__section-letter text-center">
+                                        <a href="javascript:void(0)" class="h3 mb-15" data-js-brands-letter="{{ letter }}">{{ letter | upcase }}</a>
+                                    </div>
+                                    <div class="col-9 col-md-10">
+                                        <div class="row">
+                                            {%- assign vendors_list_split = vendors_list | split: '|||' -%}
+                                            {%- for vendor in vendors_list_split -%}
+                                                {%- assign vendor_block_link = null -%}
+                                                {%- for block in section.blocks -%}
+                                                    {%- for i in (1..10) -%}
+                                                        {%- assign brand_block_inner_index = '' -%}
+                                                        {%- if forloop.index > 1 -%}
+                                                            {%- assign brand_block_inner_index = brand_block_inner_index | append: '_' | append: forloop.index -%}
+                                                        {%- endif -%}
+                                                        {%- assign brand_name_prop = 'brand_name' | append: brand_block_inner_index -%}
+                                                        {%- if block.settings[brand_name_prop] == vendor -%}
+                                                            {%- assign brand_link_prop = 'link' | append: brand_block_inner_index -%}
+                                                            {%- assign vendor_block_link = block.settings[brand_link_prop] -%}
+                                                            {%- break -%}
+                                                        {%- endif -%}
+                                                    {%- endfor -%}
+                                                {%- endfor -%}
+                                                {% capture vendor_link %}{% if vendor_block_link != null %}{{ vendor_block_link }}{% else %}{{ vendor | link_to_vendor | split: 'href="' | last | split: '"' | first }}{% endif %}{% endcapture %}
+                                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2-5">
+                                                    <a href="{{ vendor_link }}" class="h5 mb-15 text-underline-hover" title="{{ vendor | replace: '"', "'" }}">{{ vendor | strip_html | upcase }}</a>
+                                                </div>
+                                            {%- endfor -%}
+                                        </div>
+                                    </div>
+                                {%- endif -%}
+                            </div>
+                        {% endcapture %}
+                        {% capture all_vendors_sections_html %}{{ all_vendors_sections_html }}{{ setter_section_html }}{% endcapture %}
+                        <div class="brands__section d-none" data-js-brands-section="{{ letter }}">
+                            {{ setter_section_html }}
+                        </div>
+                    {%- endif -%}
+                {%- endfor -%}
+                <div class="brands__section" data-js-brands-section="all">
+                    {{ all_vendors_sections_html }}
+                </div>
+            </div> 
+        </div>
+    </div>
+</brands-section>
+{%- if alphabet_split.size > 0 -%}
+    <script>
+        theme.AssetsLoader.onUserAction(function() {
+            theme.AssetsLoader.require('scripts', 'brands');
+        });
+    </script>
+{%- endif -%}
+
+
+{% schema %}
+{
+"name": { "en": "Brands", "ja": "ブランド"},
+"settings": [
+{
+"type": "paragraph",
+"content": { "en": "Attention! Clear the \"Custom list of brands\" field in this section to show all the brands on your store!", "ja": "注意:このセクションの｢ブランドカスタムリスト｣を空欄にするとすべてのブランドが表示されます。"}
+},
+{
+"type": "paragraph",
+"content": { "en": "Attention! Make sure the \"Alphabet\" field is not empty to enable the Alphabet Navigation feature.", "ja": "注意: アルファベットのナビゲーションを有効にするにはアルファベットを空欄にしないでください。"}
+},
+{
+"type": "text",
+"id": "title",
+"label": { "en": "Title", "ja": "タイトル"},
+"default": "ブランド" //"Brands"
+},
+{
+"type": "header",
+"content": { "en": "Content", "ja": "コンテンツ"}
+},
+{
+"type": "select",
+"id": "section_type",
+"label": { "en": "Section type", "ja": "セクションのタイプ"},
+"default": "default",
+"options": [
+{
+"value": "default",
+"label": { "en": "Default", "ja": "デフォルト"}
+},
+{
+"value": "with_image",
+"label": { "en": "With image", "ja": "画像付き"}
+}
+]
+},
+{
+"type": "image_picker",
+"id": "default_image",
+"label": { "en": "Default image for \"With image\" type", "ja": "画像付きタイプのデフォルト画像"}
+},
+{
+"type": "range",
+"id": "image_height",
+"min": 30,
+"max": 150,
+"step": 10,
+"label": { "en": "Image height", "ja": "画像の高さ"},
+"default": 100
+},
+{
+"type": "checkbox",
+"id": "image_format_pjpg",
+"label": { "en": "Enable format 'PJPG'", "ja": "PJPGフォーマットを有効化"},
+"info": { "en": "Don't work with transparent images", "ja": "透過画像には適用できません。"},
+"default": true
+},
+{
+"type": "textarea",
+"id": "alphabet",
+"label": { "en": "Alphabet", "ja": "アルファベット"},
+"default": "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,#",
+"info": { "en": "The separator is a coma. # - other characters. Default: \"A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,#\"", "ja": "区切りには','(コンマ)を使用してください。# はその他の文字を表します。デフォルト: \"A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,#\""}
+},
+{
+"type": "textarea",
+"id": "brands_list",
+"label": { "en": "Custom list of brands", "ja": "ブランドカスタムリスト"},
+"info": { "en": "Create a catalog of brands to show. The list of brands in the store will be ignored. Break the line to separate brands.", "ja": "表示させるブランドカタログを作ります。ストア内のブランドリストとは別で作成できます。区切りは改行により行ってください。"}
+}
+],
+"presets": [
+{
+"name": { "en":"Brands" , "ja": "ブランド"},
+"category": "4) Collections"
+}
+],
+"blocks": [
+{
+"type": "brand",
+"name": { "en": "Brand", "ja": "ブランド"},
+"settings": [
+{
+"type": "select",
+"id": "block_type",
+"label": { "en": "Block type", "ja": "ブロックのタイプ"},
+"default": "сreate_new",
+"options": [
+{
+"value": "сreate_new",
+"label": { "en": "Create a new brand", "ja": "新しくブランドを加える"}
+},
+{
+"value": "сhange_existing",
+"label": { "en": "Change existing brand", "ja": "すでにあるブランドを置き換える"}
+}
+]
+},
+{
+"type": "header",
+"content": { "en": "Brand #1", "ja": "ブランド #1"}
+},
+{
+"type": "text",
+"id": "brand_name",
+"label": { "en": "Brand name", "ja": "ブランド名"}
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": { "en": "Image", "ja": "画像"}
+},
+{
+"type": "url",
+"id": "link",
+"label": { "en": "Link", "ja": "リンク"},
+"info": { "en": "You can also add a link to the collection + filter by brand. You need to set up filters in the Navigation -> [Filters](\/admin\/menus) for link filtering to work. Link format: {collection link}?filter.p.vendor={Brand}", "ja": "ブランドによるコレクションフィルターでリンクを加えることもできます。｢オンラインストア > メニュー > 絞り込み｣にて設定してください。 [絞り込み](\/admin\/menus) リンクのフォーマットは: {collection link}?filter.p.vendor={Brand}"}
+},
+{
+"type": "header",
+"content": { "en": "Brand #2", "ja": "ブランド #2"}
+},
+{
+"type": "text",
+"id": "brand_name_2",
+"label": { "en": "Brand name", "ja": "ブランド名"}
+},
+{
+"type": "image_picker",
+"id": "image_2",
+"label": { "en": "Image", "ja": "画像"}
+},
+{
+"type": "url",
+"id": "link_2",
+"label": { "en": "Link", "ja": "画像"}
+},
+{
+"type": "header",
+"content": { "en": "Brand #3", "ja": "ブランド #3"}
+},
+{
+"type": "text",
+"id": "brand_name_3",
+"label": { "en": "Brand name", "ja": "ブランド名"}
+},
+{
+"type": "image_picker",
+"id": "image_3",
+"label": { "en": "Image", "ja": "画像"}
+},
+{
+"type": "url",
+"id": "link_3",
+"label": { "en": "Link", "ja": "リンク"}
+},
+{
+"type": "header",
+"content": { "en": "Brand #4", "ja": "ブランド #4"}
+},
+{
+"type": "text",
+"id": "brand_name_4",
+"label": { "en": "Brand name", "ja": "ブランド名"}
+},
+{
+"type": "image_picker",
+"id": "image_4",
+"label": { "en": "Image", "ja": "画像"}
+},
+{
+"type": "url",
+"id": "link_4",
+"label": { "en": "Link", "ja": "リンク"}
+},
+{
+"type": "header",
+"content": { "en": "Brand #5", "ja": "ブランド #5"}
+},
+{
+"type": "text",
+"id": "brand_name_5",
+"label": { "en": "Brand name", "ja": "ブランド名"}
+},
+{
+"type": "image_picker",
+"id": "image_5",
+"label": { "en": "Image", "ja": "画像"}
+},
+{
+"type": "url",
+"id": "link_5",
+"label": { "en": "Link", "ja": "リンク"}
+},
+{
+"type": "header",
+"content": { "en": "Brand #6", "ja": "ブランド #6"}
+},
+{
+"type": "text",
+"id": "brand_name_6",
+"label": { "en": "Brand name", "ja": "ブランド名"}
+},
+{
+"type": "image_picker",
+"id": "image_6",
+"label": { "en": "Image", "ja": "画像"}
+},
+{
+"type": "url",
+"id": "link_6",
+"label": { "en": "Link", "ja": "リンク"}
+},
+{
+"type": "header",
+"content": { "en": "Brand #7", "ja": "ブランド #7"}
+},
+{
+"type": "text",
+"id": "brand_name_7",
+"label": { "en": "Brand name", "ja": "ブランド名"}
+},
+{
+"type": "image_picker",
+"id": "image_7",
+"label": { "en": "Image", "ja": "画像"}
+},
+{
+"type": "url",
+"id": "link_7",
+"label": { "en": "Link", "ja": "リンク"}
+},
+{
+"type": "header",
+"content": { "en": "Brand #8", "ja": "ブランド #8"}
+},
+{
+"type": "text",
+"id": "brand_name_8",
+"label": { "en": "Brand name", "ja": "ブランド名"}
+},
+{
+"type": "image_picker",
+"id": "image_8",
+"label": { "en": "Image", "ja": "画像"}
+},
+{
+"type": "url",
+"id": "link_8",
+"label": { "en": "Link", "ja": "リンク"}
+},
+{
+"type": "header",
+"content": { "en": "Brand #9", "ja": "ブランド #9"}
+},
+{
+"type": "text",
+"id": "brand_name_9",
+"label": { "en": "Brand name", "ja": "ブランド名"}
+},
+{
+"type": "image_picker",
+"id": "image_9",
+"label": { "en": "Image", "ja": "画像"}
+},
+{
+"type": "url",
+"id": "link_9",
+"label": { "en": "Link", "ja": "リンク"}
+},
+{
+"type": "header",
+"content": { "en": "Brand #10", "ja": "ブランド #10"}
+},
+{
+"type": "text",
+"id": "brand_name_10",
+"label": { "en": "Brand name", "ja": "ブランド名"}
+},
+{
+"type": "image_picker",
+"id": "image_10",
+"label": { "en": "Image", "ja": "画像"}
+},
+{
+"type": "url",
+"id": "link_10",
+"label": { "en": "Link", "ja": "リンク"}
+}
+]
+}
+]
+}
+{% endschema %}

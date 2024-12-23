@@ -1,0 +1,126 @@
+{
+  "name": "Footer",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "1586284608625": {
+          "type": "subscription",
+          "settings": {
+            "title": "会員登録はこちらから",
+            "paragraph": "新作情報やキャンペーン、フェアなど<br class=\"d-lg-none\">情報満載の素敵なニュースレターをお届け。",
+            "placeholder": "メールアドレスを入力してください",
+            "button_text": "購読！"
+          }
+        },
+        "custom_html_7tpkmb": {
+          "type": "custom_html",
+          "settings": {
+            "title": "CONTENT",
+            "show_title_on_desktop": true,
+            "page_content": "フッターメニュー-contents"
+          }
+        },
+        "1586284525260": {
+          "type": "menu",
+          "settings": {
+            "title": "",
+            "show_title_on_desktop": true,
+            "menu": "store",
+            "size": 0,
+            "rows_limit": 0
+          }
+        },
+        "1586284530934": {
+          "type": "menu",
+          "settings": {
+            "title": "",
+            "show_title_on_desktop": true,
+            "menu": "category",
+            "size": 0,
+            "rows_limit": 0
+          }
+        },
+        "menu_7DiTeW": {
+          "type": "menu",
+          "settings": {
+            "title": "",
+            "show_title_on_desktop": true,
+            "menu": "help",
+            "size": 0,
+            "rows_limit": 0
+          }
+        },
+        "menu_q9GT3e": {
+          "type": "menu",
+          "settings": {
+            "title": "",
+            "show_title_on_desktop": true,
+            "menu": "policy",
+            "size": 0,
+            "rows_limit": 0
+          }
+        },
+        "footer-0": {
+          "type": "copyright",
+          "settings": {
+            "page_content": "コピーライト"
+          }
+        },
+        "social_media_WVPHa4": {
+          "type": "social_media",
+          "settings": {
+            "title": "SNS",
+            "show_facebook": true,
+            "show_twitter": true,
+            "show_instagram": true,
+            "show_pinterest": false,
+            "show_youtube": true,
+            "show_behance": false,
+            "show_skype": false,
+            "show_line": false,
+            "show_tiktok": false
+          }
+        },
+        "colorize_hVAxqW": {
+          "type": "colorize",
+          "settings": {
+            "bg": "#050906",
+            "bd": "",
+            "c": "#ffffff",
+            "subscription_btn_type": "auto",
+            "links_c": "#ffffff",
+            "links_h_c": "#ffffff",
+            "title_c": "#ffffff",
+            "icons_c": "#ffffff",
+            "icons_h_c": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "1586284608625",
+        "custom_html_7tpkmb",
+        "1586284525260",
+        "1586284530934",
+        "menu_7DiTeW",
+        "menu_q9GT3e",
+        "footer-0",
+        "social_media_WVPHa4",
+        "colorize_hVAxqW"
+      ],
+      "custom_css": [],
+      "settings": {
+        "type": "1",
+        "style": "1",
+        "show_logo": false,
+        "show_button_back_to_top": true,
+        "enable_fixed": false,
+        "enable_follow_on_shop": false
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

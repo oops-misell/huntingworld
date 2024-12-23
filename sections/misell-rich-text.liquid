@@ -1,0 +1,491 @@
+{% comment %}
+  @file rich-text.liquid
+  @brief Section for displaying rich text
+  @description Customizable rich text section with headings, body text, and background images
+{% endcomment %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-left: {{ section.settings.padding_left | times: 0.75 | round: 0 }}px;
+    padding-right: {{ section.settings.padding_right | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-left: {{ section.settings.padding_left }}px;
+      padding-right: {{ section.settings.padding_right }}px;
+    }
+  }
+
+  #rich-text-{{ section.id }} {
+    {% if section.settings.background_color != blank %}
+      background-color: {{ section.settings.background_color }};
+    {% endif %}
+    {% if section.settings.text_color != blank %}
+      color: {{ section.settings.text_color }};
+    {% endif %}
+  }
+
+  #rich-text-{{ section.id }} .rich-text__wrapper {
+    {% assign contentHeight = section.settings.content_height %}
+    {% if contentHeight != blank and contentHeight > 0 %}
+      height: {{ contentHeight }}px !important;
+    {% else %}
+      height: auto !important;
+    {% endif %}
+    display: flex;
+    flex-direction: column;
+    {% case section.settings.vertical_alignment %}
+      {% when 'top' %}
+        justify-content: flex-start;
+      {% when 'center' %}
+        justify-content: center;
+      {% when 'bottom' %}
+        justify-content: flex-end;
+    {% endcase %}
+  }
+
+  #rich-text-{{ section.id }} .rich-text__heading {
+    text-align: {{ section.settings.text_alignment }};
+    width: 100%;
+  }
+
+  #rich-text-{{ section.id }} .rich-text__text {
+    text-align: {{ section.settings.text_alignment }};
+    width: 100%;
+  }
+
+  #rich-text-{{ section.id }} .rich-text__text ol,
+  #rich-text-{{ section.id }} .rich-text__text ul {
+    text-align: {{ section.settings.text_alignment }};
+  }
+
+  #rich-text-{{ section.id }} .rich-text__text ol li,
+  #rich-text-{{ section.id }} .rich-text__text ul li {
+    color: {{ text_color }};
+    font-size: {{ block.settings.text_size | default: 16 }}px;
+    line-height: {{ block.settings.line_height | default: 24 }}px;
+    font-weight: {{ block.settings.text_weight | default: 400 }};
+  }
+
+  #rich-text-{{ section.id }} .rich-text__text ol li::marker,
+  #rich-text-{{ section.id }} .rich-text__text ul li::marker {
+    color: {{ text_color }};
+  }
+
+  #rich-text-{{ section.id }} .rich-text__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  #rich-text-{{ section.id }} .rich-text__background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .rich-text__text p {
+    color: {{ text_color }};
+  }
+    @media screen and (max-width: 767px) {
+    #rich-text-{{ section.id }} .rich-text__heading {
+      font-size: calc({{ heading_size }}px * 0.8);  // 80% size for mobile
+    }
+    #rich-text-{{ section.id }} .rich-text__text {
+      font-size: calc({{ block.settings.text_size }}px * 0.9);  // 90% size for mobile
+    }
+  }
+  /* Add underline to anchor tags */
+  #rich-text-{{ section.id }} a,
+  #rich-text-{{ section.id }} a:visited,
+  #rich-text-{{ section.id }} a:active,
+  #rich-text-{{ section.id }} a:link {
+      text-decoration: underline;
+  }
+{%- endstyle -%}
+
+{%- style -%}
+  {% for block in section.blocks %}
+    {% assign text_color = block.settings.text_color | default: '#000000' %}
+    {% assign text_size = block.settings.text_size | default: 16 %}
+    {% assign line_height = block.settings.line_height | default: 24 %}
+    {% assign text_weight = block.settings.text_weight | default: 400 %}
+
+    {% if block.type == 'heading' %}
+      {% assign heading_size = block.settings.heading_size | default: 24 %}
+      #rich-text-{{ section.id }} .rich-text__heading[data-block-id="{{ block.id }}"] {
+        font-size: {{ heading_size }}px;
+      }
+      @media screen and (max-width: 767px) {
+        #rich-text-{{ section.id }} .rich-text__heading[data-block-id="{{ block.id }}"] {
+          font-size: calc({{ heading_size }}px * 0.8);
+        }
+      }
+    {% endif %}
+
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] p,
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] h1,
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] h2,
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] h3,
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] h4,
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] h5,
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] h6 {
+      color: {{ text_color }};
+    }
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] ol,
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] ul {
+      color: {{ text_color }};
+    }
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] ol li,
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] ul li {
+      color: {{ text_color }};
+      font-size: {{ block.settings.text_size | default: 16 }}px;
+      line-height: {{ block.settings.line_height | default: 24 }}px;
+      font-weight: {{ block.settings.text_weight | default: 400 }};
+    }
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] ol li::marker,
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] ul li::marker {
+      color: {{ text_color }};
+    }
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] ol:not(.list-unstyled):not([list-unstyled]) li::before,
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] ul:not(.list-unstyled):not([list-unstyled]) li::before {
+      color: {{ text_color }};
+    }
+    /* Ensure list marker styles are overridden */
+    @media all {
+      #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] ul:not(.list-unstyled):not([list-unstyled]) li::before {
+        color: {{ text_color }} ;
+        background-color: {{ text_color }} ;
+      }
+    }
+    @media screen and (max-width: 767px) {
+      #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] {
+        font-size: calc({{ text_size }}px * 0.9);
+      }
+      #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] p,
+      #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] li {
+        font-size: calc({{ text_size }}px * 0.9);
+      }
+    }
+    #rich-text-{{ section.id }} .rich-text__text p:last-child {
+      margin-bottom: 0;
+    }
+    #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] a {
+      color: {{ text_color }};
+      font-size: {{ text_size }}px;
+      line-height: {{ line_height }}px;
+      font-weight: {{ text_weight }};
+    }
+    @media screen and (max-width: 767px) {
+      #rich-text-{{ section.id }} .rich-text__text[data-block-id="{{ block.id }}"] a {
+        font-size: calc({{ text_size }}px * 0.9);
+      }
+    }
+  {% endfor %}
+{%- endstyle -%}
+
+<div
+  {% if section.settings.customization_class != blank %}
+    class="{{ section.settings.customization_class }}"
+  {% endif %}
+>
+  <builder-section
+    data-section-id="{{ section.id }}"
+    data-section-type="rich-text"
+    class="d-block {{ section.settings.container }}"
+  >
+    <div id="rich-text-{{ section.id }}" class="rich-text section-{{ section.id }}-padding position-relative">
+      {% if section.settings.background_image != blank %}
+        <div class="rich-text__background">
+          {{
+            section.settings.background_image
+            | image_url: width: 2000
+            | image_tag: loading: 'lazy', class: 'rich-text__background-image', sizes: '100vw'
+          }}
+        </div>
+      {% endif %}
+
+      <div class="container">
+        <div class="rich-text__wrapper text-{{ section.settings.text_alignment }}">
+          {%- for block in section.blocks -%}
+            {%- assign heading_color = block.settings.heading_color | default: '#000000' -%}
+            {%- assign heading_size = block.settings.heading_size | default: 24 -%}
+            {%- assign heading_weight = block.settings.heading_weight | default: 700 -%}
+
+            {% case block.type %}
+              {% when 'heading' %}
+                <h2
+                  class="rich-text__heading mb-20"
+                  data-block-id="{{ block.id }}"
+                  style="
+                    color: {{ heading_color }};
+                    font-weight: {{ heading_weight }};
+                  "
+                >
+                  {{ block.settings.heading }}
+                </h2>
+              {% when 'text' %}
+                <div
+                  class="rich-text__text rte"
+                  data-block-id="{{ block.id }}"
+                  style="
+                    {% if block.settings.text_size != blank %}font-size: {{ block.settings.text_size }}px;{% endif %}
+                    {% if block.settings.line_height != blank %}line-height: {{ block.settings.line_height }}px;{% endif %}
+                    {% if block.settings.text_weight != blank %}font-weight: {{ block.settings.text_weight }};{% endif %}
+                  "
+                >
+                  {{ block.settings.text }}
+                </div>
+            {% endcase %}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </builder-section>
+</div>
+
+{% schema %}
+{
+  "name": { "en": "Rich Text", "ja": "リッチテキスト" },
+  "settings": [
+    {
+      "type": "select",
+      "id": "container",
+      "label": { "en": "Container type", "ja": "コンテナタイプ" },
+      "default": "container",
+      "options": [
+        {
+          "value": "fullwidth",
+          "label": { "en": "Full width", "ja": "全幅" }
+        },
+        {
+          "value": "container",
+          "label": { "en": "Boxed", "ja": "ボックス" }
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": { "en": "Text alignment", "ja": "テキストの配置" },
+      "options": [
+        {
+          "value": "left",
+          "label": { "en": "Left", "ja": "左揃え" }
+        },
+        {
+          "value": "center",
+          "label": { "en": "Center", "ja": "中央揃え" }
+        },
+        {
+          "value": "right",
+          "label": { "en": "Right", "ja": "右揃え" }
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": { "en": "Vertical alignment", "ja": "垂直方向の配置" },
+      "options": [
+        {
+          "value": "top",
+          "label": { "en": "Top", "ja": "上揃え" }
+        },
+        {
+          "value": "center",
+          "label": { "en": "Center", "ja": "中央揃え" }
+        },
+        {
+          "value": "bottom",
+          "label": { "en": "Bottom", "ja": "下揃え" }
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "content_height",
+      "min": 0,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "label": { "en": "Content height", "ja": "コンテンツの高さ" },
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": { "en": "Left padding", "ja": "左余白" },
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": { "en": "Right padding", "ja": "右余白" },
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": { "en": "Colors", "ja": "カラー" }
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": { "en": "Background color", "ja": "背景色" }
+    },
+    {
+      "type": "header",
+      "content": { "en": "Background Image", "ja": "背景画像" }
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": { "en": "Background image", "ja": "背景画像" }
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": { "en": "Top padding", "ja": "上部の余白" },
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": { "en": "Bottom padding", "ja": "下部の余白" },
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": { "en": "Custom", "ja": "カスタム" }
+    },
+    {
+      "type": "text",
+      "id": "customization_class",
+      "label": { "en": "Custom class", "ja": "カスタムクラス" },
+      "info": { "en": "Add custom class for customization", "ja": "カスタマイズ用のクラスを追加" }
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": { "en": "Heading", "ja": "見出し" },
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "見出しを入力してください",
+          "label": { "en": "Heading", "ja": "見出し" }
+        },
+        {
+          "type": "number",
+          "id": "heading_size",
+          "label": { "en": "Heading size", "ja": "見出しのサイズ" },
+          "default": 24,
+          "info": { "en": "Font size in pixels", "ja": "ピクセル単位のフォントサイズ" }
+        },
+        {
+          "type": "select",
+          "id": "heading_weight",
+          "label": { "en": "Heading weight", "ja": "見出しのウエイト" },
+          "default": "700",
+          "info": { "en": "Font weight", "ja": "フォントのウエイト" },
+          "options": [
+            { "value": "400", "label": { "en": "Normal", "ja": "標準" } },
+            { "value": "500", "label": { "en": "Medium", "ja": "中" } },
+            { "value": "700", "label": { "en": "Bold", "ja": "太字" } }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": { "en": "Heading color", "ja": "見出しの色" },
+          "default": "#000000"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": { "en": "Text", "ja": "テキスト" },
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>テキストを入力してください</p>",
+          "label": { "en": "Text", "ja": "テキスト" }
+        },
+        {
+          "type": "number",
+          "id": "text_size",
+          "label": { "en": "Text size (px)", "ja": "文字サイズ (px)" },
+          "default": 16,
+          "info": { "en": "Font size in pixels", "ja": "ピクセル単位のフォントサイズ" }
+        },
+        {
+          "type": "number",
+          "id": "line_height",
+          "label": { "en": "Line height (px)", "ja": "行間 (px)" },
+          "default": 24,
+          "info": { "en": "Line height in pixels", "ja": "ピクセル単位の行間" }
+        },
+        {
+          "type": "select",
+          "id": "text_weight",
+          "label": { "en": "Text weight", "ja": "文字のウエイト" },
+          "default": "400",
+          "info": { "en": "Font weight", "ja": "フォントのウエイト" },
+          "options": [
+            { "value": "400", "label": { "en": "Normal", "ja": "標準" } },
+            { "value": "500", "label": { "en": "Medium", "ja": "中" } },
+            { "value": "700", "label": { "en": "Bold", "ja": "太字" } }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": { "en": "Text color", "ja": "テキストの色" },
+          "default": "#000000"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": { "en": "Rich Text", "ja": "リッチテキスト" },
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

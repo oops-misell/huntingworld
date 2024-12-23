@@ -1,0 +1,110 @@
+{
+  "layout": "quick-view",
+  "sections": {
+    "main": {
+      "type": "main-quick-view",
+      "blocks": {
+        "collections": {
+          "type": "collections",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "details": {
+          "type": "details",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "icon_with_text": {
+          "type": "icon_with_text",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "countdown": {
+          "type": "countdown",
+          "settings": {}
+        },
+        "stock_countdown": {
+          "type": "stock_countdown",
+          "settings": {}
+        },
+        "delivery_countdown": {
+          "type": "delivery_countdown",
+          "settings": {}
+        },
+        "border": {
+          "type": "border",
+          "settings": {}
+        },
+        "options": {
+          "type": "options",
+          "settings": {}
+        },
+        "popups": {
+          "type": "popups",
+          "settings": {}
+        },
+        "notes": {
+          "type": "notes",
+          "settings": {}
+        },
+        "buttons_quantity": {
+          "type": "buttons_quantity",
+          "settings": {}
+        },
+        "free_shipping": {
+          "type": "free_shipping",
+          "settings": {}
+        },
+        "pickup_availability": {
+          "type": "pickup_availability",
+          "settings": {}
+        },
+        "complementary_products": {
+          "type": "complementary_products",
+          "settings": {}
+        },
+        "payments": {
+          "type": "payments",
+          "settings": {}
+        },
+        "social_share_buttons": {
+          "type": "social_share_buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "collections",
+        "title",
+        "details",
+        "price",
+        "icon_with_text",
+        "description",
+        "countdown",
+        "stock_countdown",
+        "delivery_countdown",
+        "border",
+        "options",
+        "popups",
+        "notes",
+        "buttons_quantity",
+        "free_shipping",
+        "pickup_availability",
+        "payments",
+        "social_share_buttons"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

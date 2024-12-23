@@ -1,0 +1,219 @@
+{%- # For Color Settings -%}
+{%- assign transparent_value = 'rgba(0,0,0,0)' -%}
+{% capture bg_color %}
+  {% if section.settings.bg_color != blank and section.settings.bg_color != transparent_value %}
+    style="background-color: {{- section.settings.bg_color -}};"
+  {% endif %}
+{% endcapture %}
+{%- capture title_color -%}
+  {% if section.settings.title_color != blank and section.settings.title_color != transparent_value %}
+    style="color:
+    {{ section.settings.title_color }}"
+  {% endif %}
+{%- endcapture -%}
+{% capture font_color %}
+  {% if section.settings.font_color != blank and section.settings.font_color != transparent_value %}
+    style="color:{{ section.settings.font_color }}"
+  {% endif %}
+{% endcapture %}
+{%- capture date_color -%}
+  {% if section.settings.date_color != blank and section.settings.date_color != transparent_value %}
+    style="color:{{- section.settings.date_color -}}"
+  {% endif %}
+
+{%- endcapture -%}
+{%- capture tag_bg_color -%}
+  {% if section.settings.tag_bg_color != blank and section.settings.tag_bg_color != transparent_value %}
+    background-color:{{- section.settings.tag_bg_color -}};
+  {% endif %}
+{%- endcapture -%}
+
+{%- capture tag_color -%}
+  {% if section.settings.tag_color != blank and section.settings.tag_color != transparent_value %}
+    color:{{- section.settings.tag_color -}} !important;
+    border-color: {{- section.settings.tag_color -}} !important;
+  {% endif %}
+{%- endcapture -%}
+
+{%- # For Margin Settings -%}
+{%- if section.settings.margin_top_mobile != 0 -%}
+  {%- assign margin_top_mobile = section.settings.margin_top_mobile -%}
+{%- else -%}
+  {%- assign margin_top_mobile = section.settings.margin_top -%}
+{%- endif -%}
+{%- if section.settings.margin_bottom_mobile != 0 -%}
+  {%- assign margin_bottom_mobile = section.settings.margin_bottom_mobile -%}
+{%- else -%}
+  {%- assign margin_bottom_mobile = section.settings.margin_bottom -%}
+{%- endif -%}
+{% capture section_margins %}pt-{{ margin_top_mobile }} pt-md-{{ section.settings.margin_top }} pb-{{ margin_bottom_mobile }} pb-md-{{ section.settings.margin_bottom }}{% endcapture %}
+{% capture limit_count %}
+  {{ section.settings.number_of_article }}
+{% endcapture %}
+
+<style>
+  .misell-blog-list-tag {
+    {{ tag_bg_color }}
+    {{- tag_color -}}
+  }
+  .misell-blog-list-tag:hover {
+    {{- tag_color -}}
+  }
+</style>
+
+<div {% render 'layout-get-container-class' %} 
+{%- if section.settings.container == 'fullwidth' -%}
+{{- bg_color -}}
+{%- endif -%}
+>
+
+  <div class="container {{ section_margins }} "{{- bg_color -}} >
+    {% assign selected_blog = section.settings.selected_blog %}
+    <h2 class="h4 text-center" {{- title_color -}}>{{ selected_blog.title }}</h2>
+    {% for article in selected_blog.articles limit: limit_count %}
+      <div class="row mt-15 justify-content-center">
+        <div class="col-md-2  offset-md-1 mb-10 text-center text-md-right">
+          <a href="{{ article.url }}">
+            <p class="mb-0 font-italic pt-2 " {{- date_color -}}>
+              {{ article.published_at | date: "%Y-%m-%d" }}</p>
+          </a>
+        </div>
+        <div class="col-md-8 mb-5  text-left ">
+          {% if section.settings.tag == true %}
+            {%- for tag in article.tags limit: 2 -%}
+              <a class="link-revert py-4 px-10 mr-10 mb-10 border border-hover misell-blog-list-tag" href="{{shop.url}}/blogs/{{- selected_blog.handle -}}/tagged/{{- tag -}}">
+                {{- tag -}}
+              </a>
+            {%- endfor -%}
+          {% endif %}
+          <a href="{{ article.url }}">
+            <h4 class="mb-15" {{- font_color -}}>
+              {{ article.title | strip_html | truncate: 30 }}</h4>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": { "en": "News blog list", "ja": "お知らせブログリスト"},
+    "limit": 1,
+    "settings": [
+      {
+        "type": "select",
+        "id": "container",
+        "label": { "en": "Content width", "ja": "コンテンツ幅"},
+        "default": "boxed",
+        "options": [
+          {
+            "value": "fullwidth",
+            "label": { "en": "Fullwidth", "ja": "フル幅"}
+          }, {
+            "value": "boxed",
+            "label": { "en": "Boxed", "ja": "ボックス幅"}
+          }
+        ]
+      },
+      {
+        "type": "blog",
+        "id": "selected_blog",
+        "label": { "en": "Select Blog", "ja": "ブログを選択"},
+        "info": { "en": "Select blog to show on the list", "ja": "リストに表示したいブログを選択してください。"}
+      },
+      {
+        "type": "range",
+        "id": "number_of_article",
+        "label": { "en": "Number of article", "ja": "記事の数"},
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "checkbox",
+        "id": "tag",
+        "label": { "en": "show tags *up to 2", "ja": "タグを表示 最大2個まで表示"},
+        "default": true
+      }, {
+        "type": "header",
+        "content": { "en": "Color settings", "ja": "カラー設定"}
+      }, {
+        "type": "color",
+        "id": "bg_color",
+        "label": { "en": "Background color", "ja": "背景の色"}
+      }, {
+        "type": "color",
+        "id": "title_color",
+        "label": { "en": "Title color", "ja": "タイトルの色"}
+      }, {
+        "type": "color",
+        "id": "font_color",
+        "label": { "en": "Font color", "ja": "フォントの色"}
+      }, {
+        "type": "color",
+        "id": "date_color",
+        "label": { "en": "Date color", "ja": "日付の色"}
+      }, {
+        "type": "color",
+        "id": "tag_bg_color",
+        "label": { "en": "Tag Background color", "ja": "タグの背景色"}
+      }, {
+        "type": "color",
+        "id": "tag_color",
+        "label": { "en": "Tag title and border color", "ja": "タグの文字色と外枠の色"},
+        "info": { "en": "Without setting, the color is same to other tags on Misell", "ja": "設定しない場合は MISEルの他のタグの色と同じになります。"}
+      }, {
+        "type": "header",
+        "content": { "en": "Margin", "ja": "マージン"}
+      }, {
+        "type": "range",
+        "id": "margin_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": { "en": "Margin top", "ja": "マージントップ(上の余白)"},
+        "default": 30
+      }, {
+        "type": "range",
+        "id": "margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": { "en": "Margin bottom", "ja": "マージンボトム(下の余白)"},
+        "default": 0
+      }, {
+        "type": "range",
+        "id": "margin_top_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": { "en": "Mobile margin top ", "ja": "マージントップ(上の余白)モバイル"},
+        "default": 0,
+        "info": { "en": "0 - get the desktop value", "ja": "0でデスクトップサイズの設定が適用されます。"}
+      }, {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": { "en": "Mobile margin bottom ", "ja": "モバイルのマージンボトム"},
+        "info": { "en": "0 - get the desktop value", "ja": "0でデスクトップサイズの設定が適用されます。"},
+        "default": 0
+      }
+
+    ],
+    "presets": [
+      {
+        "name": { "en": "News Blog list", "ja": "お知らせブログリスト"},
+        "category": "blog"
+      }
+    ]
+  }
+{% endschema %}

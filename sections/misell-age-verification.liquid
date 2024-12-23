@@ -1,0 +1,193 @@
+{%- assign transparent_value = 'rgba(0,0,0,0)' -%}
+{% capture bg_color %}
+    {% if section.settings.bg_color != blank and section.settings.bg_color != transparent_value %}
+    background-color:{{ section.settings.bg_color }};
+    {% endif %}
+{% endcapture %}
+
+{% capture title_color %}
+    {% if section.settings.title_color != blank and section.settings.title_color != transparent_value %}
+    style="color: {{- section.settings.title_color -}}"
+    {% endif %}
+{% endcapture %}
+
+{% capture text_color %}
+    {%- if section.settings.text_color != blank and section.settings.text_color != transparent_value -%}
+    style="color: {{- section.settings.text_color -}};"
+    {%- endif -%}
+{% endcapture %}
+
+{% capture no_enter %}
+    <svg height="66" width="66" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"><path d="m56.33 9.67c-6.23-6.24-14.51-9.67-23.33-9.67s-17.1 3.43-23.33 9.67c-6.24 6.23-9.67 14.52-9.67 23.33s3.43 17.1 9.67 23.33c6.23 6.23 14.52 9.67 23.33 9.67s17.1-3.43 23.33-9.67c6.23-6.23 9.67-14.52 9.67-23.33s-3.43-17.1-9.67-23.33zm-4.24 4.24c9.81 9.81 10.47 25.35 2 35.94l-37.94-37.94c4.77-3.82 10.65-5.91 16.85-5.91 7.21 0 13.99 2.81 19.09 7.91zm-38.18 38.18c-9.81-9.81-10.47-25.35-2-35.94l37.94 37.94c-4.77 3.82-10.65 5.91-16.85 5.91-7.21 0-13.99-2.81-19.09-7.91z" fill="#e5e5e5"/></svg>
+{% endcapture %}
+
+<style>
+#age-verification-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index:1000;
+    transform: translate(-50%,-50%);
+    min-width: 300px;
+    }
+
+.age-modal-inner {
+        background-color: white;
+        {{- bg_color -}}
+        min-width: 300px;
+}
+
+#age-verification-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    z-index: 999;
+}
+
+#age-verification-message {
+    font-size: 13px;
+    line-height: 22px;
+
+}
+</style>
+
+<div id="age-verification-overlay" style="display:none"></div>
+<div id="age-verification-modal" style="display:none">
+    <div class="age-modal-inner p-50">
+        <div class="row justify-content-center">
+            {{- no_enter -}}
+        </div>
+        <h2 id="age-verification-title" class="h4 mt-20 text-center" {{- title_color -}}>{{- section.settings.title -}}</h2>
+        <p id="age-verification-message" {{- text_color -}} >{{- section.settings.textarea -}}</p>
+        <div class="row mt-20 justify-content-center " >
+        <div class="col-12 col-lg-6">
+            <button id="age-yes-btn" class="btn w-100">{{- section.settings.button_yes -}}</button>
+        </div>
+        <div class="col-12 col-lg-6">
+            <button id="age-no-btn" class="btn btn--secondary w-100 mt-20 mt-lg-0 ">{{- section.settings.button_no -}}</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const ageModal = document.getElementById('age-verification-modal');
+const ageOverlay = document.getElementById('age-verification-overlay');
+const ageYesBtn = document.getElementById('age-yes-btn')
+const ageNoBtn = document.getElementById('age-no-btn')
+
+function showAgeModal(){
+    ageModal.style.display = "block";
+    ageOverlay.style.display = "block";
+}
+
+function hideAgeModal(){
+    ageModal.style.display = "none";
+    ageOverlay.style.display = "none";
+}
+
+function checkAgeVerification(){
+    if(!localStorage.getItem("ageVerified")) {
+        showAgeModal()
+    }
+}
+
+ageYesBtn.addEventListener('click', () => {
+    localStorage.setItem("ageVerified", "true");
+    hideAgeModal()
+})
+ageNoBtn.addEventListener('click', () => {
+    window.history.back();
+})
+
+checkAgeVerification();
+
+</script>
+
+{% schema %}
+    {
+        "name": { "en": "Age verification popup ", "ja": "年齢確認ポップアップ - セクション"}, 
+        "limit": 1,
+        "settings": [
+            {
+                "type": "header",
+                "content": { "en": "Age Verification popup for templates", "ja": "年齢確認ポップアップ - テンプレート用"} 
+            },
+            {
+                "type": "paragraph",
+                "content": { "en": "To check popu, please save edit", "ja": "編集中のポップアップは｢保存｣をクリックしてご確認ください。"}
+            },
+            {
+                "type": "header",
+                "content": { "en": "Note", "ja": "ご注意"}
+            },
+            {
+                "type": "paragraph",
+                "content": { "en": "If you wish to use age verification pop-up and in order to prevent adding to the cart, please disable other add to cart functionaities. Disable footbar. Hide the ‘Add to cart’ button on collection cards. If quickview is enabled, turn off the quickview functionality or hide the ‘quantity and add to cart button’ from the ‘quickview product template. Before use this section correctly, please see the manual. [Age verification popup](https://misell-manual.wraptas.site/sections/age-verification) ", "ja": "MISEルテーマでは、商品ページ以外からもこのポップアップ表示を見ることなく、商品をカートにいれることが可能となる場合があります。それらを防ぐために次のことにご留意ください。フットバーをオフ・コレクションカードのカート追加ボタンを非表示・クイックビューのオフを行ってからご使用ください。また当セクションをご使用の前に必ずマニュアルページをご覧ください。[年齢確認ポップアップ](https://misell-manual.wraptas.site/sections/age-verification)"}
+            },
+            {
+                "type": "paragraph",
+                "content": { "en": "Once you press Yes, it will be recorded by the browser and will not be displayed again. Please use incognito browsing to check", "ja": "一度｢はい｣を押すとブラウザに記録され、再表示されません。確認にはシークレットブラウジングなどをご使用ください"}
+            },
+            {
+                "type": "paragraph",
+                "content": { "en": "This age verification popup can be placed indivisually for each template. However, once you press Yes, the information is recorded by teh browser and will not appear on other pages despite you set this section. Threfore, the content of the age verification should be standardised", "ja": "この年齢確認のポップアップはテンプレートごとに個別に設置できます。ただし一度｢はい｣を押すと、その情報はブラウザに記録され、他のページでは現れないようになります。そのため、年齢確認のポップアップ内容は統一してください。"}
+            },
+            {
+                "type": "text",
+                "id": "title", 
+                "label": { "en": "Title for verification", "ja": "年齢確認 (タイトル)"},
+                "default": "年齢確認"
+            },
+            {
+                "type": "textarea",
+                "id": "textarea",
+                "label": { "en": "Text for verification", "ja": "年齢確認のための文章"},
+                "default": "こちらの商品は20歳以上の方を対象としています。20歳以上の方は｢はい｣を押してお進みください。20歳未満の方は｢いいえ｣を押してお戻りください。"
+            },
+            {
+                "type": "text",
+                "id": "button_no",
+                "label": { "en": "Back button", "ja": "戻るボタン"},
+                "info": { "en": "Text for back button", "ja": "戻るボタンのテキスト。注意:このボタンを押すとブラウザの｢戻る｣と同じ操作となります。"},
+                "default": "いいえ"
+            },
+            {
+                "type": "text",
+                "id": "button_yes",
+                "label": { "en": "Yes button", "ja": "進むボタン"},
+                "info": { "en": "Text for Yes button to close popup and proceed", "ja": "ポップアップを閉じるボタンのテキスト。"},
+                "default": "はい"
+            },
+            {
+                "type": "header",
+                "content": { "en": "Color setting", "ja": "カラー設定"}
+            },
+            {
+                "type": "color",
+                "id": "bg_color",
+                "label": { "en": "Background color", "ja": "ポップアップの背景色"}
+            },
+            {
+                "type": "color",
+                "id": "title_color",
+                "label": { "en": "Title color", "ja": "タイトルの色"}
+            },
+            {
+                "type": "color",
+                "id": "text_color",
+                "label": { "en": "Text color", "ja": "テキストの色"}
+            }
+        ],
+       "presets": [
+            {
+                "name": { "en": "Age verification popup", "ja": "年齢確認ポップアップ - セクション"},
+                "category": "category"
+            }
+       ]
+    }  
+{% endschema %}

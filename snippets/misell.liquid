@@ -1,0 +1,160 @@
+{% assign base_font = settings.font_base_apply_to_google_select %}
+{% assign heading_font = settings.font_heading_apply_to_google_select %}
+
+{% if settings.font_base_apply_to_selection == 'google' or settings.font_heading_apply_to_selection == 'google' %}
+  <style>
+    {% assign font_families = "" %}
+
+    {% if base_font contains 'Nanum Gothic' or heading_font contains 'Nanum Gothic' %}
+      {% assign font_families = font_families | append: "Nanum+Gothic:wght@400;700;800&family=" %}
+    {% endif %}
+    {% if base_font contains 'Noto Sans JP' or heading_font contains 'Noto Sans JP' %}
+      {% assign font_families = font_families | append: "Noto+Sans+JP:wght@100..900&family=" %}
+    {% endif %}
+    {% if base_font contains 'Noto Serif JP' or heading_font contains 'Noto Serif JP' %}
+      {% assign font_families = font_families | append: "Noto+Serif+JP:wght@200..900&family=" %}
+    {% endif %}
+    {% if base_font contains 'Zen Kaku Gothic New' or heading_font contains 'Zen Kaku Gothic New' %}
+      {% assign font_families = font_families | append: "Zen+Kaku+Gothic+New:wght@300;400;500;700;900&family=" %}
+    {% endif %}
+    {% if base_font contains 'Zen Maru Gothic' or heading_font contains 'Zen Maru Gothic' %}
+      {% assign font_families = font_families | append: "Zen+Maru+Gothic:wght@300;400;500;700;900&family=" %}
+    {% endif %}
+    {% if base_font contains 'Zen Old Mincho' or heading_font contains 'Zen Old Mincho' %}
+      {% assign font_families = font_families | append: "Zen+Old+Mincho:wght@400;500;600;700;900&family=" %}
+    {% endif %}
+    {% if base_font contains 'M PLUS 1p' or heading_font contains 'M PLUS 1p' %}
+      {% assign font_families = font_families | append: "M+PLUS+1p:wght@100;300;400;500;700;800;900&family=" %}
+    {% endif %}
+    {% if base_font contains 'M PLUS Rounded 1c' or heading_font contains 'M PLUS Rounded 1c' %}
+      {% assign font_families = font_families | append: "M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=" %}
+    {% endif %}
+    {% if base_font contains 'Shippori Mincho' or heading_font contains 'Shippori Mincho' %}
+      {% assign font_families = font_families | append: "Shippori+Mincho:wght@400;500;600;700;800&family=" %}
+    {% endif %}
+    {% if base_font contains 'Shippori Antique' or heading_font contains 'Shippori Antique' %}
+      {% assign font_families = font_families | append: "Shippori+Antique&family=" %}
+    {% endif %}
+    {% if base_font contains 'Sawarabi Gothic' or heading_font contains 'Sawarabi Gothic' %}
+      {% assign font_families = font_families | append: "Sawarabi+Gothic&family=" %}
+    {% endif %}
+    {% if base_font contains 'Sawarabi Mincho' or heading_font contains 'Sawarabi Mincho' %}
+      {% assign font_families = font_families | append: "Sawarabi+Mincho&family=" %}
+    {% endif %}
+    {% if base_font contains 'BIZ UDPGothic' or heading_font contains 'BIZ UDPGothic' %}
+      {% assign font_families = font_families | append: "BIZ+UDPGothic:wght@400;700&family=" %}
+    {% endif %}
+    {% if base_font contains 'Hina Mincho' or heading_font contains 'Hina Mincho' %}
+      {% assign font_families = font_families | append: "Hina+Mincho&family=" %}
+    {% endif %}
+    {% if base_font contains 'Kiwi Maru' or heading_font contains 'Kiwi Maru' %}
+      {% assign font_families = font_families | append: "Kiwi+Maru:wght@300;400;500&family=" %}
+    {% endif %}
+    {% if base_font contains 'Kosugi Maru' or heading_font contains 'Kosugi Maru' %}
+      {% assign font_families = font_families | append: "Kosugi+Maru&family=" %}
+    {% endif %}
+    {% if base_font contains 'Kaisei Opti' or heading_font contains 'Kaisei Opti' %}
+      {% assign font_families = font_families | append: "Kaisei+Opti:wght@400;500;700&family=" %}
+    {% endif %}
+    {% if base_font contains 'Dela Gothic One' or heading_font contains 'Dela Gothic One' %}
+      {% assign font_families = font_families | append: "Dela+Gothic+One&family=" %}
+    {% endif %}
+    {% if base_font contains 'Klee One' or heading_font contains 'Klee One' %}
+      {% assign font_families = font_families | append: "Klee+One:wght@400;600&family=" %}
+    {% endif %}
+    {% if base_font contains 'M PLUS 2' or heading_font contains 'M PLUS 2' %}
+      {% assign font_families = font_families | append: "M+PLUS+2:wght@100..900&family=" %}
+    {% endif %}
+    {% if base_font contains 'Zen Kurenaido' or heading_font contains 'Zen Kurenaido' %}
+      {% assign font_families = font_families | append: "Zen+Kurenaido&family=" %}
+    {% endif %}
+    {% if base_font contains 'RocknRoll One' or heading_font contains 'RocknRoll One' %}
+      {% assign font_families = font_families | append: "RocknRoll+One&family=" %}
+    {% endif %}
+    {% if base_font contains 'Murecho' or heading_font contains 'Murecho' %}
+      {% assign font_families = font_families | append: "Murecho:wght@100..900&family=" %}
+    {% endif %}
+    {% if base_font contains 'DotGothic16' or heading_font contains 'DotGothic16' %}
+      {% assign font_families = font_families | append: "DotGothic16&family=" %}
+    {% endif %}
+    {% if base_font contains 'Yusei Magic' or heading_font contains 'Yusei Magic' %}
+      {% assign font_families = font_families | append: "Yusei+Magic&family=" %}
+    {% endif %}
+    {% if base_font contains 'Mochiy Pop One' or heading_font contains 'Mochiy Pop One' %}
+      {% assign font_families = font_families | append: "Mochiy+Pop+One&family=" %}
+    {% endif %}
+    {% if base_font contains 'Mochiy Pop P One' or heading_font contains 'Mochiy Pop P One' %}
+      {% assign font_families = font_families | append: "Mochiy+Pop+P+One&family=" %}
+    {% endif %}
+    {% if base_font contains 'IBM Plex Sans JP' or heading_font contains 'IBM Plex Sans JP' %}
+      {% assign font_families = font_families | append: "IBM+Plex+Sans+JP:wght@100..900&family=" %}
+    {% endif %}
+    {% if base_font contains 'Kaisei Decol' or heading_font contains 'Kaisei Decol' %}
+      {% assign font_families = font_families | append: "Kaisei+Decol&family=" %}
+    {% endif %}
+    {% if base_font contains 'Zen Antique' or heading_font contains 'Zen Antique' %}
+      {% assign font_families = font_families | append: "Zen+Antique&family=" %}
+    {% endif %}
+    {% if base_font contains 'Zen Antique Soft' or heading_font contains 'Zen Antique Soft' %}
+      {% assign font_families = font_families | append: "Zen+Antique+Soft&family=" %}
+    {% endif %}
+    {% if base_font contains 'BIZ UDPMincho' or heading_font contains 'BIZ UDPMincho' %}
+      {% assign font_families = font_families | append: "BIZ+UDPMincho:wght@400;700&family=" %}
+    {% endif %}
+    {% if base_font contains 'Potta One' or heading_font contains 'Potta One' %}
+      {% assign font_families = font_families | append: "Potta+One&family=" %}
+    {% endif %}
+    {% if base_font contains 'Kaisei Tokumin' or heading_font contains 'Kaisei Tokumin' %}
+      {% assign font_families = font_families | append: "Kaisei+Tokumin:wght@400;500;700;800&family=" %}
+    {% endif %}
+    {% if base_font contains 'Rampart One' or heading_font contains 'Rampart One' %}
+      {% assign font_families = font_families | append: "Rampart+One&family=" %}
+    {% endif %}
+    {% if base_font contains 'Kaisei HarunoUmi' or heading_font contains 'Kaisei HarunoUmi' %}
+      {% assign font_families = font_families | append: "Kaisei+HarunoUmi:wght@400;500;700&family=" %}
+    {% endif %}
+    {% if base_font contains 'Train One' or heading_font contains 'Train One' %}
+      {% assign font_families = font_families | append: "Train+One&family=" %}
+    {% endif %}
+    {% if base_font contains 'Shippori Antique B1' or heading_font contains 'Shippori Antique B1' %}
+      {% assign font_families = font_families | append: "Shippori+Antique+B1&family=" %}
+    {% endif %}
+    {% if base_font contains 'BIZ UDMincho' or heading_font contains 'BIZ UDMincho' %}
+      {% assign font_families = font_families | append: "BIZ+UDMincho:wght@400;700&family=" %}
+    {% endif %}
+
+    {% assign font_families = font_families | remove_last: "&family=" %}
+    @import url('https://fonts.googleapis.com/css2?family={{ font_families }}&display=swap');
+  </style>
+{% endif %}
+
+{% if settings.font_all_apply_to_budoux %}
+  <script src="https://unpkg.com/budoux/bundle/budoux-ja.min.js" defer></script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 対象要素の選択
+      const elements = document.querySelectorAll(
+        'h1:not(.faqs__head), h2:not(.faqs__head), h3:not(.faqs__head), p.h1:not(.faqs__head), p.h2:not(.faqs__head), p.h3:not(.faqs__head)'
+      );
+
+      elements.forEach(element => {
+        // 既に<budoux-ja>タグが含まれていないか確認
+        if (!element.querySelector('budoux-ja')) {
+          if (element.tagName.toLowerCase() === 'span') {
+            // <span> 内のテキストを <budoux-ja> でラップし、スタイルを適用
+            element.innerHTML = `<budoux-ja style="word-break: keep-all; overflow-wrap: anywhere;">${element.innerHTML}</budoux-ja>`;
+          } else {
+            // その他の要素全体を <budoux-ja> でラップ
+            element.innerHTML = `<budoux-ja>${element.innerHTML}</budoux-ja>`;
+          }
+        }
+      });
+
+      // BudouX の初期化
+      if (typeof window.budouxJa !== 'undefined') {
+        window.budouxJa.parseAll();
+      }
+    });
+  </script>
+{% endif %}
+{{ 'misell-custom.css' | asset_url | stylesheet_tag }}

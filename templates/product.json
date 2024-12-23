@@ -1,0 +1,187 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "collections": {
+          "type": "collections",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "details": {
+          "type": "details",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "1758a5c2-c2c6-4a5b-8f2b-56319eaf59ec": {
+          "type": "icon_with_text",
+          "settings": {
+            "style": "inline",
+            "icon_svg_1": "theme-127",
+            "text_1": "<p>安心の品質保証:チェックアウトにお進みください<\/p>",
+            "icon_svg_2": "theme-142",
+            "text_2": "<p>無料配送 : 営業日の翌日配送!<\/p>",
+            "icon_svg_3": "theme-144",
+            "text_3": "<p>安心の価格 : 14日間の返品保証<\/p>",
+            "icon_svg_4": "",
+            "text_4": "",
+            "icon_svg_5": "",
+            "text_5": "",
+            "icon_svg_6": "",
+            "text_6": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "title": "",
+            "content": ""
+          }
+        },
+        "border": {
+          "type": "border",
+          "settings": {}
+        },
+        "options": {
+          "type": "options",
+          "settings": {}
+        },
+        "popups": {
+          "type": "popups",
+          "settings": {}
+        },
+        "buttons_quantity": {
+          "type": "buttons_quantity",
+          "settings": {}
+        },
+        "all_in_gift_app_block_product_fXNkxh": {
+          "type": "shopify:\/\/apps\/all-in-gift\/blocks\/app-block-product\/14c78036-27a0-4098-a9e3-c3f1525dedff",
+          "disabled": true,
+          "settings": {
+            "font_color": "#000000",
+            "secondary_font_color": "#5570e9",
+            "font_size": 9,
+            "checkout_button_text": "購入手続きへ",
+            "checkout_button_text_color": "#ffffff",
+            "checkout_button_color": "#000000",
+            "primary_button_color": "#5570e9",
+            "primary_button_text_color": "#ffffff",
+            "secondary_button_color": "#ffffff",
+            "secondary_button_text_color": "#5570e9",
+            "button_radius": 8,
+            "gift_setting_button_text": "ギフト設定",
+            "gift_setting_cancel_button_text": "ギフト設定をキャンセルする",
+            "icon_show": "true",
+            "gift_radio_text": "指定の住所に贈る",
+            "gift_checkbox_text": "ギフト配送を希望する",
+            "e_gift_radio_text": "住所を知らない相手にeギフトで贈る",
+            "giver_name_label_text": "贈り主の名前を入力してください",
+            "header_text": "お届け方法",
+            "e_gift_description_text": "",
+            "e_gift_description_color": "#000000",
+            "e_gift_description_url": "",
+            "original_color_enable": "true",
+            "other_item": "false",
+            "hidden_elements": ""
+          }
+        },
+        "pickup_availability": {
+          "type": "pickup_availability",
+          "settings": {}
+        },
+        "payments": {
+          "type": "payments",
+          "disabled": true,
+          "settings": {}
+        },
+        "custom_liquid_7bRdbf": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'product-metafields-measuretext' %}"
+          }
+        },
+        "border_Y7zjan": {
+          "type": "border",
+          "settings": {}
+        },
+        "custom_liquid_8RPkFr": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'product-metafields-material' %}"
+          }
+        },
+        "border_EmYyyW": {
+          "type": "border",
+          "settings": {}
+        },
+        "social_share_buttons": {
+          "type": "social_share_buttons",
+          "settings": {}
+        },
+        "b95e0337-3417-425c-b5e6-70dff5cb6e55": {
+          "type": "complementary_products",
+          "settings": {}
+        },
+        "stock_countdown_gn9eKT": {
+          "type": "stock_countdown",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "collections",
+        "title",
+        "details",
+        "price",
+        "1758a5c2-c2c6-4a5b-8f2b-56319eaf59ec",
+        "description",
+        "border",
+        "options",
+        "popups",
+        "buttons_quantity",
+        "all_in_gift_app_block_product_fXNkxh",
+        "pickup_availability",
+        "payments",
+        "custom_liquid_7bRdbf",
+        "border_Y7zjan",
+        "custom_liquid_8RPkFr",
+        "border_EmYyyW",
+        "social_share_buttons",
+        "b95e0337-3417-425c-b5e6-70dff5cb6e55",
+        "stock_countdown_gn9eKT"
+      ],
+      "settings": {
+        "gallery_size": "6",
+        "sidebar": "off",
+        "enable_sticky_sidebar": true,
+        "show_tabs": false,
+        "show_tab_description": true,
+        "scrolling_to_opened_tab": false,
+        "tabs_type": "tabs"
+      }
+    },
+    "related-products": {
+      "type": "carousel-related-products",
+      "settings": {
+        "show_section": true,
+        "type": "recommendations",
+        "size_of_columns": "4",
+        "max_count": 6,
+        "autoplay": true,
+        "speed": 5,
+        "infinite": true,
+        "arrows": true,
+        "bullets": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products"
+  ]
+}

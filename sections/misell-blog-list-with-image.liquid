@@ -1,0 +1,284 @@
+{%- # For Color Settings -%}
+{%- assign transparent_value = 'rgba(0,0,0,0)' -%}
+{% capture bg_color %}
+  {% if section.settings.bg_color != blank and section.settings.bg_color != transparent_value %}
+    style="background-color: {{- section.settings.bg_color -}};"
+  {% endif %}
+{% endcapture %}
+{%- capture title_color -%}
+  {% if section.settings.title_color != blank and section.settings.title_color != transparent_value %}
+    style="color:
+    {{ section.settings.title_color }}"
+  {% endif %}
+{%- endcapture -%}
+{% capture font_color %}
+  {% if section.settings.font_color != blank and section.settings.font_color != transparent_value %}
+    style="color:{{ section.settings.font_color }}"
+  {% endif %}
+{% endcapture %}
+{%- capture date_color -%}
+  {% if section.settings.date_color != blank and section.settings.date_color != transparent_value %}
+    style="color:{{- section.settings.date_color -}}"
+  {% endif %}
+{%- endcapture -%}
+{%- capture article_title_color -%}
+  {%- if section.settings.article_title_color != blank and section.settings.article_title_color != transparent_value -%}
+    style="color: {{ section.settings.article_title_color }}"
+  {%- endif -%}
+
+{%- endcapture -%}
+
+{%- # For Margin Settings -%}
+{%- if section.settings.margin_top_mobile != 0 -%}
+  {%- assign margin_top_mobile = section.settings.margin_top_mobile -%}
+{%- else -%}
+  {%- assign margin_top_mobile = section.settings.margin_top -%}
+{%- endif -%}
+{%- if section.settings.margin_bottom_mobile != 0 -%}
+  {%- assign margin_bottom_mobile = section.settings.margin_bottom_mobile -%}
+{%- else -%}
+  {%- assign margin_bottom_mobile = section.settings.margin_bottom -%}
+{%- endif -%}
+{% capture section_margins %}pt-{{ margin_top_mobile }} pt-md-{{ section.settings.margin_top }} pb-{{ margin_bottom_mobile }} pb-md-{{ section.settings.margin_bottom }}{% endcapture %}
+{% capture limit_count %}
+  {{ section.settings.number_of_article }}
+{% endcapture %}
+
+<style>
+  .blog-list-item {
+    {%- if section.settings.item_border == true -%}
+      position: relative;
+    {%- endif -%}
+
+  }
+  .blog-list-item:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+  {%- if section.settings.item_border == true -%}
+    .blog-list-item::after {
+      content: '';
+      background: grey;
+      {%- if section.settings.line_color -%}
+        background: {{- section.settings.line_color -}}
+        ;
+      {%- endif -%}
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      height: 1px;
+      width: 20%;
+      transform: translateX(-50%);
+    }
+  {%- endif -%}
+
+  .blog-list-item__image {
+    object-fit: cover;
+    border-radius: {{- section.settings.image_border_radius -}}
+    px;
+  }
+  .blog-list-item__title {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+</style>
+
+<div {% render 'layout-get-container-class' %} 
+{%- if section.settings.container == 'fullwidth' -%}
+{{- bg_color -}}
+{%- endif -%}>
+
+  <div class="container {{ section_margins }} blog-list-width-image" {{- bg_color -}} >
+    {% assign selected_blog = section.settings.selected_blog %}
+    <h2 class="h4 text-center" {{- title_color -}}>{{ selected_blog.title }}</h2>
+
+    {%- for article in selected_blog.articles limit: limit_count -%}
+      <div class="row mt-20 justify-content-center blog-list-item">
+
+        {%- if article.image != blank -%}
+          <div class="col-5 d-flex justify-content-center align-items-center blog-list-image">
+
+            <a href="{{ article.url }}">
+              {{ article.image | image_url: height: 440, crop: 'center' | image_tag: height: 220, width: 300, alt: article.image.alt, class: 'blog-list-item__image img-fluid', loading: 'lazy' }}
+            </a>
+          </div>
+        {% else %}
+          <div class=" offset-sm-1"></div>
+        {%- endif -%}
+        <div class="col blog-list-item__info">
+          <div class="row justify-content-start">
+
+            <div class="col-12 text-left d-flex flex-column align-items-start">
+            {% if section.settings.tag == true %}
+              {%- for tag in article.tags limit: 2 -%}
+
+                  <a class="link-revert py-4 px-10 mr-10 mb-10 border border-hover misell-blog-list-tag" href="{{shop.url}}/blogs/{{- selected_blog.handle -}}/tagged/{{- tag -}}">
+                    {{- tag | truncate: 20  -}}
+                  </a>
+
+              {%- endfor -%}
+            {% endif %}
+              <a href="{{- article.url -}}">
+                <h4 class="blog-list-item__title mb-10"{{- article_title_color -}}>{{- article.title | strip_html | truncate: 100 -}}</h4>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col">
+              <p class="mb-10">
+                <small class="blog-list-item__date mb-10" {{- date_color -}}>{{- article.published_at | date: "%Y-%m-%d" -}}</small>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col">
+              <p class="blog-list-item__excerpt mb-5" {{- font_color -}}>{{ article.excerpt_or_content | strip_html | truncate: 80 }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+      <!-- list-item end -->
+    {%- endfor -%}
+  </div>
+
+  <div class="sorting-collections__more-products d-flex justify-content-center mt-30">
+     <a href="/blogs/news/" class="btn btn--secondary btn--size-middle-large">ニュース一覧はこちら</a>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": { "en": "News blog list with image", "ja": "お知らせブログリスト(画像付)"},
+    "limit": 1,
+    "settings": [
+      {
+        "type": "select",
+        "id": "container",
+        "label": { "en": "Content width", "ja": "コンテンツ幅"},
+        "default": "boxed",
+        "options": [
+          {
+            "value": "fullwidth",
+            "label": { "en": "Fullwidth", "ja": "フル幅"}
+          }, {
+            "value": "boxed",
+            "label": { "en": "Boxed", "ja": "ボックス幅"}
+          }
+        ]
+      },
+      {
+        "type": "blog",
+        "id": "selected_blog",
+        "label": { "en": "Select Blog", "ja": "ブログを選択"},
+        "info": { "en": "Select blog to show on the list", "ja": "リストに表示したいブログを選択してください。"}
+      },
+      {
+        "type": "range",
+        "id": "number_of_article",
+        "label": { "en": "Number of article", "ja": "記事の数"},
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "checkbox",
+        "id": "tag",
+        "label": { "en": "show tags *up to 2", "ja": "タグを表示 最大2個まで表示"},
+        "default": true
+      }, {
+        "type": "range",
+        "id": "image_border_radius",
+        "label": { "en": "Border radius", "ja": "画像の角の丸み調整"},
+        "min": 0,
+        "step": 1,
+        "max": 50,
+        "unit": "px",
+        "default": 0
+      }, {
+        "type": "checkbox",
+        "label": { "en": "Show border", "ja": "記事アイテムのセパレーターラインの表示切り替え"},
+        "id": "item_border",
+        "default": true
+      }, {
+        "type": "header",
+        "content": { "en": "Color setting", "ja": "カラー設定"}
+      }, {
+        "type": "color",
+        "id": "bg_color",
+        "label": { "en": "Background color", "ja": "背景の色"}
+      }, {
+        "type": "color",
+        "id": "title_color",
+        "label": { "en": "Title color", "ja": "タイトルの色"}
+      }, {
+        "type": "color",
+        "id": "article_title_color",
+        "label": { "en": "Title color for each article", "ja": "各記事タイトルの色"}
+      }, {
+        "type": "color",
+        "id": "date_color",
+        "label": { "en": "Date Color", "ja": "日付の色"}
+      }, {
+        "type": "color",
+        "id": "font_color",
+        "label": { "en": "Font color", "ja": "フォントの色"}
+      }, {
+        "type": "color",
+        "id": "line_color",
+        "label": { "en": "Line color", "ja": "ラインの色"}
+
+      }, {
+        "type": "header",
+        "content": { "en": "Margin", "ja": "マージン"}
+      }, {
+        "type": "range",
+        "id": "margin_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": { "en": "Margin top", "ja": "マージントップ(上の余白)"},
+        "default": 30
+      }, {
+        "type": "range",
+        "id": "margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": { "en": "Margin top", "ja": "マージンボトム(下の余白)"},
+        "default": 0
+      }, {
+        "type": "range",
+        "id": "margin_top_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": { "en": "Mobile margin top", "ja": "マージントップ(上の余白)モバイル"},
+        "default": 0,
+        "info": { "en": "0 - get the desktop value", "ja": "0でデスクトップサイズの設定が適用されます。"}
+      }, {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": { "en": "Mobile marging bottom", "ja": "モバイルのマージンボトム"},
+        "info": { "en": "0 get the desktop value", "ja": "0でデスクトップサイズの設定が適用されます。"},
+        "default": 0
+      }
+
+    ],
+    "presets": [
+      {
+        "name": { "en": "News Blog list with image", "ja": "お知らせブログリスト(画像付)"},
+        "category": "blog"
+      }
+    ]
+  }
+{% endschema %}

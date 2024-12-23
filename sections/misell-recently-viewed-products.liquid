@@ -1,0 +1,287 @@
+{% comment %}
+  @file recently-viewed-products.liquid
+  @brief Section to display recently viewed products
+  @description Stores and displays recently viewed products using localStorage
+{% endcomment %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.content_margin_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.content_margin_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .product-card__image {
+    position: relative;
+    width: 100%;
+    padding-top: 128%;
+    overflow: hidden;
+  }
+
+  .product-card__image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-card__info {
+    margin-top: 15px;
+  }
+{%- endstyle -%}
+
+{%- assign section_content_margin_top = section.settings.content_margin_top | default: 0 -%}
+{%- assign section_content_margin_bottom = section.settings.content_margin_bottom | default: 0 -%}
+{%- assign section_content_margin_top_d = section.settings.content_margin_top_d
+  | default: section_content_margin_top
+-%}
+{%- assign section_content_margin_bottom_d = section.settings.content_margin_bottom_d
+  | default: section_content_margin_bottom
+-%}
+
+<div class="recently-viewed-products pt-{{ section_content_margin_top }} pb-{{ section_content_margin_bottom }} pt-md-{{ section_content_margin_top_d }} pb-md-{{ section_content_margin_bottom_d }}">
+  <div class="container">
+    {%- if section.settings.title != blank -%}
+      <h2 class="h4 home-section-title mb-30 text-center" id="recently-viewed-heading">
+        {{ section.settings.title }}
+      </h2>
+    {%- endif -%}
+
+    <div class="products-grid row" id="recently-viewed-products-list"></div>
+  </div>
+</div>
+
+<script>
+/**
+ * @file recently-viewed-products.js
+ * @brief JavaScript file to manage viewing history functionality
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+  /**
+   * Function to render recently viewed products
+   */
+  function renderRecentlyViewedProducts() {
+    const container = document.getElementById('recently-viewed-products-list');
+    const heading = document.getElementById('recently-viewed-heading');
+    
+    try {
+      // Debug logging
+      console.log('LocalStorage contents:', localStorage.getItem('recentlyViewedProducts'));
+      
+      const viewedProducts = JSON.parse(localStorage.getItem('recentlyViewedProducts')) || [];
+      console.log('Parsed product data:', viewedProducts);
+      
+      container.innerHTML = '';
+
+      if (viewedProducts.length === 0) {
+        heading.style.display = 'none';
+        return;
+      }
+
+      heading.style.display = 'block';
+
+      viewedProducts.slice(0, {{ section.settings.products_limit }}).forEach(product => {
+        // Debug logging
+        console.log('Processing product:', product);
+        
+        // Set grid classes
+        const gridMobile = {{ section.settings.grid_mobile }};
+        const gridTablet = {{ section.settings.grid_tablet }};
+        const gridDesktop = {{ section.settings.grid }};
+        const colMobile = 12 / gridMobile;
+        const colTablet = 12 / gridTablet;
+        const colDesktop = 12 / gridDesktop;
+        const colClass = `col-{{ 12 | divided_by: section.settings.grid_mobile }} col-sm-{{ 12 | divided_by: section.settings.grid_tablet }} col-md-{{ 12 | divided_by: section.settings.grid }} col-lg-{{ 12 | divided_by: section.settings.grid }} mb-30`;
+        
+        const productHTML = `
+          <div class="${colClass}">
+            <div class="product-card">
+              <a href="${product.url}" class="d-block">
+                <div class="product-card__image">
+                  <img 
+                    src="${product.image}" 
+                    alt="${product.title}" 
+                    class="w-100 js-product-grid-img"
+                    data-aspect-ratio="0.78125"
+                  >
+                </div>
+                <div class="product-card__info text-center">
+                  <h3 class="product-card__title h6 mb-10">${product.title}</h3>
+                  <div class="product-card__price">
+                    <span class="price">${product.variants[0].price}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        `;
+        container.insertAdjacentHTML('beforeend', productHTML);
+      });
+    } catch (e) {
+      console.error('Error displaying recently viewed products:', e);
+      heading.style.display = 'none';
+    }
+  }
+
+  // Initial render
+  renderRecentlyViewedProducts();
+
+  // Watch for localStorage changes in other tabs
+  window.addEventListener('storage', function(e) {
+    if (e.key === 'recentlyViewedProducts') {
+      renderRecentlyViewedProducts();
+    }
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": { "en": "Recently Viewed Products", "ja": "最近閲覧した商品" },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": { "en": "Heading", "ja": "見出し" },
+      "default": "最近閲覧した商品"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "min": 4,
+      "max": 12,
+      "step": 2,
+      "label": { "en": "Maximum products to show", "ja": "表示する最大商品数" },
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": { "en": "Layout Settings", "ja": "レイアウト設定" }
+    },
+    {
+      "type": "select",
+      "id": "grid",
+      "label": { "en": "Products per row (Desktop)", "ja": "1行あたりの商品数（PC）" },
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "grid_mobile",
+      "label": { "en": "Products per row (Mobile)", "ja": "1行あたりの商品数（モバイル）" },
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "select",
+      "id": "grid_tablet",
+      "label": { "en": "Products per row (Tablet)", "ja": "1行あたりの商品数（タブレット）" },
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "header",
+      "content": { "en": "Margin Settings", "ja": "余白設定" }
+    },
+    {
+      "type": "range",
+      "id": "content_margin_top",
+      "label": { "en": "Top margin (Mobile)", "ja": "上部の余白（モバイル）" },
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_margin_bottom",
+      "label": { "en": "Bottom margin (Mobile)", "ja": "下部の余白（モバイル）" },
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_margin_top_d",
+      "label": { "en": "Top margin (Desktop)", "ja": "上部の余白（PC）" },
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_margin_bottom_d",
+      "label": { "en": "Bottom margin (Desktop)", "ja": "下部の余白（PC）" },
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": { "en": "Recently Viewed Products", "ja": "最近閲覧した商品" },
+      "category": "5) Products"
+    }
+  ]
+}
+{% endschema %}

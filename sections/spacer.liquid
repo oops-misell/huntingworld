@@ -1,0 +1,113 @@
+<div data-section-id="{{ section.id }}" data-section-type="spacer"{% render 'layout-get-container-class' %}>
+    {%- if section.settings.margin_top_mobile != 0 -%}
+        {%- assign margin_top_mobile = section.settings.margin_top_mobile -%}
+    {%- else -%}
+        {%- assign margin_top_mobile = section.settings.margin_top -%}
+    {%- endif -%}
+    {%- if section.settings.margin_bottom_mobile != 0 -%}
+        {%- assign margin_bottom_mobile = section.settings.margin_bottom_mobile -%}
+    {%- else -%}
+        {%- assign margin_bottom_mobile = section.settings.margin_bottom -%}
+    {%- endif -%}
+    {% capture section_margins %}pt-{{ margin_top_mobile }} pt-md-{{ section.settings.margin_top }} pb-{{ margin_bottom_mobile }} pb-md-{{ section.settings.margin_bottom }}{% endcapture %}
+    <div class="builder-spacer {{ section_margins }}">
+        {%- if section.settings.show_separator -%}
+            <div class="border-top"></div>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+            <h2 class="h4 home-section-title{% if section.settings.show_separator %} mt-30{% endif %} mb-0 text-center">{{ section.settings.title | remove: '<p>' | remove: '</p>' | remove: ' class="text-underline"' | replace: '&lt;', '<' | replace: '&gt;', '>' }}</h2>
+        {%- endif -%}
+    </div>
+</div>
+
+
+{% schema %}
+{
+    "name": { "en": "Spacer", "ja": "スペーサー"},
+    "settings": [
+        {
+            "type": "range",
+            "id": "margin_top",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "label": { "en": "Margin top", "ja": "マージントップ - 上の余白"},
+            "default": 60
+        },
+        {
+            "type": "range",
+            "id": "margin_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "label": { "en": "Margin bottom", "ja": "マージンボトム - 下の余白"},
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "margin_top_mobile",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "label": { "en": "Mobile margin top", "ja": "モバイルのマージントップ"},
+            "info": { "en": "0 - get the desktop value", "ja": "0 でデスクトップサイズの設定が適用されます。"},
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "margin_bottom_mobile",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "label": { "en": "Mobile margin bottom", "ja": "モバイルのマージンボトム"},
+            "info": { "en": "0 - get the desktop value", "ja": "0 でデスクトップサイズの設定が適用されます。"},
+            "default": 0
+        },
+        {
+            "type": "select",
+            "id": "container",
+            "label": { "en": "Content width", "ja": "コンテンツ幅"},
+            "default": "boxed",
+            "options": [
+                {
+                    "value": "fullwidth",
+                    "label": { "en": "Fullwidth", "ja": "フル幅"}
+                },
+                {
+                    "value": "boxed",
+                    "label": { "en": "Boxed", "ja": "ボックス幅"}
+                }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "show_separator",
+            "label": { "en": "Show separator", "ja": "セパレーターを表示"},
+            "default": false
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": { "en": "Title", "ja": "タイトル"}
+        },
+        {
+            "type": "header",
+            "content": { "en": "User manual", "ja": "ユーザーマニュアル"}
+        },
+        {
+            "type": "paragraph",
+            "content": { "en": "[Read user manual](https://misell-manual.wraptas.site/sections/spacer)", "ja": "[スペーサー](https://misell-manual.wraptas.site/sections/spacer)"}
+        }
+    ],
+    "presets": [
+            {
+                "name": { "en":"Spacer" , "ja": "スペーサー"},
+                "category": "1) Main building sections"
+            }
+        ]
+    }
+{% endschema %}

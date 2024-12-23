@@ -1,0 +1,120 @@
+/* text-transform:uppercase 削除 */
+
+/* theme-d.css記載分開始 */
+
+.spr-review-header-title {
+  text-transform: none !important;
+}
+
+.spr-form-label {
+  text-transform: none !important;
+}
+
+.tabs[data-type="mobile"] .tabs__body > div > span {
+  text-transform: none !important;
+}
+
+.product-page-info__description-title {
+  text-transform: none !important;
+}
+
+.one-product-info__quantity label {
+  text-transform: none !important;
+}
+
+.popup-account__authorized h5 {
+  text-transform: none !important;
+}
+
+.table-account td {
+  text-transform: none !important;
+}
+
+.tabs[data-type="horizontal"] .tabs__btn {
+  text-transform: none !important;
+}
+
+.product-options--type-footbar label {
+  text-transform: none !important;
+}
+
+/* theme-d.css 記載分終了 */
+
+/* theme-m.css 記載分開始 */
+
+.spr-review-header-title {
+  text-transform: none !important;
+}
+
+.spr-form-label {
+  text-transform: none !important;
+}
+
+.tabs[data-type="mobile"] .tabs__body > div > span {
+  text-transform: none !important;
+}
+
+.product-page-info__description-title {
+  text-transform: none !important;
+}
+
+.one-product-info__quantity label {
+  text-transform: none !important;
+}
+
+.popup-account__authorized h5 {
+  text-transform: none !important;
+}
+
+.table-account td {
+  text-transform: none !important;
+}
+
+.tabs[data-type="horizontal"] .tabs__body > div > span {
+  text-transform: none !important;
+}
+
+/* theme-m.css 記載分終了 */
+
+/* theme-skin-13.css 記載分開始 */
+
+.spr-summary-actions-newreview {
+  text-transform: none !important;
+}
+
+/* theme-skin-13.css 記載分終了 */
+
+/* その他箇所（検証ツールから書き出し）開始 */
+
+.text-uppercase {
+  text-transform: none !important;
+}
+
+.btn {
+  text-transform: none !important;
+}
+
+:root {
+  --menu-transform: none !important;
+  --vertical-menu-transform: none !important;
+  --menu-title-transform: none !important;
+  --menu-main-mobile-transform: none !important;
+}
+
+.product-page-info__title > *,
+.one-product-info__title > * {
+  text-transform: none !important;
+}
+
+.product-options--type-page label {
+  text-transform: none !important;
+}
+
+.product-options--type-page label {
+  text-transform: none !important;
+}
+
+.product-page-info__field label,
+.one-product-info__field label {
+  text-transform: none !important;
+}

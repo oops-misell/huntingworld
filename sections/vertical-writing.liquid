@@ -1,0 +1,614 @@
+{% style %}
+
+.vertical-section {
+    width: 100vw;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.vertical-grid-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 500px));
+    padding: 30px;
+    justify-content: {{section.settings.item_position}};
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    overflow: hidden;
+    direction: rtl;
+}
+
+@media screen and (max-width: 768px) {
+    .vertical-grid-container {
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+    }
+
+    .mobile-hide {
+        display: none !important;
+    }
+}
+
+.vertical-grid-item {
+
+    display: grid;
+    grid-auto-flow: row;
+    gap: 10px; 
+    border-radius: 3px;
+    box-sizing: border-box;
+    line-height: 33px;
+    padding: 20px;
+    max-height: 600px;
+    font-family: 'Noto Serif Jp', sans-serif;
+    overflow: hidden;
+    direction: ltr;
+
+}
+.vertical-writing {
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+
+@media screen and (max-width:768px) {
+    .horizontal-writing {
+        -ms-writing-mode: tb-lr;
+        writing-mode: unset;
+        text-orientation: unset;
+    }
+}
+
+.vertical-grid-item h1 {
+    color: {{- section.settings.heading_color -}};
+    font-size: 30px;
+    line-height: 52px;
+    font-weight: 500;
+    margin: 0;
+	justify-self: start;
+}
+
+.vertical-grid-item p {
+    color: {{- section.settings.font_color -}};
+    font-size: 15px;
+    margin: 0;
+}
+
+.vertical-grid-item .vertical-text-button {
+    place-self: end;
+}
+
+.vertical-grid-item .vertical-text-button a {
+    padding: 10px;
+    display: block;
+    height: fit-content;
+    color: black;
+}
+
+.vertical-grid-item a {
+
+    cursor: pointer;
+    width: 100%;
+    margin: auto 0 0;
+    padding: 5px;
+    border: 2px solid;
+
+    border-radius: 5px;
+
+    text-decoration: none;
+
+    text-align: center;
+    font-size: 1.1rem;
+    vertical-align: middle;
+
+    transition: 100ms ease-in;
+
+}
+
+.vertical-grid-item a:hover {
+    transform: scale(1.05)
+}
+
+.vertical-img-container {
+    display: grid;
+    place-items: center;
+}
+
+.vertical-img-container > img {
+    border-radius: 5px;
+    max-height: 400px;
+    max-width: 400px;
+    border-radius: 3px;
+}
+
+.img-place-holder {
+    height: 300px;
+    border: 5px solid grey;
+    background-color: white;
+    border-radius: 5px;
+}
+
+{% endstyle %}
+
+<div 
+    class="vertical-section" 
+    style="
+    {% if section.settings.bg_image != blank %}
+    background-size: cover;
+    background-image:url('{{- section.settings.bg_image | img_url: "2048x2048", format:'pjpg' -}}');
+    background-position: center;
+    background-repeat; no-repeat;
+    {% endif %}
+    
+    {% if section.settings.bg_repeat == true %}
+    background-image: url('{{- section.settings.bg_image | img_url: "medium", format:'pjpg' -}}');
+    background-size: {{ section.settings.bg_img_height }}px;
+    background-repeat: repeat;    
+    {% endif %}
+
+    min-height: {{ section.settings.section_min_height }}vh;
+    {% if section.settings.container == "boxed" %}
+    max-width: 1170px;
+    {% else %}
+    max-width: unset;
+    {% endif %}
+    ">
+
+        <div class="vertical-grid-container"
+        style="
+        min-height: {{ section.settings.section_min_height}}vh;
+        {%- assign bg_color_opacity = section.settings.bg_opacity -%}
+        {% if section.settings.bg_color != blank %}
+        background-color: {{section.settings.bg_color | color_modify:'alpha', bg_color_opacity}};
+        {% endif %}
+        ">
+
+        {%- for block in section.blocks -%}
+            {%- case block.type  -%}
+
+                {%- when "text_card_with_btn" -%}
+                    {%- assign bg_opacity = block.settings.bg_opacity -%}
+                        <div class="
+                        vertical-grid-item 
+                        vertical-writing 
+                        {% if block.settings.mobile_hide == true %} mobile-hide {% endif %}
+                        {% if block.settings.horizontal_writing_on_mobile == true%}
+                        horizontal-writing
+                        {% endif %}
+                        " 
+                        style="
+                        background-color: {{ block.settings.item_bg_color | color_modify:'alpha', bg_opacity }};
+                        height: {{- block.settings.height -}}px"
+                        >
+
+                          <h1 style="color: {{ block.settings.h1_color }}">{{- block.settings.title -}}</h1>
+                          <p style="color: {{ block.settings.textarea_color }}">{{- block.settings.textarea | truncate: 200, '...' -}}</p>
+
+                            {% if block.settings.button_text != blank %}
+                            <div class="vertical-text-button" >
+                                <a href="{{- block.settings.button_url -}}" 
+                                style="color: {{ block.settings.button_text_color }};background-color: {{ block.settings.button_bg_color }}; 
+                                border-color:{{ block.settings.button_border_color}}"
+                                >{{- block.settings.button_text -}}</a>
+                            </div>
+                            {% endif %}
+                        
+                        </div>
+
+                {%- when "image_card" -%}
+                    <div>
+                        <div class="vertical-grid-item {% if block.settings.mobile_hide == true %} mobile-hide{% endif %}">
+                            <div class="vertical-img-container">
+                                {% if block.settings.image != blank %}
+                                <img src="{{- block.settings.image | img_url: 'grande',format: 'pjpg' -}}" alt="{{- block.settings.title -}}">
+                                {% else %}
+                                {{ 'collection-5' | placeholder_svg_tag: "img-place-holder" }}   
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {%- else -%}
+                    
+            {% endcase %}
+        {% endfor %}
+    </div>
+</div>
+
+
+{% schema %}
+{
+    "name":{
+       "en":"Vertical Writing Section",
+       "ja":"縦書きのセクション"
+    },
+    "settings":[
+       {
+          "type":"header",
+          "content":{
+             "en":"Section Setting",
+             "ja":"縦書きのセクション設定"
+          }
+       },
+       {
+          "type":"select",
+          "id":"container",
+          "label":{
+             "en":"section width",
+             "ja":"セクションの幅"
+          },
+          "default":"fullwidth",
+          "options":[
+             {
+                "value":"fullwidth",
+                "label":{
+                   "en":"FullWith",
+                   "ja":"フル幅"
+                }
+             },
+             {
+                "value":"boxed",
+                "label":{
+                   "en":"Boxed",
+                   "ja":"ボックス幅"
+                }
+             }
+          ]
+       },
+       {
+          "type":"color",
+          "id":"bg_color",
+          "label":{
+             "en":"Background color",
+             "ja":"背景の色"
+          },
+          "default":"#ffffff",
+          "info":{
+             "en":"Section's background color or mask's color",
+             "ja":"セクション背景の色。または背景のカラーマスクの色。"
+          }
+       },
+       {
+          "type":"image_picker",
+          "id":"bg_image",
+          "label":{
+             "en":"Background image",
+             "ja":"背景画像"
+          }
+       },
+       {
+          "type":"range",
+          "id":"bg_opacity",
+          "label":{
+             "en":"Opacity of color mask",
+             "ja":"背景のカラーマスクの透明度"
+          },
+          "min":0,
+          "max":1,
+          "step":0.1,
+          "default":0.3,
+          "info":{
+             "en":"0 is transparent, 1 is opaque",
+             "ja":"0で透明・1で不透明"
+          }
+       },
+       {
+          "type":"checkbox",
+          "id":"bg_repeat",
+          "label":{
+             "en":"Repeat background image",
+             "ja":"背景画像の繰り返し"
+          },
+          "default":false,
+          "info":{
+             "en":"Repeat background image when using texture type image",
+             "ja":"背景画像を繰り返す。テクスチャ系の画像を使用する場合。"
+          }
+       },
+       {
+          "type":"range",
+          "id":"bg_img_height",
+          "label":{
+             "en":"Height of image when repeating image",
+             "ja":"バックグラウンドの高さ(繰り返し時)"
+          },
+          "unit":"px",
+          "min":100,
+          "max":500,
+          "step":10,
+          "default":100
+       },
+       {
+          "type":"range",
+          "id":"section_min_height",
+          "label":{
+             "en":"Section's minimum height",
+             "ja":"セクションの高さの最小値"
+          },
+          "unit":"vh",
+          "min":30,
+          "max":100,
+          "step":10,
+          "default":60,
+          "info":{
+             "en":"You can decide minimum height of section. Default is 50vh",
+             "ja":"セクションの高さの最小値を決められます。デフォルトでは｢50vh｣で画面全体のちょうど50%が最小の高さになります。"
+          }
+       },
+       {
+          "type":"header",
+          "content":{
+             "en":"Position of block",
+             "ja":"ブロックの位置"
+          }
+       },
+       {
+          "type":"select",
+          "id":"item_position",
+          "label":{
+             "en":"Block's position",
+             "ja":"ブロックの位置"
+          },
+          "default":"center",
+          "options":[
+             {
+                "value":"start",
+                "label":{
+                   "en":"Start Right",
+                   "ja":"スタート 右"
+                }
+             },
+             {
+                "value":"center",
+                "label":{
+                   "en":"Center",
+                   "ja":"中央"
+                }
+             },
+             {
+                "value":"end",
+                "label":{
+                   "en":"End left",
+                   "ja":"エンド 左"
+                }
+             }
+          ]
+       }
+    ],
+    "blocks":[
+       {
+          "type":"text_card_with_btn",
+          "name":{
+             "en":"Text Card with Button",
+             "ja":"テキストカードボタン付き"
+          },
+          "settings":[
+             {
+                "type":"text",
+                "id":"title",
+                "label":{
+                   "en":"Title",
+                   "ja":"タイトル"
+                },
+                "default":{
+                   "en":"Text Card Title",
+                   "ja":"タイトル"
+                },
+                "info":{
+                   "en":"if you do not want to show, make it blank",
+                   "ja":"表示しない場合は空欄にしてください。"
+                }
+             },
+             {
+                "type":"header",
+                "content":{
+                   "en":"Text",
+                   "ja":"テキスト"
+                }
+             },
+             {
+                "type":"textarea",
+                "id":"textarea",
+                "label":{
+                   "en":"Paragraph",
+                   "ja":"文章内容"
+                },
+                "default":"2022年 縦書き文章のデフォルト。ボタン付き。縦書き文章のデフォルト。ボタン付き。縦書き文章のデフォルト。ボタン付き。縦書き文章のデフォルト。ボタン付き。縦書き文章のデフォルト。ボタン付き。縦書き文章のデフォルト。ボタン付き。縦書き文章のデフォルト。ボタン付き。",
+                "info":{
+                   "en":"On mobile, longer sentences may cause the layout to break up. Check to hide the block on Mobile.",
+                   "ja":"文字数が多いとモバイルなどの小さい画面では表示が崩れる場合があります。モバイルでは表示しないをチェックしてください。"
+                }
+             },
+             {
+                "type":"color",
+                "id":"h1_color",
+                "label":{
+                   "en":"Heading color",
+                   "ja":"見出しの色"
+                }
+             },
+             {
+                "type":"color",
+                "id":"textarea_color",
+                "label":{
+                   "en":"Text color",
+                   "ja":"テキストの色"
+                }
+             },
+             {
+                "type":"header",
+                "content":{
+                   "en":"Button Setting",
+                   "ja":"ボタンの設定"
+                }
+             },
+             {
+                "type":"text",
+                "id":"button_text",
+                "label":{
+                   "en":"Button Text",
+                   "ja":"ボタンのテキスト"
+                },
+                "default":{
+                   "en":"Button Text",
+                   "ja":"ボタンテキスト"
+                },
+                "info":{
+                   "en":"when you want to hide the button, make it blank",
+                   "ja":"表示したくない場合は空欄にしてください。"
+                }
+             },
+             {
+                "type":"color",
+                "id":"button_text_color",
+                "label":{
+                   "en":"Button text color",
+                   "ja":"ボタンテキストの色"
+                }
+             },
+             {
+                "type":"url",
+                "id":"button_url",
+                "label":{
+                   "en":"URL",
+                   "ja":"ボタンのURL"
+                }
+             },
+             {
+                "type":"color",
+                "id":"button_bg_color",
+                "label":{
+                   "en":"Button background color",
+                   "ja":"ボタンの背景色"
+                }
+             },
+             {
+                "type":"color",
+                "id":"button_border_color",
+                "label":{
+                   "en":"Button border color",
+                   "ja":"ボタンの枠線の色"
+                }
+             },
+             {
+                "type":"header",
+                "content":{
+                   "en":"Setting on mobile",
+                   "ja":"モバイルでの設定"
+                }
+             },
+             {
+                "type":"checkbox",
+                "id":"mobile_hide",
+                "label":{
+                   "en":"Hide on mobile",
+                   "ja":"モバイルでは隠す"
+                },
+                "default":false
+             },
+             {
+                "type":"checkbox",
+                "id":"horizontal_writing_on_mobile",
+                "label":{
+                   "en":"Horizontal writing on mobile",
+                   "ja":"モバイルでは横書き"
+                },
+                "default":false,
+                "info":{
+                   "en":"Check to make it horizontal writing mode on mobile when vertical writing layout to break up",
+                   "ja":"文字数によりモバイルで縦書きレイアウトが崩れる場合は、ここにチェックをいれて横書きにもどしてください。モバイルでは横書きで表示されるようになります。"
+                }
+             },
+             {
+                "type":"header",
+                "content":{
+                   "en":"Setting for block's background ",
+                   "ja":"ブロックの背景設定"
+                }
+             },
+             {
+                "type":"color",
+                "id":"item_bg_color",
+                "label":{
+                   "en":"Block background color",
+                   "ja":"ブロック背景色"
+                }
+             },
+             {
+                "type":"range",
+                "id":"bg_opacity",
+                "label":{
+                   "en":"Block background color opacity",
+                   "ja":"ブロック背景色透明度"
+                },
+                "min":0,
+                "max":1,
+                "step":0.1,
+                "default":1,
+                "info":{
+                   "en":"0 is transparent, 1 is opaque",
+                   "ja":"0で透明 - 1で不透明"
+                }
+             },
+             {
+                "type":"range",
+                "id":"height",
+                "label":{
+                   "en":"Block height",
+                   "ja":"ブロックの高さ"
+                },
+                "unit":"px",
+                "min":300,
+                "max":600,
+                "step":20,
+                "default":400
+             }
+          ]
+       },
+       {
+          "type":"image_card",
+          "name":{
+             "en":"image Card",
+             "ja":"画像カード"
+          },
+          "settings":[
+             {
+                "type":"text",
+                "id":"title",
+                "label":{
+                   "en":"Title",
+                   "ja":"タイトル"
+                },
+                "default":"タイトル",
+                "info":{
+                   "en":"This title is for block's name, the image card itself does not show title",
+                   "ja":"画像カードにタイトルは表示されません。"
+                }
+             },
+             {
+                "type":"image_picker",
+                "id":"image",
+                "label":{
+                   "en":"image",
+                   "ja":"画像"
+                }
+             },
+             {
+                "type":"checkbox",
+                "id":"mobile_hide",
+                "label":{
+                   "en":"Hide on mobile",
+                   "ja":"モバイルでは隠す"
+                },
+                "default":false
+             }
+          ]
+       }
+    ],
+    "presets":[
+       {
+          "name":{ "en": "Vertical writing section", "ja": "縦書きセクション"},
+          "category":"Image and Text"
+       }
+    ]
+ }
+{% endschema %}
