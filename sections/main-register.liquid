@@ -54,6 +54,19 @@
              placeholder="{{ 'customer.register.password_placeholder' | t }}"
              required="required">
       {% include 'form-get-message' %}
+
+{% comment %}　会員登録フォームへの項目追加　AMS　{% endcomment %}
+      
+      <div class="title"> 
+  <input type="checkbox" name="customer[accepts_marketing]" id="RegisterForm-accepts_marketing" checked> 
+  <label for="RegisterForm-accepts_marketing"> メールマガジンを受け取る </label> 
+</div>
+
+      {% assign line_break = '<br>' %}
+{{ line_break }}
+
+{% comment %}　会員登録フォームへの項目追加ここまで　AMS　{% endcomment %}
+      
       <div class="text-center">
         <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn btn--full btn--secondary">
         <a href="{{ shop.url }}" class="h6 btn-link mt-20 mb-0">{{ 'customer.register.cancel' | t }}</a>
