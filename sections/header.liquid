@@ -1040,7 +1040,7 @@
             {%- if section.settings.menu != blank or section.settings.vertical_menu != blank -%}
                 <span class="header__btn-menu d-flex align-items-center d-lg-none mr-20 cursor-pointer js-popup-button" data-js-popup-button="navigation">
                     {%- if settings.search_show -%}
-                        <i class="mt-3">{% render 'icon-theme-321' %}</i>
+                        <i class="mt-3">{% render 'icon-hw-search2' %}</i>
                     {%- else -%}
                         <i>{% render 'icon-theme-191' %}</i>
                     {%- endif -%}
@@ -1087,7 +1087,7 @@
                         {%- if customer -%}
                             <div class="ssw-tprofile ssw-dropdown">
                                 <a class="ssw-dropdown-toggle header__btn-account d-flex{% if section.settings.type == '5' or section.settings.type == '6' or section.settings.type == '7' %} d-lg-none{% endif %} align-items-center position-relative ml-25 ml-lg-15" data-toggle="ssw-dropdown" href="javascript:void(0);">
-                                    <i>{% render 'icon-theme-201' %}</i>
+                                    <i>{% render 'icon-hw-account' %}</i>
                                 </a>
                                 <ul class="ssw-dropdown-menu" role="menu" aria-labelledby="dLabel">
                                     <li id="customer_myorders_li"><a tabindex="-1" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}">{{ 'socialshopwave.my_orders' | t }}</a></li>
@@ -1097,7 +1097,7 @@
                                 </ul>
                             </div>
                         {%- else -%}
-                            <a id="customer_login_link" class="header__btn-account d-flex{% if section.settings.type == '5' or section.settings.type == '6' or section.settings.type == '7' %} d-lg-none{% endif %} align-items-center position-relative ml-25 ml-lg-15" href="javascript:void(0);" data-toggle="ssw-modal" data-target="#login_modal" onclick="trackShopStats('login_popup_view', 'all')"><i>{% render 'icon-theme-201' %}</i></a>
+                            <a id="customer_login_link" class="header__btn-account d-flex{% if section.settings.type == '5' or section.settings.type == '6' or section.settings.type == '7' %} d-lg-none{% endif %} align-items-center position-relative ml-25 ml-lg-15" href="javascript:void(0);" data-toggle="ssw-modal" data-target="#login_modal" onclick="trackShopStats('login_popup_view', 'all')"><i>{% render 'icon-hw-account' %}</i></a>
                         {%- endif -%}
                     </div>
                 {%- else -%}
@@ -1110,7 +1110,7 @@
                             data-tippy-distance="6"
                         {%- endif -%}
                     >
-                        <i>{% render 'icon-theme-201' %}</i>
+                        <i>{% render 'icon-hw-account' %}</i>
                     </a>
                 {%- endif -%}
             {%- endif -%}
@@ -1330,7 +1330,7 @@
                 {%- if section.settings.type == '1' -%}
                     <span class="mr-lg-7">{{ 'layout.header.search' | t }}</span>
                 {%- endif -%}
-                    <i>{% render 'icon-theme-168' %}</i>
+                    <i>{% render 'icon-hw-search' %}</i>
                 </a>
             {%- endif -%}
         {%- endcapture -%}
@@ -1562,7 +1562,7 @@
                                                 <input type="search" class="pl-35 pr-15 mb-0" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}">
                                                 <input type="hidden" name="options[prefix]" value="last"/>
                                                 <button type="reset" class="d-none" aria-label="{{ 'general.search.reset' | t }}">{{ 'general.search.reset' | t }}</button>
-                                                <i class="position-absolute left-0 ml-10">{% render 'icon-theme-168' %}</i>
+                                                <i class="position-absolute left-0 ml-10">{% render 'icon-hw-search' %}</i>
                                                 {%- if settings.search_predictive_enabled -%}
                                                     <div class="search-ajax__content position-absolute flex-column w-100 left-0 right-0 top-100 px-20 overflow-hidden">
                                                         <div class="search-ajax__result py-20 d-none-important" data-predictive-search></div>
@@ -1701,7 +1701,7 @@
                                                 <input type="search" class="pl-35 pr-15 mb-0" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}">
                                                 <input type="hidden" name="options[prefix]" value="last"/>
                                                 <button type="reset" class="d-none" aria-label="{{ 'general.search.reset' | t }}">{{ 'general.search.reset' | t }}</button>
-                                                <i class="position-absolute left-0 ml-10">{% render 'icon-theme-168' %}</i>
+                                                <i class="position-absolute left-0 ml-10">{% render 'icon-hw-search' %}</i>
                                                 {%- if settings.search_predictive_enabled -%}
                                                     <div class="search-ajax__content position-absolute flex-column w-100 left-0 right-0 top-100 px-20 overflow-hidden">
                                                         <div class="search-ajax__result py-20 d-none-important" data-predictive-search></div>
@@ -1827,7 +1827,7 @@
                                                     <input type="search" class="pl-35 pr-15 mb-0" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}">
                                                     <input type="hidden" name="options[prefix]" value="last"/>
                                                     <button type="reset" class="d-none" aria-label="{{ 'general.search.reset' | t }}">{{ 'general.search.reset' | t }}</button>
-                                                    <i class="position-absolute left-0 ml-10">{% render 'icon-theme-168' %}</i>
+                                                    <i class="position-absolute left-0 ml-10">{% render 'icon-hw-search' %}</i>
                                                     {%- if settings.search_predictive_enabled -%}
                                                         <div class="search-ajax__content position-absolute flex-column w-100 left-0 right-0 top-100 px-20 overflow-hidden">
                                                             <div class="search-ajax__result py-20 d-none-important" data-predictive-search></div>
