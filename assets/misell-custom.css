@@ -9,6 +9,11 @@ blockquote {
   font-style: var(--heading-style) !important;
 }
 
+.custom_variant_item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 /* 問い合わせ確認のポップアップの背景カラーを変更 */
 :root {
   --theme2: #ffffff; /* 白に変更 */

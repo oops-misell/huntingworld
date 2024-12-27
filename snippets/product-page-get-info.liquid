@@ -75,9 +75,11 @@
             {%- if settings.product_info_show_sku or settings.product_info_show_barcode or settings.product_info_show_availability or settings.product_info_show_type or settings.product_info_show_vendor -%}
                 <div class="product-page-info__details mb-25{% if settings.product_info_text_left_align_mobile %} text-left{% else %} text-center{% endif %}{% unless centered %} text-md-left{% endunless %}" {{ block.shopify_attributes }}>
                     {%- if settings.product_info_show_sku -%}
-                        <div class="product-page-info__sku{% if sku == blank %} d-none-important{% endif %} mb-5">
-                            <p class="m-0" data-js-product-sku>{{ 'products.product.sku' | t }}: <span>{{ sku }}</span></p>
-                        </div>
+                        {% unless section.settings.variant_add_cart %}
+                            <div class="product-page-info__sku{% if sku == blank %} d-none-important{% endif %} mb-5">
+                                <p class="m-0" data-js-product-sku>{{ 'products.product.sku' | t }}: <span>{{ sku }}</span></p>
+                            </div>
+                        {% endunless %}
                     {%- endif -%}
                     {%- if settings.product_info_show_barcode -%}
                         <div class="product-page-info__barcode{% if barcode == blank %} d-none-important{% endif %} mb-5">
@@ -240,20 +242,22 @@
             {%- when 'border' -%}
             <div class="product-page-info__border border-top border--dashed my-25" {{ block.shopify_attributes }}></div>
             {%- when 'options' -%}
-            {%- if settings.product_show_custom_options -%}
-                {%- unless product.has_only_default_variant -%}
-                    <div class="product-page-info__options mb-15" {{ block.shopify_attributes }}>
-                        {%- unless is_quick_view -%}
-                            {%- assign trigger_id = 'footbar' -%}
-                        {%- endunless -%}
-                        {% include 'product-get-options' with options_type: 2 centered: centered options_show_title: true change_history: change_history %}
-                    </div>
-                {%- endunless -%}
-                {{ variants_select_html }}
-            {%- else -%}
-                {{ variants_select_html | remove: 'd-none' }}
-            {%- endif -%}
-            {%- assign variants_select_html = blank -%}
+                <div class="product_option_top {% if section.settings.variant_add_cart %} d-none {% endif %}"  >
+                {%- if settings.product_show_custom_options -%}
+                    {%- unless product.has_only_default_variant -%}
+                        <div class="product-page-info__options mb-15" {{ block.shopify_attributes }}>
+                            {%- unless is_quick_view -%}
+                                {%- assign trigger_id = 'footbar' -%}
+                            {%- endunless -%}
+                            {% include 'product-get-options' with options_type: 2 centered: centered options_show_title: true change_history: change_history %}
+                        </div>
+                    {%- endunless -%}
+                    {{ variants_select_html }}
+                {%- else -%}
+                    {{ variants_select_html | remove: 'd-none' }}
+                {%- endif -%}
+                {%- assign variants_select_html = blank -%}
+              </div>
             {%- when 'popups' -%}
             {%- assign show_size_guide = settings.product_info_show_size_guide -%}
             {%- assign show_delivery_return = settings.product_info_show_delivery_return -%}
@@ -288,30 +292,35 @@
                 <textarea id="notes" form="{{ product_form_id }}" name="properties[{{ 'products.product.notes_label' | t }}]" placeholder="{{ 'products.product.notes_placeholder' | t }}" class="mb-0"></textarea>
             </div>
             {%- when 'buttons_quantity' -%}
-            {% capture cart_icon_name %}{{ settings.cart_icon | default: 'icon-theme-109' }}{% endcapture %}
-            {%- if settings.product_info_button_layout != '3' and settings.product_info_show_quantity-%}
-                <div class="product-page-info__quantity product-page-info__field mb-20{% if centered %} product-page-info__section--max-width mx-md-auto{% endif %}" {{ block.shopify_attributes }}>
-                    {%- unless is_quick_view -%}
-                        {%- assign quantity_connect = 'footbar' -%}
-                    {%- endunless -%}
-                    {% render 'product-get-quantity' with quantity_show_title: true quantity_connect: quantity_connect, product_form_id: product_form_id %}
-                </div>
-            {%- endif -%}
-            {%- assign has_selling_plan = false -%}
-            {% capture selling_plan_html %}
-                {% for variant in product.variants %}
-                    <optgroup label="{{ variant.title }}">
-                        {% for allocation in variant.selling_plan_allocations %}
-                            {%- assign has_selling_plan = true -%}
-                            <option value="{{ allocation.selling_plan.id }}">
-                                {{ allocation.selling_plan.name }}
-                            </option>
-                        {% endfor %}
-                    </optgroup>
-                {% endfor %}
-            {% endcapture %}
-            <select name="selling_plan"{% unless settings.product_info_show_selling_plan and has_selling_plan %} class="d-none"{% endunless %}>{{ selling_plan_html }}</select>
-            {% include 'product-page-get-buttons' with product_form_id: product_form_id %}
+                {% if section.settings.variant_add_cart %}
+                    {% render 'variant-buy-items' %}
+                {% endif %}
+            <div class="buttons_quantity_area  {% if section.settings.variant_add_cart %} d-none {% endif %}">
+                {% capture cart_icon_name %}{{ settings.cart_icon | default: 'icon-theme-109' }}{% endcapture %}
+                {%- if settings.product_info_button_layout != '3' and settings.product_info_show_quantity-%}
+                    <div class="product-page-info__quantity product-page-info__field mb-20{% if centered %} product-page-info__section--max-width mx-md-auto{% endif %}" {{ block.shopify_attributes }}>
+                        {%- unless is_quick_view -%}
+                            {%- assign quantity_connect = 'footbar' -%}
+                        {%- endunless -%}
+                        {% render 'product-get-quantity' with quantity_show_title: true quantity_connect: quantity_connect, product_form_id: product_form_id %}
+                    </div>
+                {%- endif -%}
+                {%- assign has_selling_plan = false -%}
+                {% capture selling_plan_html %}
+                    {% for variant in product.variants %}
+                        <optgroup label="{{ variant.title }}">
+                            {% for allocation in variant.selling_plan_allocations %}
+                                {%- assign has_selling_plan = true -%}
+                                <option value="{{ allocation.selling_plan.id }}">
+                                    {{ allocation.selling_plan.name }}
+                                </option>
+                            {% endfor %}
+                        </optgroup>
+                    {% endfor %}
+                {% endcapture %}
+                <select name="selling_plan"{% unless settings.product_info_show_selling_plan and has_selling_plan %} class="d-none"{% endunless %}>{{ selling_plan_html }}</select>
+                {% include 'product-page-get-buttons' with product_form_id: product_form_id %}
+            </div>
             {%- when 'free_shipping' -%}
             {%- if settings.cart_show_free_shipping -%}
                 <div class="product-page-info__free-shipping mb-40" {{ block.shopify_attributes }}>

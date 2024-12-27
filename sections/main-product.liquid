@@ -73,6 +73,236 @@
 	</script>
 {%- endif -%}
 
+{% if section.settings.variant_add_cart %} 
+<script>
+  // Create a custom object in the window to handle product page functionality
+  window.ProductPageVariantHandler = {
+    // Function to update the data-variant attribute
+    updateVariant: function() {
+      const singleProduct = this.closest('single-product');
+      if (singleProduct) {
+        const variantValue = this.getAttribute('data-variant-id');
+        singleProduct.setAttribute('data-product-variant-id', variantValue);
+      }
+    },
+
+    // Function to initialize event listeners for each c_form element
+    initVariantListeners: function() {
+      document.querySelectorAll('.c_form').forEach(function(image) {
+        // Add event listeners for mouseover (desktop) and touchstart (mobile)
+        image.addEventListener('mouseover', window.ProductPageVariantHandler.updateVariant);
+        image.addEventListener('touchstart', window.ProductPageVariantHandler.updateVariant);
+      });
+    },
+
+    // Function to check and update wishlist status
+    updateWishlistStatus: function() {
+      {% if customer %}
+        let customer_wishlist = 'wishlist-customer-' + '{{ customer.id }}';
+        let item_wishlist = JSON.parse(localStorage.getItem(customer_wishlist)) || [];
+      {% else %}
+        let item_wishlist = JSON.parse(localStorage.getItem('wishlist-guest')) || [];
+      {% endif %}
+
+      // Loop through all c_form elements
+      document.querySelectorAll('.c_form').forEach(function(form) {
+        const variantId = form.getAttribute('data-variant-id');
+        const variantExists = item_wishlist.some(function(item) {
+          return item.hasOwnProperty(variantId);
+        });
+
+        // Remove existing classes and add appropriate class based on wishlist status
+        form.classList.remove('in_wishlist', 'not_in_wishlist');
+        if (variantExists) {
+          form.classList.add('in_wishlist');
+          const wishlistButton = form.querySelector('.js-store-lists-add-wishlist');
+          if (wishlistButton) {
+            wishlistButton.setAttribute('data-button-status', 'added');
+          }
+        } else {
+          form.classList.add('not_in_wishlist');
+          const wishlistButton = form.querySelector('.js-store-lists-add-wishlist');
+          if (wishlistButton) {
+            wishlistButton.removeAttribute('data-button-status');
+          }
+        }
+      });
+    },
+
+    // Function to initialize wishlist event listeners
+    initWishlistListeners: function() {
+      document.querySelectorAll('.c_form').forEach(function(form) {
+        form.addEventListener('click', function() {
+          // Delay the check by 100ms after the click
+          setTimeout(window.ProductPageVariantHandler.updateWishlistStatus, 100);
+        });
+      });
+    },
+
+    // Variant group area handling (shop_toggler and cartClose)
+    VariantGroupHandler: {
+      // Function to add 'active' class
+      addActiveClass: function() {
+        const variantGroupArea = document.getElementById('variantGroupArea');
+        if (variantGroupArea) {
+          variantGroupArea.classList.add('active');
+          document.body.classList.add('variantCartShowing'); 
+        }
+      },
+
+      // Function to remove 'active' class
+      removeActiveClass: function() {
+        const variantGroupArea = document.getElementById('variantGroupArea');
+        if (variantGroupArea) {
+          variantGroupArea.classList.remove('active');
+          document.body.classList.remove('variantCartShowing'); 
+        }
+      },
+
+      // Initialize the event listeners for toggling active class
+      init: function() {
+        const shopToggler = document.querySelector('.shop_toggler');
+        
+        // Attach event listener for shop toggler
+        if (shopToggler) {
+          shopToggler.addEventListener('click', window.ProductPageVariantHandler.VariantGroupHandler.addActiveClass);
+        }
+
+        // Event delegation for cartClose (handle hidden elements)
+        document.addEventListener('click', function(event) {
+          if (event.target && event.target.id === 'cartClose') {
+            window.ProductPageVariantHandler.VariantGroupHandler.removeActiveClass();
+          }
+        });
+      }
+    },
+
+    // Initialize all functions
+    init: function() {
+      // Initialize variant event listeners
+      this.initVariantListeners();
+
+      // Initialize wishlist status on page load
+      document.addEventListener('DOMContentLoaded', this.updateWishlistStatus);
+
+      // Initialize wishlist click listeners
+      this.initWishlistListeners();
+
+      // Initialize variant group area toggling
+      this.VariantGroupHandler.init();
+    }
+  };
+
+  // Initialize the ProductPageVariantHandler when the document is ready
+  window.ProductPageVariantHandler.init();
+</script>
+
+
+
+  <style> 
+    .c_form
+    .item_added_to_wishlist,
+    .c_form
+    .item_add_to_wishlist{
+      display: none !important; 
+    }
+     
+    .c_form.not_in_wishlist
+    .item_add_to_wishlist{
+      display: block !important; 
+    }
+    .c_form.in_wishlist
+    .item_added_to_wishlist{
+      display: block !important; 
+    }
+    .custom_variant_item {
+  display: grid;
+  grid-template-columns: 70px 1fr 1fr;
+  gap: 10px;
+}
+.c_image {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.c_image img {
+  object-fit: cover;
+  object-position: center center;
+  height: 100%;
+  width: 100%;
+}
+.c_image img[src=""] {
+  display: none;
+}
+@media all and (max-width: 769px) {
+  .shop_toggler{ 
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+    left: 0;
+  }
+  #variantGroupArea {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    padding: 20px;
+    background: #000000ad;
+    height: 100%;
+    overflow: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  #variantGroupArea .custom_variant_group {
+    background: #fff;
+    padding: 20px 10px 10px;
+    border-radius: 5px;
+    max-height: 80vh; 
+    overflow: auto !important;
+    overflow-y: auto !important;
+    display: block !Important; 
+    
+  }
+  #variantGroupArea.active {
+    visibility: visible;
+    opacity: 1; 
+  }
+  .variantCartShowing .header__content--sticky {
+    z-index: 1 !important;
+  }
+  .custom_variant_item {
+    grid-template-columns: 50px 1fr 1fr;
+    gap: 5px;
+  }
+  .custom_variant_group form:last-child {
+    margin-bottom: 0;
+  }
+  .custom_variant_group .c_form .pb-15 {
+    padding-bottom: 0 !important;
+  }
+  #variantGroupArea #cartClose {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    border-radius: 3px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    border: #fff;
+    box-shadow: 0 0 3px #e3e3e3;
+  }
+}
+  </style>
+  {% endif %}
+
+
 <script type="application/ld+json">
   {{ product | structured_data }}
 </script>
@@ -173,6 +403,11 @@
 {
     "name": "t:sections.product_page.name",
     "settings": [
+        {
+            "type": "checkbox",
+            "id": "variant_add_cart",
+            "label": "Variant add to cart style"
+        },
         {
             "type": "header",
             "content": "t:sections.product_page.settings.header__1.content"

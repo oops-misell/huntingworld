@@ -1,0 +1,41 @@
+ 
+ <div class="product_variant_group_area product-page-info__button-add-to-cart mb-15">
+    <div class="shop_toggler d-md-none"> <button  class="mobileToggler btn btn--full btn--status btn--animated  "><i class="btn__icon mr-5 mb-4">{% render cart_icon_name %}</i><span class="btn__text">{{ 'products.product.add_to_cart.title' | t }}</span></button></div>
+   <div  id="variantGroupArea">
+        <div class=" d-md-none mb-20 text-right">  <button id="cartClose"  class="cartClose btn   btn--animated ">X</button></div>
+    <div class="custom_variant_group" >
+        {% for variant in product.variants %}
+                 
+                <form action="/cart/add" method="post" id="product-form-{{ variant.id }}">
+                  <div class="custom_variant_item"  >
+                      <div class="c_image">{% if variant.image.src != blank %}{{ variant.image.src | img_url: '100x' | img_tag }}{% endif %}</div>
+                      <div class="c_title">
+                        
+                              {%- assign quantity = variant.inventory_quantity -%}  
+                              {%- assign price = variant.price -%}
+                              {%- assign compare_at_price = variant.compare_at_price -%}
+                              {%- assign available = variant.available -%} 
+                            {%- if quantity == 1 -%}
+                                {%- capture item -%}{{ 'layout.cart.items_count.one' | t }}{%- endcapture -%}
+                            {%- else -%}
+                                {%- capture item -%}{{ 'layout.cart.items_count.other' | t }}{%- endcapture -%}
+                            {%- endif -%}
+                         <span>{{ variant.title }}</span><br>
+                         <span >{% if available %}{% if quantity > 0 %}{{ 'products.product.availability_value_in_stock' | t: count: quantity, item: item }}{% else %}{{ 'products.product.availability_value_in_stock_without_counter' | t }}{% endif %}{% else %}{{ 'products.product.availability_value_out_stock' | t }}{% endif %}</span>
+                      </div>
+                      <div class="c_form not_in_wishlist" data-variant-id="{{ variant.id }}">
+                            <input type="hidden" name="id" value="{{ variant.id }}" />
+                            
+                        {% assign product_form_id = 'product-form-' | append: variant.id %}
+                            <!-- Pass item_id (variant.id) into the render tag -->
+                            {% render 'product-page-get-variant-buttons' with product_form_id: product_form_id, item: variant, current_variant: variant  %}
+                      </div>
+                  </div> 
+          
+                </form> 
+    {% endfor %}
+     </div> 
+   </div> 
+ </div>
+
+  
