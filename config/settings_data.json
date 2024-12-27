@@ -106,7 +106,7 @@
     "product_collection_show_button_quick_view": false,
     "product_collection_show_countdown": true,
     "product_collection_show_images_navigation": true,
-    "product_collection_show_options": true,
+    "product_collection_show_options": false,
     "product_collection_show_quantity": false,
     "product_collection_show_button_add_to_cart": false,
     "product_collection_show_button_add_to_wishlist": false,
