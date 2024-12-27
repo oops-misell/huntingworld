@@ -258,3 +258,29 @@
     grid-row: 1 / 2;
   }
 }
+
+/* カート */
+@media (min-width: 1260px) {
+  .shopify-block.shopify-app-block {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+.css-omjl2m {
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+.css-19y8kao {
+  padding-left: 2em !important;
+}
+.css-1mayzt3 {
+  background: #050906 !important;
+}
+@media screen and (min-width: 30em) {
+  .css-fr88ow {
+    width: 100%;
+  }
+  .css-1l6q1ah {
+    width: 100%;
+  }
+}

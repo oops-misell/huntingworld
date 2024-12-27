@@ -149,17 +149,22 @@
                                                 <span>{{ 'general.popups.cart.checkbox_html' | t }}</span>
                                             </label>
                                         {%- endif -%}
+                                    
+                                        <div id="haisosm"></div>
 
-
+                                        {% for block in section.blocks %}
+                                            {% if block.type == '@app' %}
+                                                <div class="app-block">
+                                                    {% render block %}
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                        
                                         <input type="submit" class="btn btn--full btn--secondary input-checkbox-disable-body" name="checkout" value="{{ 'cart.general.checkout' | t }}">
                                     </div>
                                 </aside>
                             </div>
                         </div>
-
-                  <div id="haisosm"></div>
-
-                    
                     </form>
                 {%- endif -%}
             </div>
