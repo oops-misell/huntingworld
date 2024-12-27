@@ -55,18 +55,77 @@
              required="required">
       {% include 'form-get-message' %}
 
-{% comment %}　会員登録フォームへの項目追加　AMS　{% endcomment %}
-      
-      <div class="title"> 
-  <input type="checkbox" name="customer[accepts_marketing]" id="RegisterForm-accepts_marketing" checked> 
-  <label for="RegisterForm-accepts_marketing"> メールマガジンを受け取る </label> 
-</div>
+{% comment %} ▼▼▼追加設定 ※カスタムメタフィールドへはFlowで飛ばしている▼▼▼ {% endcomment %}
+  <div class="birthday-field">
+    <label for="RegisterForm-Birthdate" class="label-required">生年月日</label>
+    <input
+      type="date"
+      name="birthdate"
+      id="RegisterForm-Birthdate"
+      placeholder="YYYY-MM-DD"
+      value="{{ form.birthdate }}"
+      aria-required="true"
+      required="required"
+    >
+  </div>
 
-      {% assign line_break = '<br>' %}
-{{ line_break }}
+  <div class="gender-field">
+    <label for="RegisterForm-Gender" class="label-required">性別</label>
+    <select name="gender" id="RegisterForm-Gender" required="required">
+      <option value="" disabled selected>{{ section.settings.text_gender_label }}</option>
+      {% assign gender_options = section.settings.text_gender_options | split: ',' %}
+      {% for option in gender_options %}
+        <option value="{{ option | strip }}">{{ option | strip }}</option>
+      {% endfor %}
+    </select>
+  </div>
 
-{% comment %}　会員登録フォームへの項目追加ここまで　AMS　{% endcomment %}
-      
+  <input
+    type="hidden"
+    name="customer[note]"
+    id="customer-note"
+    value=""
+  >
+
+  {% if section.settings.show_marketing == true %}
+    <hr>
+    <div class="accepts-marketing">
+      <p class="d-flex align-center">
+        <input type="hidden" name="customer[accepts_marketing]" value="">
+        <input
+          type="checkbox"
+          id="accepts-marketing"
+          name="customer[accepts_marketing]"
+          class="checkbox"
+          checked
+        >
+        <label for="accepts-marketing">{{ section.settings.text_marketing }}</label>
+      </p>
+      <p>再入荷やコラボレーション、限定アイテムなどの新作情報、店舗イベント、フェアやセールオファーをいち早くお届けいたします。</p>
+      <p class="notice">※「docomo.ne.jp」、「ezweb.ne.jp」、「softbank.ne.jp」などのキャリアメールをご利用の方には、 迷惑メール対策（セキュリティ設定など）によりメールが届かない場合があります。 「@huntingworld.com」をドメイン指定受信リストに追加していただきますようお願いいたします。</p>
+    </div>
+  {% endif %}
+
+  {% if section.settings.show_dm == true %}
+    <hr>
+    <div class="accepts-dm mb-30">
+      <p class="d-flex align-center">
+        <input type="hidden" name="customer[accepts_dm]" value="">
+        <input
+          type="checkbox"
+          id="accepts-dm"
+          name="customer[accepts_dm]"
+          class="checkbox"
+          checked
+        >
+        <label for="accepts-dm">{{ section.settings.text_dm }}</label>
+      </p>
+      <p>再入荷やコラボレーション、限定アイテムなどの新作情報、店舗イベント、フェアやセールオファーをDMハガキにてお届けいたします。</p>
+      <p class="notice">※会員登録後、マイページより住所をご入力ください。</p>
+    </div>
+  {% endif %}
+{% comment %} ▲▲▲追加設定▲▲▲ {% endcomment %}
+
       <div class="text-center">
         <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn btn--full btn--secondary">
         <a href="{{ shop.url }}" class="h6 btn-link mt-20 mb-0">{{ 'customer.register.cancel' | t }}</a>
@@ -75,10 +134,120 @@
   </div>
 </div>
 
+<style>
+  .birthday-field input {
+    width: 100%;
+  }
+  .birthday-field input:focus-visible {
+    outline: none;
+  }
+  .accepts-marketing p,
+  .accepts-dm p {
+    line-height: 1.8;
+  }
+  .accepts-marketing p.notice,
+  .accepts-dm p.notice {
+    font-size: 11px;
+    color: #333;
+  }
+
+  .checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+    height: 24px;
+    width: 24px;
+    border: 1px solid #8b98a5;
+    border-radius: 4px;
+  }
+  .checkbox::before {
+    position: relative;
+    top: -1px;
+    content: "";
+    display: block;
+    width: 6px;
+    height: 12px;
+    border: solid #ECECEC;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .checkbox:checked {
+    background-color: #333333;
+  }
+  .checkbox:checked::before {
+    border-color: #FFFFFF;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const genderField = document.getElementById('RegisterForm-Gender');
+    const birthdateField = document.getElementById('RegisterForm-Birthdate');
+    const dmField = document.getElementById('accepts-dm');
+    const noteField = document.getElementById('customer-note');
+    const form = document.querySelector('form');
+
+    function updateNote() {
+      const gender = genderField.value || 'null';
+      const birthdate = birthdateField.value || 'null';
+      const dmConsent = dmField.checked ? 'yes' : 'no';
+
+      let note = `Gender: ${gender}, DM: ${dmConsent}, Birthday: ${birthdate}`;
+      noteField.value = note;
+    }
+
+    genderField.addEventListener('change', updateNote);
+    birthdateField.addEventListener('change', updateNote);
+    dmField.addEventListener('change', updateNote);
+    form.addEventListener('submit', updateNote);
+
+    // 初期状態の反映
+    updateNote();
+  });
+</script>
 
 {% schema %}
 {
     "name": "t:sections.register.name",
-    "settings": []
+    "settings": [
+    {
+      "type": "text",
+      "id": "text_gender_label",
+      "default": "性別",
+      "label": "性別１つ目の選択項目"
+    },
+    {
+      "type": "text",
+      "id": "text_gender_options",
+      "default": "女性,男性",
+      "label": "性別の選択項目",
+      "info": "半角カンマ「,」で区切ってください"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_marketing",
+      "default": true,
+      "label": "メルマガ購読"
+    },
+    {
+      "type": "text",
+      "id": "text_marketing",
+      "default": "メルマガ購読する",
+      "label": "ラベル"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dm",
+      "default": true,
+      "label": "DM希望チェックボックスを表示"
+    },
+    {
+      "type": "text",
+      "id": "text_dm",
+      "default": "DMを受け取る",
+      "label": "DMチェックボックスのラベル"
+    }
+  ]
 }
 {% endschema %}
