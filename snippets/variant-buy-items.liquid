@@ -8,7 +8,13 @@
                  
                 <form action="/cart/add" method="post" id="product-form-{{ variant.id }}">
                   <div class="custom_variant_item"  >
-                      <div class="c_image">{% if variant.image.src != blank %}{{ variant.image.src | img_url: '100x' | img_tag }}{% endif %}</div>
+                      <div class="c_image">
+                        {% if variant.image.src != blank %}
+                          {{ variant.image.src | img_url: '100x' | img_tag }}
+                        {% else %}
+                          {{ product.featured_image | img_url: '100x' | img_tag }}
+                        {% endif %}
+                      </div>
                       <div class="c_title">
                         
                               {%- assign quantity = variant.inventory_quantity -%}  
@@ -20,7 +26,13 @@
                             {%- else -%}
                                 {%- capture item -%}{{ 'layout.cart.items_count.other' | t }}{%- endcapture -%}
                             {%- endif -%}
-                         <span>{{ variant.title }}</span><br>
+                         <span>
+                          {%- if variant.title == 'Default Title' -%}
+                            {{ product.title }}
+                          {%- else -%}
+                            {{ variant.title }}
+                          {%- endif -%}
+                        </span><br>
                          <span >{% if available %}{% if quantity > 0 %}{{ 'products.product.availability_value_in_stock' | t: count: quantity, item: item }}{% else %}{{ 'products.product.availability_value_in_stock_without_counter' | t }}{% endif %}{% else %}{{ 'products.product.availability_value_out_stock' | t }}{% endif %}</span>
                       </div>
                       <div class="c_form not_in_wishlist" data-variant-id="{{ variant.id }}">
