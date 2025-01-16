@@ -284,3 +284,8 @@
     width: 100%;
   }
 }
+
+/* 商品ページ */
+.product-page-info__button-add-to-cart  span.btn__text  {
+  font-size: 12px !important;
+}
