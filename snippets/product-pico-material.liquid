@@ -1,0 +1,19 @@
+{%- comment -%}
+素材が全バリに対して入ってくるので最初のデータだけを
+表示するように調整
+{%- endcomment -%}
+
+{% assign found_material = false %}
+{% for size in product.metafields.pico.measures.value %}
+    <h>【素材】</h><br>
+    {% for measure in size.fields %}
+        {% if measure.label == "素材" and found_material == false %}
+            {{ measure.value }}
+            {% assign found_material = true %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+    {% if found_material == true %}
+        {% break %}
+    {% endif %}
+{% endfor %}

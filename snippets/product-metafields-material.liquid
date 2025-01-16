@@ -1,6 +1,6 @@
-{% if product.metafields.custom._material.value != blank %}
+{% if product.metafields.custom._material.value != blank and product.metafields.pico.measures == blank %}
 <div>
-<br>
+素材<br>
 {{ product.metafields.custom._material.value | newline_to_br}}
 </div>
 {% endif %}

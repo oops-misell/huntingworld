@@ -1,0 +1,278 @@
+{
+  "article": [],
+  "blog": [],
+  "brand": [],
+  "collection": [],
+  "company": [],
+  "company_location": [],
+  "location": [],
+  "market": [],
+  "order": [
+    {
+      "key": "shipping_address_email",
+      "namespace": "sns_gift",
+      "name": "SNSギフト配送住所メールアドレス",
+      "description": "All in giftアプリ上で配送先顧客の連絡先メールアドレス",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "delivery_time",
+      "namespace": "sns_gift",
+      "name": "SNSギフト配送指定時間",
+      "description": "All in giftアプリ上で配送先顧客が指定した配送時間",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "delivery_date",
+      "namespace": "sns_gift",
+      "name": "SNSギフト配送指定日",
+      "description": "All in giftアプリ上で配送先顧客が指定した配送日",
+      "type": {
+        "name": "date",
+        "category": "DATE_TIME"
+      }
+    }
+  ],
+  "page": [],
+  "product": [
+    {
+      "key": "new",
+      "namespace": "labels",
+      "name": "新商品のラベル",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "hot",
+      "namespace": "labels",
+      "name": "おすすめのラベル",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "_gender",
+      "namespace": "custom",
+      "name": "性別",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "_makercode",
+      "namespace": "custom",
+      "name": "品番",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "_countryorigin",
+      "namespace": "custom",
+      "name": "原産国",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "_season",
+      "namespace": "custom",
+      "name": "シーズン",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "_nendo",
+      "namespace": "custom",
+      "name": "年度",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "_mkcategoryname",
+      "namespace": "custom",
+      "name": "MKカテゴリ名称",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "_mkcategory",
+      "namespace": "custom",
+      "name": "MKカテゴリコード",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "color-pattern",
+      "namespace": "shopify",
+      "name": "色",
+      "description": "Defines the primary color or pattern, such as blue or striped",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "bag-case-material",
+      "namespace": "shopify",
+      "name": "バッグ/ケース素材",
+      "description": "Identifies the main material used in a bag or case, such as leather or canvas",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "accessory-size",
+      "namespace": "shopify",
+      "name": "アクセサリーのサイズ",
+      "description": "Defines the size of an accessory product, such as one size or compact",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "queries",
+      "namespace": "shopify--discovery--product_search_boost",
+      "name": "販売促進する商品を検索する",
+      "description": "商品が検索結果で上位に表示される検索クエリのリスト",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "related_products",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "関連商品",
+      "description": "関連商品のリスト",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "related_products_display",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "関連商品の設定",
+      "description": "関連商品がアルゴリズムによるおすすめ商品とともにどのように表示されるかを決定します",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "complementary_products",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "付属商品",
+      "description": "付属商品のリスト",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "measures",
+      "namespace": "pico",
+      "name": "採寸情報",
+      "description": "",
+      "type": {
+        "name": "json",
+        "category": "JSON"
+      }
+    },
+    {
+      "key": "_measuretext",
+      "namespace": "custom",
+      "name": "採寸テキスト",
+      "description": "",
+      "type": {
+        "name": "multi_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "_material",
+      "namespace": "custom",
+      "name": "素材",
+      "description": "",
+      "type": {
+        "name": "multi_line_text_field",
+        "category": "TEXT"
+      }
+    }
+  ],
+  "variant": [
+    {
+      "key": "_mksize",
+      "namespace": "custom",
+      "name": "MKサイズコード",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "_mkcolor",
+      "namespace": "custom",
+      "name": "MKカラーコード",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "_virtualstock",
+      "namespace": "custom",
+      "name": "仮想販売可能数",
+      "description": "",
+      "type": {
+        "name": "number_integer",
+        "category": "NUMBER"
+      }
+    },
+    {
+      "key": "_virtualchange",
+      "namespace": "custom",
+      "name": "在庫０仮想販売フラグ",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    }
+  ],
+  "shop": []
+}
