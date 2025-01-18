@@ -1,0 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "p {color: #666; font-size: 13px; line-height: 1.8em; letter-spacing: 0.02em; font-weight: 400;}",
+        "h3 {text-align: center; font-size: 20px; line-height: 1.4em; margin: 20px 0 55px; font-weight: 400;}",
+        "h4 {text-align: center; font-size: 18px; margin: 20px 0 20px; font-weight: 400;}",
+        ".careBody .onebox {padding: 0 0 60px;}",
+        ".careBody .onebox.footer_w {text-align: center;}"
+      ],
+      "settings": {
+        "show_title": true,
+        "show_content": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

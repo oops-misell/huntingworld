@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "page-heading": {
@@ -53,10 +62,11 @@
         },
         "04048cf6-76d8-4a30-872a-6c939b6ed025": {
           "type": "subscription",
+          "disabled": true,
           "settings": {
             "title": "メルマガ購読",
             "default_state": "without_title",
-            "paragraph": "『MISEル』のメルマガを購読してお得な情報・最新の情報を受け取ろう!",
+            "paragraph": "『HUNTING WORLD』のメルマガを購読してお得な情報・最新の情報を受け取ろう!",
             "placeholder": "Eメールアドレスを入力してください",
             "button_text": "購読"
           }

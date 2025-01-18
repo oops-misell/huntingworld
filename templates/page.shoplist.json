@@ -1,0 +1,254 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_title": true,
+        "show_content": true
+      }
+    },
+    "misell_rich_text_zMnhAa": {
+      "type": "misell-rich-text",
+      "blocks": {
+        "heading_hAkbqV": {
+          "type": "heading",
+          "settings": {
+            "heading": "JAPAN",
+            "heading_size": 24,
+            "heading_weight": "700",
+            "heading_color": "#000000"
+          }
+        },
+        "text_J6Aw9j": {
+          "type": "text",
+          "settings": {
+            "text": "<p>帝国ホテル店（直営店）<br/>〒100-8558 東京都千代田区内幸町1-1-1 帝国ホテル本館1階<br/>TEL 03-3501-7080<br/><a href=\"https://huntingworld.com/include_html/feature/lp/teikokuonlineconcierge/\"><span style=\"text-decoration:underline\">コンシェルジュサービス（無料）　&gt;</span></a></p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_nkA7qB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>高島屋日本橋店<br/>〒103-8265 東京都中央区日本橋2-4-1 6階<br/>TEL 03‐5201‐9622</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_LaNL3R": {
+          "type": "text",
+          "settings": {
+            "text": "<p>大丸東京店<br/>〒100-0005 東京都千代田区丸の内1-9-1 7階<br/>TEL 03-3282-6500</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_eiRjjt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>東武百貨店池袋店<br/>〒171-8512 東京都豊島区西池袋1-1-25 5階<br/>TEL 03-5396-5307</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_nGqiLX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>高島屋新宿店<br/>〒151-8580 東京都渋谷区千駄ヶ谷5-24-2 5階<br/>TEL 03-5361-1483</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_dQXYUT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>伊勢丹立川店<br/>〒190-0012 東京都立川市曙町2-5-1 2階<br/>TEL 042-528-6060</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_gjyAPX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>高島屋横浜店<br/>〒220-8601 横浜市西区南幸 1-6-31 6F<br/>TEL 045-321-1515</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_At4d7V": {
+          "type": "text",
+          "settings": {
+            "text": "<p>伊勢丹浦和店<br/>〒330-0063 埼玉県さいたま市浦和区高砂 1-15-1 4F<br/>TEL 048-832-1201</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_GVUmUz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>東武百貨店船橋店<br/>〒273-8567 千葉県船橋市本町7-1-1 1F 4番地<br/>TEL 047-425-7779</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_QEMEwC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>ジェイアール名古屋タカシマヤ<br/>〒450-6001 愛知県名古屋市中村区名駅1-1-4 7階<br/>TEL 052-566-8135</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_fBd7LF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>静岡伊勢丹<br/>〒420-0031 静岡県静岡市葵区呉服町1-7 本館1階<br/>TEL 054-274-2626</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_H7jkHq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>新潟伊勢丹<br/>〒950-0909 新潟県新潟市中央区八千代1-6-1 新潟伊勢丹4階<br/>TEL 025-365-0010</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_GxTCGb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>阪神梅田本店<br/>〒530-8224 大阪府大阪市北区梅田1-13-13 3階<br/>TEL 06-6345-1126</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_PLwXXe": {
+          "type": "text",
+          "settings": {
+            "text": "<p>高島屋大阪店<br/>〒542-8510 大阪府大阪市中央区難波5-1-5 5階<br/>TEL 06-6631-0951</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_EQ9CcL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>高島屋京都店<br/>〒600-8520 京都市下京区四条通河原町西入真町52 4F<br/>TEL 075-252-3700</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_BTYgbx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>大丸神戸店<br/>〒650-0037 兵庫県神戸市中央区明石町40 6階<br/>TEL 078-393-1845</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_FYdDMx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>大丸福岡天神店<br/>〒810-8717 福岡県福岡市中央区天神1-4-1 本館4階<br/>TEL 092-717-3039</p>",
+            "text_size": 14,
+            "line_height": 28,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        },
+        "text_Xw7Bwf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>CRAFTED BY DESCENTE.LAB取り扱い店舗は<a href=\"https://huntingworld.com/descente_lab/news/store-information/\">こちら</a></p>",
+            "text_size": 14,
+            "line_height": 40,
+            "text_weight": "400",
+            "text_color": "#666666"
+          }
+        }
+      },
+      "block_order": [
+        "heading_hAkbqV",
+        "text_J6Aw9j",
+        "text_nkA7qB",
+        "text_LaNL3R",
+        "text_eiRjjt",
+        "text_nGqiLX",
+        "text_dQXYUT",
+        "text_gjyAPX",
+        "text_At4d7V",
+        "text_GVUmUz",
+        "text_QEMEwC",
+        "text_fBd7LF",
+        "text_H7jkHq",
+        "text_GxTCGb",
+        "text_PLwXXe",
+        "text_EQ9CcL",
+        "text_BTYgbx",
+        "text_FYdDMx",
+        "text_Xw7Bwf"
+      ],
+      "custom_css": [
+        "p {padding-bottom: 40px;}"
+      ],
+      "settings": {
+        "container": "container",
+        "text_alignment": "center",
+        "vertical_alignment": "center",
+        "content_height": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "background_color": "",
+        "padding_top": 20,
+        "padding_bottom": 40,
+        "customization_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "misell_rich_text_zMnhAa"
+  ]
+}

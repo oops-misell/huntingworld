@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -21,14 +30,15 @@
         },
         "1758a5c2-c2c6-4a5b-8f2b-56319eaf59ec": {
           "type": "icon_with_text",
+          "disabled": true,
           "settings": {
             "style": "inline",
             "icon_svg_1": "theme-127",
-            "text_1": "<p>安心の品質保証:チェックアウトにお進みください<\/p>",
+            "text_1": "<p>安心の品質保証:チェックアウトにお進みください</p>",
             "icon_svg_2": "theme-142",
-            "text_2": "<p>無料配送 : 営業日の翌日配送!<\/p>",
+            "text_2": "<p>無料配送 : 営業日の翌日配送!</p>",
             "icon_svg_3": "theme-144",
-            "text_3": "<p>安心の価格 : 14日間の返品保証<\/p>",
+            "text_3": "<p>安心の価格 : 14日間の返品保証</p>",
             "icon_svg_4": "",
             "text_4": "",
             "icon_svg_5": "",
@@ -61,7 +71,7 @@
           "settings": {}
         },
         "all_in_gift_app_block_product_fXNkxh": {
-          "type": "shopify:\/\/apps\/all-in-gift\/blocks\/app-block-product\/14c78036-27a0-4098-a9e3-c3f1525dedff",
+          "type": "shopify://apps/all-in-gift/blocks/app-block-product/14c78036-27a0-4098-a9e3-c3f1525dedff",
           "disabled": true,
           "settings": {
             "font_color": "#000000",
@@ -170,19 +180,34 @@
       "type": "carousel-related-products",
       "settings": {
         "show_section": true,
-        "type": "recommendations",
+        "type": "related",
         "size_of_columns": "4",
         "max_count": 6,
-        "autoplay": true,
+        "autoplay": false,
         "speed": 5,
-        "infinite": true,
+        "infinite": false,
         "arrows": true,
         "bullets": true
+      }
+    },
+    "misell_recently_viewed_products_nUiyNb": {
+      "type": "misell-recently-viewed-products",
+      "settings": {
+        "title": "最近閲覧した商品",
+        "products_limit": 10,
+        "grid": "6",
+        "grid_mobile": "4",
+        "grid_tablet": "6",
+        "content_margin_top": 30,
+        "content_margin_bottom": 30,
+        "content_margin_top_d": 50,
+        "content_margin_bottom_d": 50
       }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "misell_recently_viewed_products_nUiyNb"
   ]
 }

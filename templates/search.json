@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -16,9 +25,42 @@
           "settings": {
             "title": "メルマガ購読",
             "default_state": "without_title",
-            "paragraph": "MISEルのメルマガを購読して、オトクな情報や最新の情報を受け取ろう!",
+            "paragraph": "HUNTING WORLDのメルマガを購読して、オトクな情報や最新の情報を受け取ろう!",
             "placeholder": "Eメールアドレスを入力してください",
             "button_text": "購読"
+          }
+        },
+        "540869bf-4e21-40d9-9a41-de7b2b89428c": {
+          "type": "promobox",
+          "disabled": true,
+          "settings": {
+            "title": "コレクション",
+            "default_state": "without_title",
+            "url": "shopify://collections",
+            "image": "shopify://shop_images/3_1feae5d1-6ae4-4ec3-a568-403ce16941cd.jpg",
+            "image_size": 1450,
+            "color_image_mask": "",
+            "image_mask_opacity": 0.5,
+            "text_line_1": "",
+            "text_line_2": "",
+            "text_line_3": "",
+            "style": "1",
+            "button_1": "コレクション",
+            "button_1_url": "shopify://collections",
+            "color_button_type_1": "default",
+            "button_2": "",
+            "button_2_url": "",
+            "color_button_type_2": "default",
+            "list_1": "",
+            "custom_html": "",
+            "video_external_url": "",
+            "video_mp4_url": "",
+            "video_autoplay": true,
+            "video_controls": false,
+            "type": "type-1",
+            "animation_to": "none",
+            "animation_from": "none",
+            "animation_opacity": "none"
           }
         },
         "34475937-29d8-4140-aca5-34e23c33b896": {
@@ -28,44 +70,13 @@
             "layout": "1_col",
             "max_column_size": 8
           }
-        },
-        "540869bf-4e21-40d9-9a41-de7b2b89428c": {
-          "type": "promobox",
-          "settings": {
-            "title": "プロモボックス",
-            "default_state": "without_title",
-            "url": "",
-            "image_size": 1450,
-            "color_image_mask": "",
-            "image_mask_opacity": 0.5,
-            "text_line_1": "テキストライン #1",
-            "text_line_2": "テキストライン #2",
-            "text_line_3": "テキストライン #3",
-            "style": "1",
-            "button_1": "ボタンテキスト #1",
-            "button_1_url": "",
-            "color_button_type_1": "default",
-            "button_2": "ボタンテキスト #2",
-            "button_2_url": "",
-            "color_button_type_2": "default",
-            "list_1": "",
-            "custom_html": "",
-            "video_external_url": "",
-            "video_mp4_url": "",
-            "video_autoplay": true,
-            "video_controls": false,
-            "type": "clean",
-            "animation_to": "none",
-            "animation_from": "none",
-            "animation_opacity": "none"
-          }
         }
       },
       "block_order": [
         "e5631d5d-9bb5-40bc-8b8c-e8b7ec4da886",
         "cbf3063e-b967-4ad4-8568-229aa6d29069",
-        "34475937-29d8-4140-aca5-34e23c33b896",
-        "540869bf-4e21-40d9-9a41-de7b2b89428c"
+        "540869bf-4e21-40d9-9a41-de7b2b89428c",
+        "34475937-29d8-4140-aca5-34e23c33b896"
       ],
       "settings": {
         "container": "fullwidth",

@@ -1,39 +1,25 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-blog",
-      "blocks": {
-        "tags": {
-          "type": "tags",
-          "settings": {
-            "title": "タグ",
-            "show_border": true
-          }
-        },
-        "subscription": {
-          "type": "subscription",
-          "settings": {
-            "title": "メルマガ購読",
-            "show_border": false,
-            "paragraph": "『MISEル』のメルマガを購読してお得な情報・最新の情報を受け取ろう!",
-            "button_text": "購読",
-            "placeholder": "Eメールアドレスを入力してください"
-          }
-        }
-      },
-      "block_order": [
-        "tags",
-        "subscription"
-      ],
       "settings": {
         "show_title": false,
         "type": "4",
-        "masonry_enable": true,
+        "masonry_enable": false,
         "max_posts": 12,
         "show_image": true,
         "show_information": true,
-        "show_tags": true,
-        "show_content": true,
+        "show_tags": false,
+        "show_content": false,
         "show_button": true,
         "show_comments": true,
         "show_empty_comments": true,

@@ -8,15 +8,15 @@
  * ------------------------------------------------------------
  */
 {
-  "layout": "password",
   "sections": {
     "main": {
-      "type": "main-password-page-content",
+      "type": "main-page",
+      "custom_css": [
+        "p{font-size:14px;}"
+      ],
       "settings": {
-        "subscription_title": "当ストアは準備中です。楽しみにお待ち下さい。",
-        "subscription_paragraph": "『HUNTING WORLD』のメルマガを購読してお得な情報・最新の情報を受け取ろう!",
-        "subscription_placeholder": "Eメールアドレスを入力してください",
-        "subscription_button_text": "購読"
+        "show_title": true,
+        "show_content": true
       }
     }
   },
