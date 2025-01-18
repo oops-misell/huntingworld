@@ -295,7 +295,7 @@
                 {% if section.settings.variant_add_cart %}
                     {% render 'variant-buy-items' %}
                 {% endif %}
-            <div class="buttons_quantity_area  {% if section.settings.variant_add_cart %} d-none {% endif %}">
+            <div class="buttons_quantity_area {% if section.settings.variant_add_cart %} d-none {% endif %}">
                 {% capture cart_icon_name %}{{ settings.cart_icon | default: 'icon-theme-109' }}{% endcapture %}
                 {%- if settings.product_info_button_layout != '3' and settings.product_info_show_quantity-%}
                     <div class="product-page-info__quantity product-page-info__field mb-20{% if centered %} product-page-info__section--max-width mx-md-auto{% endif %}" {{ block.shopify_attributes }}>

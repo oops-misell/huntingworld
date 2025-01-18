@@ -9,9 +9,23 @@ blockquote {
   font-style: var(--heading-style) !important;
 }
 
-.custom_variant_item {
+.product-page-main .custom_variant_item {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 80px 1fr 160px;
+}
+@media screen and (max-width: 1259px) {
+  .product-page-main .custom_variant_item {
+    grid-template-columns: 70px 1fr 139px;
+  }
+  .c_image {
+    margin-top: 5px;
+  }
+}
+.product-variant-input {
+  margin-bottom: 1rem !important;
+}
+.footbar-product__controls .btn--status > span {
+  transform: translateY(-1px);
 }
 
 /* 問い合わせ確認のポップアップの背景カラーを変更 */
