@@ -1,20 +1,59 @@
 {% comment %}
   セクション: Brand Silver Tug
-  説明: ナビメニューを非表示にし、100lvhのヒーローセクションを持つカスタムテンプレート
+  説明: スマホ・PC別の画像設定が可能なメインヒーローセクション
 {% endcomment %}
 
 <div class="brand-silver-tug-section" style="height: 100lvh; width: 100%; position: relative;">
-  {%- if section.settings.image != blank -%}
-    {% assign image_height = 1080 %}
-    {% assign image_width = 1920 %}
-    <img
-      src="{{ section.settings.image | image_url: width: 2000 }}"
-      alt="{{ section.settings.image.alt | escape }}"
-      loading="eager"
-      width="{{ image_width }}"
-      height="{{ image_height }}"
-      style="width: 100%; height: 100%; object-fit: cover;"
-    >
+  {%- if section.settings.image_desktop != blank or section.settings.image_mobile != blank -%}
+    <div class="hero-image desktop-only" style="display: none;">
+      {%- if section.settings.image_desktop != blank -%}
+        {% assign image_height = 1080 %}
+        {% assign image_width = 1920 %}
+        <img
+          src="{{ section.settings.image_desktop | image_url: width: 2000 }}"
+          alt="{{ section.settings.image_desktop.alt | escape }}"
+          loading="eager"
+          width="{{ image_width }}"
+          height="{{ image_height }}"
+          style="width: 100%; height: 100%; object-fit: cover;"
+        >
+      {%- endif -%}
+    </div>
+    
+    <div class="hero-image mobile-only" style="display: none;">
+      {%- if section.settings.image_mobile != blank -%}
+        {% assign mobile_image_height = 812 %}
+        {% assign mobile_image_width = 375 %}
+        <img
+          src="{{ section.settings.image_mobile | image_url: width: 1000 }}"
+          alt="{{ section.settings.image_mobile.alt | escape }}"
+          loading="eager"
+          width="{{ mobile_image_width }}"
+          height="{{ mobile_image_height }}"
+          style="width: 100%; height: 100%; object-fit: cover;"
+        >
+      {%- endif -%}
+    </div>
+
+    <style>
+      @media screen and (min-width: 750px) {
+        .desktop-only {
+          display: block !important;
+        }
+        .mobile-only {
+          display: none !important;
+        }
+      }
+      
+      @media screen and (max-width: 749px) {
+        .desktop-only {
+          display: none !important;
+        }
+        .mobile-only {
+          display: block !important;
+        }
+      }
+    </style>
   {%- endif -%}
   
   <div class="content-wrapper" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
@@ -34,28 +73,48 @@
 
 {% schema %}
 {
-  "name": "Brand Silver Tug",
+  "name": "t:sections.main-hero.name",
   "settings": [
     {
       "type": "image_picker",
-      "id": "image",
-      "label": "背景画像"
+      "id": "image_desktop",
+      "label": {
+        "en": "Desktop Image",
+        "ja": "デスクトップ用画像"
+      }
+    },
+    {
+      "type": "image_picker", 
+      "id": "image_mobile",
+      "label": {
+        "en": "Mobile Image",
+        "ja": "モバイル用画像"
+      }
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "見出し",
+      "label": {
+        "en": "Heading",
+        "ja": "見出し"
+      },
       "default": "Brand Silver Tug"
     },
     {
       "type": "richtext",
       "id": "text",
-      "label": "テキスト"
+      "label": {
+        "en": "Text Content",
+        "ja": "テキストコンテンツ"
+      }
     }
   ],
   "presets": [
     {
-      "name": "Brand Silver Tug"
+      "name": {
+        "en": "Brand Hero",
+        "ja": "ブランドヒーロー"
+      }
     }
   ]
 }
