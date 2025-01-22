@@ -1,5 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
+    "404": {
+      "title": "الصفحة غير موجودة",
+      "title_large": "404",
+      "subtext_html": "بحثنا في كل مكان عن الصفحة\nهل متأكد من صحةالرابط لموقع الويب؟ تواصل مع مالك الموقع.",
+      "button": "العودة"
+    },
     "accessibility": {
       "skip_to_content": "تخطى الى المحتوى",
       "unit_price_separator": "per",
@@ -21,12 +36,6 @@
     "meta": {
       "tags": "تم وضع علامة \"{{tags}}\"",
       "page": "الصفحة \"{{page}}\""
-    },
-    "404": {
-      "title": "الصفحة غير موجودة",
-      "title_large": "404",
-      "subtext_html": "بحثنا في كل مكان عن الصفحة\nهل متأكد من صحةالرابط لموقع الويب؟ تواصل مع مالك الموقع.",
-      "button": "العودة"
     },
     "social": {
       "share_on_facebook": "شارك",
@@ -164,7 +173,7 @@
       "search": {
         "view_all_products": "شاهد جميع المنتجات",
         "empty": "لا يوجد نتيجة",
-        "empty_html": "بحث عن \"<span>{{ result }}<\/span>\""
+        "empty_html": "بحث عن \"<span>{{ result }}</span>\""
       },
       "sidebar": {
         "button_close": "إغلاق"
@@ -184,7 +193,7 @@
         "title_html": "هل تبلغ من العمر 21 عامًا أو <br> أو هل لديك بطاقة طبية?",
         "button_yes": "نعم",
         "button_no": "لا",
-        "checkbox_label_html": "أنا أوافق على <a href=\"\/pages\/cookie-policy\">TERMS OF USE<\/a> و <a href=\"\/pages\/cookie-policy\">PRIVACY POLICY<\/a>"
+        "checkbox_label_html": "أنا أوافق على <a href=\"/pages/cookie-policy\">TERMS OF USE</a> و <a href=\"/pages/cookie-policy\">PRIVACY POLICY</a>"
       },
       "contact_confirmation": {
         "post_success": "شكرا لإتصالك بنا. سنعود إليك في أقرب وقت ممكن.",
@@ -208,7 +217,7 @@
   "blogs": {
     "article": {
       "author_on_date_html": "{{date}} تم النشر بـ {{author}}",
-      "author_on_date_carousel_html": "<p class = 'mb-5'> {{date}} <\/ p> <p class = 'mb-0'> تم النشر بـ {{author}} <\/ p>",
+      "author_on_date_carousel_html": "<p class = 'mb-5'> {{date}} </ p> <p class = 'mb-0'> تم النشر بـ {{author}} </ p>",
       "comment_meta_html": "{{author}} في {{date}}",
       "read_more": "قراءة المزيد",
       "tags": "علامات:",
@@ -256,7 +265,7 @@
       "shipping_calculator_heading": "قيمة الشحن والضرائب",
       "shipping_calculator_heading_paragraph": "أدخل المكان المقصود لتقدير الشحن.",
       "shipping_country_title": "دولة",
-      "shipping_province_title": "الإمارة\/ المقاطعة",
+      "shipping_province_title": "الإمارة/ المقاطعة",
       "shipping_zip_title": "الرمز البريدي",
       "shipping_zip_placeholder": "الرمز البريدي",
       "shipping_calculator_submit_button_label": "قيمة الشحن",
@@ -457,7 +466,7 @@
       "product_title": "مثال على عنوان المنتج",
       "collection_title": "مثال على عنوان المجموعة",
       "no_content": "لا يتضمن هذا القسم حاليًا أي محتوى. أضف محتوى إلى هذا القسم باستخدام الشريط الجانبي.\n",
-      "no_content_title_html": "إضافة محتوى، <span class=\"h4\">please<\/span>!",
+      "no_content_title_html": "إضافة محتوى، <span class=\"h4\">please</span>!",
       "no_content_message": {
         "default": "لا يتضمن هذا القسم حاليًا أي محتوى. أضف محتوى إلى هذا القسم باستخدام الشريط الجانبي",
         "carousel_products": "لا يتضمن هذا القسم حاليًا أي محتوى. حدد المجموعة باستخدام الشريط الجانبي",
@@ -618,7 +627,7 @@
       "stock_countdown_html": "بسرعة! فقط {{ quantity }} متوفر الآن!",
       "include_taxes": "شامل الضريبة.",
       "unit_price_label": "سعر الوحدة",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping<\/a> محسوبة عند الخروج.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> محسوبة عند الخروج.",
       "notes_label": "ملحوظات",
       "notes_placeholder": "اكتب هنا ملاحظاتك عن الطلب",
       "availability_value_in_stock_without_counter": "في الأوراق المالية",
@@ -839,10 +848,10 @@
         "gift_card_has_been_applied": "تم تطبيق بطاقة الهدية",
         "gift_card_has_been_removed": "تم إزالة بطاقة الهدية",
         "discount_already_applied": "تم تطبيق خصم على هذا الطلب. لا يمكنك إضافة خصم آخر.",
-        "cart_does_not_meet_discount_requirements_notice": "قيمة طلبك لا يتطابق مع متطلبات كود الخصم <strong>{{code}}<\/strong>",
-        "discount_requires_customer_notice": "الرجاء رفع معلومات الشحن لتطبيق كود الخصم <strong>{{code}}<\/strong>",
-        "customer_does_not_meet_discount_requirements_notice": "معلومات العميل لا تتطابق مع متطلبات كود الخصم <strong>{{code}}<\/strong>",
-        "shipping_information_does_not_meet_discount_requirements_notice": "معلومات الشحن لا تتطابق مع متطلبات كود الخصم <strong>{{code}}<\/strong>",
+        "cart_does_not_meet_discount_requirements_notice": "قيمة طلبك لا يتطابق مع متطلبات كود الخصم <strong>{{code}}</strong>",
+        "discount_requires_customer_notice": "الرجاء رفع معلومات الشحن لتطبيق كود الخصم <strong>{{code}}</strong>",
+        "customer_does_not_meet_discount_requirements_notice": "معلومات العميل لا تتطابق مع متطلبات كود الخصم <strong>{{code}}</strong>",
+        "shipping_information_does_not_meet_discount_requirements_notice": "معلومات الشحن لا تتطابق مع متطلبات كود الخصم <strong>{{code}}</strong>",
         "customer_already_used_once_per_customer_discount_notice": "قد تم استخدام كود الخصم {{ code }}",
         "subtotal_label": "المبلغ الفرعي",
         "shipping_label": "الشحن",
@@ -919,9 +928,9 @@
         "card_expiry_year_label": "سنة انتهاء الصلاحية",
         "card_expiry_year_placeholder": "YY",
         "card_expiry_label": "انتهاء الصلاحية",
-        "card_expiry_short_label": "MM \/ YY",
-        "card_expiry_long_label": "انتهاء الصلاحية(MM\/YY)",
-        "card_expiry_placeholder": "MM \/ YY",
+        "card_expiry_short_label": "MM / YY",
+        "card_expiry_long_label": "انتهاء الصلاحية(MM/YY)",
+        "card_expiry_placeholder": "MM / YY",
         "card_verification_value_label": "CVV",
         "card_verification_value_placeholder": "CVV",
         "card_expiry_date_explanation": "تاريخ انتهاء صلاحية البطاقة بالشكل: الشهر ، الشهر ، السنة ، السنة",
@@ -933,8 +942,8 @@
         "card_start_year_label": "سنة البدء",
         "card_start_year_placeholder": "YY",
         "card_start_label": "البدء",
-        "card_start_long_label": "تاريخ الأصدار(MM \/ YY)",
-        "card_start_placeholder": "MM \/ YY",
+        "card_start_long_label": "تاريخ الأصدار(MM / YY)",
+        "card_start_placeholder": "MM / YY",
         "card_issue_number_label": "رقم الأصدار",
         "card_issue_number_placeholder": "رقم الأصدار",
         "card_change_label": "تغيير",
@@ -944,7 +953,7 @@
         "pay_with_payment_method": "دفع من خلال {{ payment_method }}",
         "same_billing_address_label": "نفس كعنوان الشحن",
         "different_billing_address_label": "استخدام عنوان الفاتورة المختلف",
-        "free_order_notice_html": "طلبك <strong>مجاني<\/strong>. لا يوجد دفع مطلوب.",
+        "free_order_notice_html": "طلبك <strong>مجاني</strong>. لا يوجد دفع مطلوب.",
         "offsite_gateway_redirect_hint": "بعد النقر على \"{{button_label}}\"، ستتم إعادة توجيهك إلى {{gateway_label}} لإكمال عملية الشراء بأمان.",
         "offsite_gateway_redirect_hint_multi_currency_html": "{{gateway_label}} الإجمالي {{total_shop_price}}",
         "billing_address_title": "عنوان الفاتورة",
@@ -963,13 +972,13 @@
           "other": "طلبك مشمول ببطاقات الهدية الخاصة بك."
         },
         "card_fields_unavailable_html": {
-          "one": "مدفوعات بطاقات الائتمان والمدين غير متوفرة في الوقت الحالي.<br>الرجاء <a href=\"javascript:window.location.reload();\"> تحديث هذه الصفحة<\/a> أو محاولة مجدداً في وقت لاحق.",
-          "other": "مدفوعات بطاقات الائتمان والمدين غير متوفرة في الوقت الحالي.<br> الرجاء <a href=\"javascript:window.location.reload();\"> تحديث هذه الصفحة<\/a> أو محاولة مجدداً في وقت لاحق."
+          "one": "مدفوعات بطاقات الائتمان والمدين غير متوفرة في الوقت الحالي.<br>الرجاء <a href=\"javascript:window.location.reload();\"> تحديث هذه الصفحة</a> أو محاولة مجدداً في وقت لاحق.",
+          "other": "مدفوعات بطاقات الائتمان والمدين غير متوفرة في الوقت الحالي.<br> الرجاء <a href=\"javascript:window.location.reload();\"> تحديث هذه الصفحة</a> أو محاولة مجدداً في وقت لاحق."
         }
       },
       "payment_summary": {
         "gift_card_current_balance_notice": "الرصيد الحالي {{ amount }}",
-        "credit_card_expires_on_notice": "ينتهي في {{ month }}\/{{ year }}",
+        "credit_card_expires_on_notice": "ينتهي في {{ month }}/{{ year }}",
         "express_payment_gateway_label": "اكسبريس",
         "manual_payment_gateway_label": "يدوي",
         "billing_address_title": "عنوان الفواتير",
@@ -1154,7 +1163,7 @@
         "login": "تسجيل الدخول",
         "unfulfilled_items_title": "قيد تجهيز الشحنة",
         "unfulfilled_items_description": "نحن نجهز هذه القطع للشحن حاليا.",
-        "opt_in_message_html": "تم حفظ معلوماتك بنجاح مع <span class=\"emphasis\">Shopify Pay<\/span>.",
+        "opt_in_message_html": "تم حفظ معلوماتك بنجاح مع <span class=\"emphasis\">Shopify Pay</span>.",
         "order_updates_description_missing": "لم يتم تحديث معلومات الشحن.",
         "order_updates_description_email_html": "ستصلك رسالة تأكيد عبر البريد الإلكتروني تحتوي على رقم طلبك بعد قليل. سيتم إرسال جميع التحديثات إلى {{customer_contact}}",
         "order_updates_description_phone_html": "ستصلك رسالة تأكيد عبر رسالة نصية تحتوي على رقم طلبك بعد قليل. سيتم إرسال جميع التحديثات إلى {{customer_contact}}",
@@ -1210,7 +1219,7 @@
         "description_html": "في المرة القادمة التي تقوم فيها بالتسجيل هنا أو في المتاجر الأخرى التي تدعمها Shopify ، ستتلقى رمزًا عبر رسالة قصيرة SMS للشراء بشكل آمن من خلال Shopify Pay.",
         "mobile_phone_icon_alt": "الجوال",
         "mobile_phone_number": "رقم الجوال",
-        "terms_and_privacy_html": "تعني المتابعة أنك توافق على <a title=\"link --muted\" data-modal data-remember-policy-link=\"privacy_policy\" title=\"Shopify Pay Privacy Policy\" href=\"{{ privacy_href }}\"> سياسة الخصوصية <\/a> و <a class=\"link--muted\" data-modal data-remember-policy-link=\"terms\" title=\"Shopify Pay Terms of Service\" href=\"{{ terms_href }}\"> شروط الخدمة <\/a>.",
+        "terms_and_privacy_html": "تعني المتابعة أنك توافق على <a title=\"link --muted\" data-modal data-remember-policy-link=\"privacy_policy\" title=\"Shopify Pay Privacy Policy\" href=\"{{ privacy_href }}\"> سياسة الخصوصية </a> و <a class=\"link--muted\" data-modal data-remember-policy-link=\"terms\" title=\"Shopify Pay Terms of Service\" href=\"{{ terms_href }}\"> شروط الخدمة </a>.",
         "modal": {
           "guest": {
             "paragraph": "لمتابعة الدفع بالتفاصيل المحفوظة، أدخل رمز التحقق الذي تم إرساله إلى {{phone}}.",
@@ -1310,7 +1319,7 @@
           "declined": "تم رفض الدفع",
           "inventory": "القطع غير متوفرة",
           "fraud": "طلب احتيالي",
-          "customer": "تغيير العميل \/ إلغاء الطلب",
+          "customer": "تغيير العميل / إلغاء الطلب",
           "other": "آخر"
         }
       },
@@ -1323,7 +1332,7 @@
         "too_many_line_items_error": "لا يمكن أن تحتوي سلة التسوق الخاصة بك على أكثر من {{ max }} قطع.",
         "link_expired": "انتهت صلاحية الرابط",
         "link_no_longer_exists": "الرابط لم موجودا.",
-        "stock_problems_html": "قطعة واحدة أو أكثر لم تعد متوفرة. لقد قدمنا <a href='{{ link }}'>updated cart<\/a>.",
+        "stock_problems_html": "قطعة واحدة أو أكثر لم تعد متوفرة. لقد قدمنا <a href='{{ link }}'>updated cart</a>.",
         "changed": "حقيبة التسوق تغيرت",
         "items_changed": "تم تغيير قطعة واحدة أو أكثر.",
         "product_sold_out": "المنتج'{{ name }}' بالفعل بيعت.",
@@ -1426,7 +1435,7 @@
       "expired": "انتهت صلاحيته",
       "invalid_start_date_or_issue_number_for_debit": "مطلوب تاريخ أو رقم بداية صحيح صالح",
       "invalid_expiry_year": "سنة انتهاء الصلاحية غير صحيحة",
-      "reset_password_html": "عنوان البريد الإلكتروني هذا مرتبط بحساب بالفعل. إذا كان هذا الحساب ملكك ، فيمكنك ذلك <a href=\"\/account\/login#recover\">إعادة تعيين كلمة المرور<\/a>.",
+      "reset_password_html": "عنوان البريد الإلكتروني هذا مرتبط بحساب بالفعل. إذا كان هذا الحساب ملكك ، فيمكنك ذلك <a href=\"/account/login#recover\">إعادة تعيين كلمة المرور</a>.",
       "verify_email": "لقد قمنا بإرسال بريد إلكتروني إلى {{ customer_email }},يرجى النقر على الرابط المتضمن للتحقق من عنوان بريدك الإلكتروني."
     },
     "dates": {
@@ -1514,8 +1523,53 @@
       "check_other_stores": "تحقق من توافر في المتاجر الأخرى",
       "pick_up_available": "بيك اب متاح",
       "pick_up_currently_unavailable": "لاقط غير متوفر حاليا",
-      "pick_up_available_at_html": "بيك اب متاح في <strong>{{ location_name }}<\/strong>",
-      "pick_up_unavailable_at_html": "لاقط غير متوفر حاليا في <strong>{{ location_name }}<\/strong>"
+      "pick_up_available_at_html": "بيك اب متاح في <strong>{{ location_name }}</strong>",
+      "pick_up_unavailable_at_html": "لاقط غير متوفر حاليا في <strong>{{ location_name }}</strong>"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }

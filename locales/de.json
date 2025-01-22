@@ -1,5 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
+    "404": {
+      "title": "404 Seite nicht gefunden",
+      "subtext_html": "Die von Ihnen angeforderte Seite existiert nicht. Klicken Sie <a href=\"/collections/all\">hier</a>, um den Einkauf fortzusetzen.",
+      "title_large": "404",
+      "button": "ZURÜCK"
+    },
     "accessibility": {
       "skip_to_content": "Direkt zum Inhalt",
       "unit_price_separator": "per",
@@ -22,12 +37,6 @@
       "tags": "Getaggt \"{{ tags }}\"",
       "page": "Seite {{ page }}"
     },
-    "404": {
-      "title": "404 Seite nicht gefunden",
-      "subtext_html": "Die von Ihnen angeforderte Seite existiert nicht. Klicken Sie <a href=\"\/collections\/all\">hier<\/a>, um den Einkauf fortzusetzen.",
-      "title_large": "404",
-      "button": "ZURÜCK"
-    },
     "password_page": {
       "opening_soon": "Eröffnet demnächst",
       "spread_the_word": "Weitersagen",
@@ -40,7 +49,7 @@
       "signup_form_email_placeholder": "Ihre E-Mail-Adresse",
       "signup_form_submit": "Abschicken",
       "signup_form_success": "Wir senden Ihnen eine E-Mail, kurz bevor wir eröffnen!",
-      "admin_link_html": "Sind Sie der Geschäftsinhaber? <a href=\"\/admin\">Melden Sie sich hier an<\/a>",
+      "admin_link_html": "Sind Sie der Geschäftsinhaber? <a href=\"/admin\">Melden Sie sich hier an</a>",
       "password_link": "Mit Passwort betreten",
       "powered_by_shopify_html": "Dieser Shop wird mit Hilfe von {{ shopify }} betrieben werden"
     },
@@ -174,7 +183,7 @@
       "search": {
         "view_all_products": "Alle Produkte anzeigen",
         "empty": "Keine Suchergebnisse",
-        "empty_html": "Suche nach \"<span>{{ result }}<\/span>\""
+        "empty_html": "Suche nach \"<span>{{ result }}</span>\""
       },
       "sidebar": {
         "button_close": "SCHLIEßEN"
@@ -224,7 +233,7 @@
       "author_on_date_html": "Geposted von {{ author }} am {{ date }}",
       "comment_meta_html": "{{ author }} am {{ date }}",
       "read_more": "Weiterlesen",
-      "author_on_date_carousel_html": "<p class='mb-5'>{{ date }}<\/p><p class='mb-0'>Veröffentlicht von  {{ author }}<\/p>",
+      "author_on_date_carousel_html": "<p class='mb-5'>{{ date }}</p><p class='mb-0'>Veröffentlicht von  {{ author }}</p>",
       "tags": "TAGS:",
       "share": "TEILEN:",
       "prev_post": "Vorheriger Beitrag",
@@ -266,7 +275,7 @@
       "checkout": "Zur Kasse",
       "empty": "Ihr Einkaufswagen ist im Moment leer.",
       "cookies_required": "Aktivieren Sie Cookies, um den Einkaufswagen benutzen zu können.",
-      "continue_browsing_html": "Mit der Suche <a href=\"\/collections\/all\">hier<\/a> fortfahren.",
+      "continue_browsing_html": "Mit der Suche <a href=\"/collections/all\">hier</a> fortfahren.",
       "item_quantity": "Produktmenge",
       "savings": "Sie sparen",
       "sidebar_title": "GESAMTSUMME",
@@ -491,7 +500,7 @@
       "product_title": "Beispielhafter Produkttitel",
       "collection_title": "Beispielhafter Zusammenstellungstitel",
       "no_content": "Dieser Bereich hat zur Zeit keinen Inhalt. Füge diesem Bereich über die Seitenleiste Inhalte hinzu.",
-      "no_content_title_html": "Inhalt hinzufügen, <span class=\"h4\">please<\/span>!",
+      "no_content_title_html": "Inhalt hinzufügen, <span class=\"h4\">please</span>!",
       "no_content_message": {
         "default": "Dieser Abschnitt enthält derzeit keine Inhalte. Fügen Sie diesem Abschnitt mithilfe der Seitenleiste Inhalte hinzu.",
         "carousel_products": "Dieser Abschnitt enthält derzeit keine Inhalte. Wählen Sie die Sammlung über die Seitenleiste aus.",
@@ -638,7 +647,7 @@
         "compare": "Vergleichen"
       },
       "stock_countdown_html": "Nur {{ quantity }} verfügbar!",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Versandkosten<\/a> an der Kasse berechnet.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Versandkosten</a> an der Kasse berechnet.",
       "notes_label": "Kommentare",
       "notes_placeholder": "Hinterlassen Sie hier Kommentare zur Bestellung.",
       "availability_value_in_stock_without_counter": "Auf Lager",
@@ -759,7 +768,8 @@
         "on_sale": "Sale",
         "quantity": "Quantity",
         "add_to_cart": "Add to cart",
-        "back_to_collection": "Back to {{ title }}"
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
       }
     },
     "article": {
@@ -785,12 +795,13 @@
       }
     },
     "password_page": {
-      "login_form_password_label": "Passwort",
-      "login_form_password_placeholder": "Dein Passwort",
-      "login_form_submit": "Weiter",
-      "signup_form_email_label": "E-Mail Adresse",
-      "signup_form_success": "Wir informieren dich, sobald wir online gehen!",
-      "password_link": "Weiter mit Passwort"
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   },
   "sections": {
@@ -804,8 +815,8 @@
       "check_other_stores": "Verfügbarkeit in anderen Geschäften prüfen",
       "pick_up_available": "Abholung möglich",
       "pick_up_currently_unavailable": "Abholung derzeit nicht möglich",
-      "pick_up_available_at_html": "Abholung möglich um <strong>{{ location_name }}<\/strong>",
-      "pick_up_unavailable_at_html": "Abholung derzeit nicht möglich um<strong>{{ location_name }}<\/strong>"
+      "pick_up_available_at_html": "Abholung möglich um <strong>{{ location_name }}</strong>",
+      "pick_up_unavailable_at_html": "Abholung derzeit nicht möglich um<strong>{{ location_name }}</strong>"
     }
   }
 }

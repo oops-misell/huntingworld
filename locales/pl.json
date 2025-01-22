@@ -1,5 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
+    "404": {
+      "title_large": "404",
+      "title": "Strona nie znaleziona",
+      "subtext_html": "Szukaliśmy wszędzie tej strony. Czy na pewno adres URL witryny jest prawidłowy? Skontaktuj się z właścicielem witryny.",
+      "button": "WRÓĆ"
+    },
     "accessibility": {
       "skip_to_content": "Przejdź do treści",
       "unit_price_separator": "per",
@@ -21,12 +36,6 @@
     "meta": {
       "tags": "Oznaczone \"{{tags}}\"",
       "page": "Strona {{page}}"
-    },
-    "404": {
-      "title_large": "404",
-      "title": "Strona nie znaleziona",
-      "subtext_html": "Szukaliśmy wszędzie tej strony. Czy na pewno adres URL witryny jest prawidłowy? Skontaktuj się z właścicielem witryny.",
-      "button": "WRÓĆ"
     },
     "social": {
       "share_on_facebook": "Udostępnij",
@@ -214,7 +223,7 @@
   "blogs": {
     "article": {
       "author_on_date_html": "{{date}} Opublikowany przez {{author}}",
-      "author_on_date_carousel_html": "<p class = 'mb-5'> {{date}} <\/ p> <p class = 'mb-0'> Wysłany przez {{author}} <\/ p>",
+      "author_on_date_carousel_html": "<p class = 'mb-5'> {{date}} </ p> <p class = 'mb-0'> Wysłany przez {{author}} </ p>",
       "comment_meta_html": "{{author}} {{date}}",
       "read_more": "DOWIEDZ SIĘ WIĘCEJ",
       "tags": "TAGI:",
@@ -262,9 +271,9 @@
       "shipping_calculator_heading": "Oszacuj koszty wysyłki i podatku",
       "shipping_calculator_heading_paragraph": "Wprowadź miejsce docelowe, aby uzyskać szacunkową wysyłkę.",
       "shipping_country_title": "KRAJ",
-      "shipping_province_title": "PAŃSTWO \/ PROWINCJA",
-      "shipping_zip_title": "KOD ZIP \/ POCZTOWY",
-      "shipping_zip_placeholder": "KOD ZIP \/ POCZTOWY",
+      "shipping_province_title": "PAŃSTWO / PROWINCJA",
+      "shipping_zip_title": "KOD ZIP / POCZTOWY",
+      "shipping_zip_placeholder": "KOD ZIP / POCZTOWY",
       "shipping_calculator_submit_button_label": "Oblicz koszty dostawy",
       "shipping_calculator_submit_button_label_disabled": "Obliczenie..",
       "shipping_calculator_data_info": "Dla {{data}} dostępna jest jedna stawka za dostawę."
@@ -363,7 +372,7 @@
       "city": "Miasto",
       "country": "Kraj",
       "province": "Województwo",
-      "zip": "Kod pocztowy \/ pocztowy",
+      "zip": "Kod pocztowy / pocztowy",
       "phone": "Telefon",
       "set_default": "Ustaw jako adres domyślny",
       "add": "Dodaj adres",
@@ -740,10 +749,10 @@
         "gift_card_has_been_applied": "Karta podarunkowa została zastosowana\n",
         "gift_card_has_been_removed": "Karta upominkowa została usunięta\n",
         "discount_already_applied": "Zniżka została zastosowana do tego zamówienia. Nie możesz dodać kolejnej zniżki.\n",
-        "cart_does_not_meet_discount_requirements_notice": "<strong> {{code}} <\/ strong> kod rabatowy nie dotyczy produktów w koszyku\n",
-        "discount_requires_customer_notice": "Wprowadź informacje o wysyłce, aby zastosować kod rabatowy <strong> {{code}} <\/ strong>\n",
-        "customer_does_not_meet_discount_requirements_notice": "<strong> {{code}} <\/ strong> kod rabatowy jest teraz niedostępny\n",
-        "shipping_information_does_not_meet_discount_requirements_notice": "<strong> {{code}} <\/ strong> kod rabatowy nie jest dostępny dla Twojego adresu wysyłki\n",
+        "cart_does_not_meet_discount_requirements_notice": "<strong> {{code}} </ strong> kod rabatowy nie dotyczy produktów w koszyku\n",
+        "discount_requires_customer_notice": "Wprowadź informacje o wysyłce, aby zastosować kod rabatowy <strong> {{code}} </ strong>\n",
+        "customer_does_not_meet_discount_requirements_notice": "<strong> {{code}} </ strong> kod rabatowy jest teraz niedostępny\n",
+        "shipping_information_does_not_meet_discount_requirements_notice": "<strong> {{code}} </ strong> kod rabatowy nie jest dostępny dla Twojego adresu wysyłki\n",
         "customer_already_used_once_per_customer_discount_notice": "Kod rabatowy {{code}} został już wykorzystany\n",
         "subtotal_label": "Suma częściowa\n",
         "shipping_label": "Wysyłka \n",
@@ -820,9 +829,9 @@
         "card_expiry_year_label": "Rok wygaśnięcia\n",
         "card_expiry_year_placeholder": "YY\n",
         "card_expiry_label": "Wygaśnięcie\n",
-        "card_expiry_short_label": "MM \/ RR\n",
-        "card_expiry_long_label": "Wygaśnięcie (MM \/ RR)\n",
-        "card_expiry_placeholder": "MM \/ RR\n",
+        "card_expiry_short_label": "MM / RR\n",
+        "card_expiry_long_label": "Wygaśnięcie (MM / RR)\n",
+        "card_expiry_placeholder": "MM / RR\n",
         "card_verification_value_label": "CVV\n",
         "card_verification_value_placeholder": "CVV\n",
         "card_expiry_date_explanation": "Data ważności karty w formacie: miesiąc, miesiąc, rok, rok\n",
@@ -834,8 +843,8 @@
         "card_start_year_label": "Rozpoczęcie roku\n",
         "card_start_year_placeholder": "YY\n",
         "card_start_label": "Początek",
-        "card_start_long_label": "Data wydania (MM \/ RR)\n",
-        "card_start_placeholder": "MM \/ RR\n",
+        "card_start_long_label": "Data wydania (MM / RR)\n",
+        "card_start_placeholder": "MM / RR\n",
         "card_issue_number_label": "Numer wydania\n",
         "card_issue_number_placeholder": "Numer wydania\n",
         "card_change_label": "Zmiana\n",
@@ -845,7 +854,7 @@
         "pay_with_payment_method": "Zapłać za {{payment_method}}\n",
         "same_billing_address_label": "Taki sam jak adres wysyłki\n",
         "different_billing_address_label": "Użyj innego adresu rozliczeniowego\n",
-        "free_order_notice_html": "Twoje zamówienie jest <strong> bezpłatne <\/ strong>. Żadna płatność nie jest wymagana.\n",
+        "free_order_notice_html": "Twoje zamówienie jest <strong> bezpłatne </ strong>. Żadna płatność nie jest wymagana.\n",
         "offsite_gateway_redirect_hint": "Po kliknięciu \"{{button_label}}\" zostaniesz przekierowany do {{gateway_label}}, aby bezpiecznie dokonać zakupu.\n",
         "offsite_gateway_redirect_hint_multi_currency_html": "{{gateway_label}} łącznie {{total_shop_price}}\n",
         "billing_address_title": "Adres rozliczeniowy\n",
@@ -864,13 +873,13 @@
           "other": "Twoje zamówienie objęte jest kartami podarunkowymi.\n"
         },
         "card_fields_unavailable_html": {
-          "one": "Płatności kartą kredytową i debetową nie są już dostępne. <br> <a href=\"javascript:window.location.reload();\"> Odśwież tę stronę <\/a> lub spróbuj ponownie później.\n",
-          "other": "Płatności kartą kredytową i debetową nie są już dostępne. <br> <a href=\"javascript:window.location.reload();\"> Odśwież tę stronę <\/a> lub wypróbuj inną metodę płatności.\n"
+          "one": "Płatności kartą kredytową i debetową nie są już dostępne. <br> <a href=\"javascript:window.location.reload();\"> Odśwież tę stronę </a> lub spróbuj ponownie później.\n",
+          "other": "Płatności kartą kredytową i debetową nie są już dostępne. <br> <a href=\"javascript:window.location.reload();\"> Odśwież tę stronę </a> lub wypróbuj inną metodę płatności.\n"
         }
       },
       "payment_summary": {
         "gift_card_current_balance_notice": "Bieżące saldo {{amount}}\n",
-        "credit_card_expires_on_notice": "Wygasa za {{month}} \/ {{year}}\n",
+        "credit_card_expires_on_notice": "Wygasa za {{month}} / {{year}}\n",
         "express_payment_gateway_label": "Wyrazić",
         "manual_payment_gateway_label": "Podręcznik",
         "billing_address_title": "Adres rozliczeniowy\n",
@@ -888,12 +897,12 @@
         "address_address2_blank": "Wprowadź apartament, apartament itp.\n",
         "address_city_blank": "Wprowadź miasto\n",
         "address_country_blank": "Wybierz kraj\n",
-        "address_province_blank": "Wybierz stan \/ prowincję\n",
+        "address_province_blank": "Wybierz stan / prowincję\n",
         "address_company_blank": "Wpisz nazwę firmy\n",
         "address_phone_blank": "Wprowadź poprawny numer telefonu\n",
-        "address_zip_blank": "Wpisz kod pocztowy \/ kod pocztowy\n",
-        "address_zip_invalid_for_country": "Wpisz poprawny kod pocztowy \/ pocztowy dla {{country}}\n",
-        "address_zip_invalid_for_country_and_province": "Wpisz poprawny kod pocztowy \/ pocztowy dla {{province}}, {{country}}\n",
+        "address_zip_blank": "Wpisz kod pocztowy / kod pocztowy\n",
+        "address_zip_invalid_for_country": "Wpisz poprawny kod pocztowy / pocztowy dla {{country}}\n",
+        "address_zip_invalid_for_country_and_province": "Wpisz poprawny kod pocztowy / pocztowy dla {{province}}, {{country}}\n",
         "credit_card_name_blank": "Wprowadź swoje imię i nazwisko, tak jak widnieje na karcie\n",
         "credit_card_name_invalid": "Wprowadź swoje imię i nazwisko, tak jak widnieje na karcie\n",
         "credit_card_number_invalid": "Proszę podać poprawny numer karty kredytowej\n",
@@ -969,6 +978,51 @@
           }
         }
       }
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }

@@ -166,7 +166,7 @@
     "product_info_show_button_add_to_compare": true,
     "product_info_complementary_products_add_to_cart": true,
     "product_info_social_share_buttons_type": "1",
-    "product_footbar_enable": true,
+    "product_footbar_enable": false,
     "product_footbar_show_title": true,
     "product_footbar_show_price": true,
     "product_footbar_show_options": true,
@@ -740,6 +740,11 @@
       },
       "11320579242087869063": {
         "type": "shopify://apps/codify-order-cancel/blocks/cancel_button/f7f8a269-b6ea-461a-8e1b-d61167f44926",
+        "disabled": false,
+        "settings": {}
+      },
+      "pagefly-page-builder": {
+        "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
         "disabled": false,
         "settings": {}
       }

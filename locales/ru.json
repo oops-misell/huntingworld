@@ -1,5 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
+    "404": {
+      "title_large": "404",
+      "title": "Страница не найдена",
+      "subtext_html": "Мы везде искали эту страницу. Вы уверены, что URL сайта правильный? Свяжитесь с владельцем сайта.",
+      "button": "ВЕРНИТЕСЬ НАЗАД"
+    },
     "accessibility": {
       "skip_to_content": "Перейти к содержанию",
       "unit_price_separator": "per",
@@ -21,12 +36,6 @@
     "meta": {
       "tags": "С тегом \"{{ tags }}\"",
       "page": "Страница {{ page }}"
-    },
-    "404": {
-      "title_large": "404",
-      "title": "Страница не найдена",
-      "subtext_html": "Мы везде искали эту страницу. Вы уверены, что URL сайта правильный? Свяжитесь с владельцем сайта.",
-      "button": "ВЕРНИТЕСЬ НАЗАД"
     },
     "social": {
       "share_on_facebook": "Поделиться",
@@ -155,7 +164,7 @@
       "search": {
         "view_all_products": "Посмотреть все продукты",
         "empty": "Нет результатов",
-        "empty_html": "Поиск \"<span>{{ result }}<\/span>\""
+        "empty_html": "Поиск \"<span>{{ result }}</span>\""
       },
       "sidebar": {
         "button_close": "ЗАКРЫТЬ"
@@ -175,7 +184,7 @@
         "title_html": "Вам 21 год или больше <br> или у вас есть медицинская карта?",
         "button_yes": "ДА",
         "button_no": "НЕТ",
-        "checkbox_label_html": "Я согласен с <a href=\"\/pages\/cookie-policy\">TERMS OF USE<\/a> and <a href=\"\/pages\/cookie-policy\">PRIVACY POLICY<\/a>"
+        "checkbox_label_html": "Я согласен с <a href=\"/pages/cookie-policy\">TERMS OF USE</a> and <a href=\"/pages/cookie-policy\">PRIVACY POLICY</a>"
       },
       "contact_confirmation": {
         "post_success": "Спасибо что связались с нами. Мы свяжемся с вами как можно скорее.",
@@ -199,7 +208,7 @@
   "blogs": {
     "article": {
       "author_on_date_html": "{{ date }} Сообщение от {{ author }}",
-      "author_on_date_carousel_html": "<p class='mb-5'>{{ date }}<\/p><p class='mb-0'>Сообщение от {{ author }}<\/p>",
+      "author_on_date_carousel_html": "<p class='mb-5'>{{ date }}</p><p class='mb-0'>Сообщение от {{ author }}</p>",
       "comment_meta_html": "{{ author }} {{ date }}",
       "read_more": "УЗНАТЬ БОЛЬШЕ",
       "tags": "ТЭГИ:",
@@ -247,7 +256,7 @@
       "shipping_calculator_heading": "Рассчитать доставку и налог",
       "shipping_calculator_heading_paragraph": "Введите пункт назначения, чтобы получить оценку доставки.",
       "shipping_country_title": "СТРАНА",
-      "shipping_province_title": "ШТАТ \/ ПРОВИНЦИЯ",
+      "shipping_province_title": "ШТАТ / ПРОВИНЦИЯ",
       "shipping_zip_title": "ПОЧТОВЫЙ ИНДЕКС",
       "shipping_zip_placeholder": "ПОЧТОВЫЙ ИНДЕКС",
       "shipping_calculator_submit_button_label": "Рассчитать стоимость доставки",
@@ -448,7 +457,7 @@
       "product_title": "Пример названия продукта",
       "collection_title": "Пример названия коллекции",
       "no_content": "Этот раздел в настоящее время не содержит никакого контента. Добавьте контент в этот раздел, используя боковую панель.",
-      "no_content_title_html": "Добавить содержимое, <span class=\"h4\">please<\/span>!",
+      "no_content_title_html": "Добавить содержимое, <span class=\"h4\">please</span>!",
       "no_content_message": {
         "default": "Этот раздел в настоящее время не содержит никакого содержания. Добавьте контент в этот раздел с помощью боковой панели.",
         "carousel_products": "Этот раздел в настоящее время не содержит никакого содержания. Выберите коллекцию с помощью боковой панели.",
@@ -608,7 +617,7 @@
       },
       "include_taxes": "Включая налог.",
       "unit_price_label": "Цена за единицу",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping<\/a> рассчитывается при оформлении заказа.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> рассчитывается при оформлении заказа.",
       "notes_label": "Примечания",
       "notes_placeholder": "Напишите здесь свои примечания к заказу",
       "availability_value_in_stock_without_counter": "В наличии",
@@ -782,8 +791,8 @@
         "address2_label": "Квартира, номер и т. д.",
         "optional_address2_label": "Квартира, номер и т. д. (необязательно)",
         "city_label": "Город",
-        "country_label": "Страна \/ Регион",
-        "country_code": "Код страны \/ региона",
+        "country_label": "Страна / Регион",
+        "country_code": "Код страны / региона",
         "province_label": "Провинция",
         "province_placeholder": "Провинция",
         "county_label": "Страна",
@@ -798,8 +807,8 @@
         "governorate_placeholder": "Губерния",
         "emirate_label": "Эмират",
         "emirate_placeholder": "Эмират",
-        "state_and_territory_label": "Государство \/ территория",
-        "state_and_territory_placeholder": "Государство \/ территория",
+        "state_and_territory_label": "Государство / территория",
+        "state_and_territory_placeholder": "Государство / территория",
         "phone_label": "Телефон",
         "optional_phone_label": "Телефон (опционально)",
         "phone_placeholder": "Телефон",
@@ -864,10 +873,10 @@
         "gift_card_has_been_applied": "Подарочная карта была применена",
         "gift_card_has_been_removed": "Подарочная карта была удалена",
         "discount_already_applied": "Скидка была применена к этому заказу. Вы не можете добавить еще одну скидку.",
-        "cart_does_not_meet_discount_requirements_notice": "<strong>{{ code }}<\/strong> код скидки недействителен для товаров в вашей корзине",
-        "discount_requires_customer_notice": "Введите информацию о доставке, чтобы применить код скидки <strong>{{ code }}<\/strong> discount code",
-        "customer_does_not_meet_discount_requirements_notice": "<strong>{{ code }}<\/strong> код скидки сейчас недоступен",
-        "shipping_information_does_not_meet_discount_requirements_notice": "<strong>{{ code }}<\/strong> код скидки недоступен для вашего адреса доставки",
+        "cart_does_not_meet_discount_requirements_notice": "<strong>{{ code }}</strong> код скидки недействителен для товаров в вашей корзине",
+        "discount_requires_customer_notice": "Введите информацию о доставке, чтобы применить код скидки <strong>{{ code }}</strong> discount code",
+        "customer_does_not_meet_discount_requirements_notice": "<strong>{{ code }}</strong> код скидки сейчас недоступен",
+        "shipping_information_does_not_meet_discount_requirements_notice": "<strong>{{ code }}</strong> код скидки недоступен для вашего адреса доставки",
         "customer_already_used_once_per_customer_discount_notice": "{{ code }} код скидки уже был использован\n",
         "subtotal_label": "Промежуточный итог",
         "shipping_label": "Доставка",
@@ -952,16 +961,16 @@
         "card_security_notice": "Все транзакции защищены и зашифрованы.",
         "name_on_card_label": "Имя на карте",
         "name_on_card_placeholder": "Имя на карте",
-        "card_expiry_label": "Срок годности (ММ \/ ГГ)",
-        "card_expiry_placeholder": "Срок годности (ММ \/ ГГ)",
+        "card_expiry_label": "Срок годности (ММ / ГГ)",
+        "card_expiry_placeholder": "Срок годности (ММ / ГГ)",
         "card_verification_value_label": "Код безопасности",
         "card_verification_value_placeholder": "Код безопасности",
         "card_verification_value_explanation": "Трехзначный код безопасности обычно находится на обратной стороне вашей карты. Карты American Express имеют 4-значный код, расположенный на передней панели.",
         "card_expiry_date_explanation": "Срок действия карты в формате: месяц, месяц, год, год",
         "card_verification_value_explanation_amex": "4-значный код безопасности на лицевой стороне вашей карты",
         "card_verification_value_explanation_other": "3-значный код безопасности на обратной стороне вашей карты",
-        "card_start_label": "Дата выпуска (ММ \/ ГГ)",
-        "card_start_placeholder": "Дата выпуска (ММ \/ ГГ)",
+        "card_start_label": "Дата выпуска (ММ / ГГ)",
+        "card_start_placeholder": "Дата выпуска (ММ / ГГ)",
         "card_issue_number_label": "Номер выпуска",
         "card_issue_number_placeholder": "Номер выпуска",
         "card_change_label": "Изменить",
@@ -971,7 +980,7 @@
         "pay_with_payment_method": "Оплатить {{ payment_method }}",
         "same_billing_address_label": "Такой же как адрес доставки",
         "different_billing_address_label": "Используйте другой платежный адрес",
-        "free_order_notice_html": "Ваш заказ <strong>бесплатный<\/strong>. Оплата не требуется.\n",
+        "free_order_notice_html": "Ваш заказ <strong>бесплатный</strong>. Оплата не требуется.\n",
         "express_checkout_free_order": "Вы не будете платить за бесплатный заказ",
         "offsite_gateway_redirect_hint": "После нажатия “{{ button_label }}”вы будете перенаправлены на {{ gateway_label }} для безопасного совершения покупки.\n",
         "offsite_gateway_redirect_hint_multi_currency_html": "{{ gateway_label }} всего {{ total_shop_price }}",
@@ -996,13 +1005,13 @@
           "other": "Ваш заказ покрыт вашими подарочными картами."
         },
         "card_fields_unavailable_html": {
-          "one": "Платежи по кредитным и дебетовым картам в данный момент недоступны. <br><a href=\"javascript:window.location.reload();\">Обновить эту страницу<\/a> или повторить попытку позже.",
-          "other": "Платежи по кредитным и дебетовым картам в настоящее время недоступны.<br><a href=\"javascript:window.location.reload();\">Обновить эту страницу<\/a> или использовать другой способ оплаты."
+          "one": "Платежи по кредитным и дебетовым картам в данный момент недоступны. <br><a href=\"javascript:window.location.reload();\">Обновить эту страницу</a> или повторить попытку позже.",
+          "other": "Платежи по кредитным и дебетовым картам в настоящее время недоступны.<br><a href=\"javascript:window.location.reload();\">Обновить эту страницу</a> или использовать другой способ оплаты."
         }
       },
       "payment_summary": {
         "gift_card_current_balance_notice": "Текущий баланс {{ amount }}\n",
-        "credit_card_expires_on_notice": "Истекает {{ month }}\/{{ year }}",
+        "credit_card_expires_on_notice": "Истекает {{ month }}/{{ year }}",
         "express_payment_gateway_label": "Express",
         "manual_payment_gateway_label": "Вручную",
         "billing_address_title": "Платежный адрес",
@@ -1019,9 +1028,9 @@
         "address_address1_blank": "Введите адрес",
         "address_address2_blank": "Введите квартиру, номер и т. д.",
         "address_city_blank": "Введите город",
-        "address_country_blank": "Выберите страну \/ регион",
-        "address_country_not_supported": "В настоящее время мы не осуществляем доставку в эту страну \/ регион. Введите новый адрес доставки и попробуйте снова.",
-        "address_province_blank": "Выберите штат \/ провинцию",
+        "address_country_blank": "Выберите страну / регион",
+        "address_country_not_supported": "В настоящее время мы не осуществляем доставку в эту страну / регион. Введите новый адрес доставки и попробуйте снова.",
+        "address_province_blank": "Выберите штат / провинцию",
         "address_company_blank": "Введите название компании",
         "address_phone_blank": "Введите действительный номер телефона",
         "address_zip_blank": "Введите почтовый индекс",
@@ -1317,7 +1326,7 @@
             }
           }
         },
-        "terms_and_privacy_html": "Продолжая, вы соглашаетесь с тем, что Shopify Pay предлагает <a class=\"link--muted\" data-modal data-remember-policy-link=\"privacy_policy\" title=\"Shopify Pay Privacy Policy\" href=\"{{ privacy_href }}\">Политика конфиденциальности<\/a> and <a class=\"link--muted\" data-modal data-remember-policy-link=\"terms\" title=\"Shopify Pay Terms of Service\" href=\"{{ terms_href }}\">Условия использования <\/a>."
+        "terms_and_privacy_html": "Продолжая, вы соглашаетесь с тем, что Shopify Pay предлагает <a class=\"link--muted\" data-modal data-remember-policy-link=\"privacy_policy\" title=\"Shopify Pay Privacy Policy\" href=\"{{ privacy_href }}\">Политика конфиденциальности</a> and <a class=\"link--muted\" data-modal data-remember-policy-link=\"terms\" title=\"Shopify Pay Terms of Service\" href=\"{{ terms_href }}\">Условия использования </a>."
       },
       "notifications": {
         "title": "Уведомления"
@@ -1367,7 +1376,7 @@
       "prefecture": "Префектура",
       "province": "Провинция",
       "state": "Штат",
-      "state_and_territory": "Государство \/ территория",
+      "state_and_territory": "Государство / территория",
       "county": "Страна",
       "emirate": "Эмират",
       "governorate": "Провинция",
@@ -1425,7 +1434,7 @@
       "invalid_start_date_or_issue_number_for_debit": "требуется действительная дата начала или номер выпуска",
       "invalid_expiry_year": "не является действительным годом истечения срока действия",
       "verify_email": "Мы отправили электронное письмо на адрес {{ customer_email }}, пожалуйста, нажмите на ссылку, чтобы подтвердить ваш адрес электронной почты.\n",
-      "reset_password_html": "Этот адрес электронной почты уже связан с учетной записью. Если этот аккаунт принадлежит вам, вы можете  <a href=\"\/account\/login#recover\">сбросить пароль<\/a>"
+      "reset_password_html": "Этот адрес электронной почты уже связан с учетной записью. Если этот аккаунт принадлежит вам, вы можете  <a href=\"/account/login#recover\">сбросить пароль</a>"
     },
     "notices": {
       "customer": {
@@ -1470,7 +1479,7 @@
           "declined": "Платеж отклонен",
           "inventory": "Товары недоступны",
           "fraud": "Мошеннический заказ",
-          "customer": "Клиент изменил \/ отменил заказ",
+          "customer": "Клиент изменил / отменил заказ",
           "other": "Другие"
         }
       },
@@ -1490,7 +1499,7 @@
         "variant_not_found": "Не могу найти вариант",
         "shipping_address_not_required": "Эта корзина не требует доставки",
         "shipping_address_invalid": "При расчете тарифов на доставку возникла проблема. Продолжайте оформление заказа, чтобы выбрать тариф доставки, прежде чем завершить заказ.",
-        "stock_problems_html": "Один или несколько предметов больше не доступны. Мы предоставили обновленную корзину <a href='{{ link }}'><\/a>."
+        "stock_problems_html": "Один или несколько предметов больше не доступны. Мы предоставили обновленную корзину <a href='{{ link }}'></a>."
       },
       "storefront": {
         "invalid_password": "Неверный пароль, пожалуйста, попробуйте еще раз."
@@ -1565,8 +1574,53 @@
       "check_other_stores": "Проверить наличие в других магазинах",
       "pick_up_available": "Возможен самовывоз",
       "pick_up_currently_unavailable": "Самовывоз в настоящее время недоступен",
-      "pick_up_available_at_html": "Возможен самовывоз с<strong>{{ location_name }}<\/strong>",
-      "pick_up_unavailable_at_html": "Самовывоз в настоящее время недоступен с <strong>{{ location_name }}<\/strong>"
+      "pick_up_available_at_html": "Возможен самовывоз с<strong>{{ location_name }}</strong>",
+      "pick_up_unavailable_at_html": "Самовывоз в настоящее время недоступен с <strong>{{ location_name }}</strong>"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }

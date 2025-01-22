@@ -1,5 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
+    "404": {
+      "title_large": "404",
+      "title": "找不到網頁",
+      "subtext_html": "我們在此頁面上到處都是。確定網站網址正確嗎？與網站所有者聯繫。",
+      "button": "回去"
+    },
     "accessibility": {
       "skip_to_content": "跳到內容",
       "unit_price_separator": "per",
@@ -21,12 +36,6 @@
     "meta": {
       "tags": "標記為 \"{{ tags }}\"",
       "page": "第 {{ page }} 頁"
-    },
-    "404": {
-      "title_large": "404",
-      "title": "找不到網頁",
-      "subtext_html": "我們在此頁面上到處都是。確定網站網址正確嗎？與網站所有者聯繫。",
-      "button": "回去"
     },
     "social": {
       "share_on_facebook": "分享",
@@ -155,7 +164,7 @@
       "search": {
         "view_all_products": "查看所有產品",
         "empty": "空結果",
-        "empty_html": "搜索 \"<span>{{ result }}<\/span>\""
+        "empty_html": "搜索 \"<span>{{ result }}</span>\""
       },
       "sidebar": {
         "button_close": "關閉"
@@ -175,7 +184,7 @@
         "title_html": "你是否 21 歲或以上 <br>或者有醫療卡？",
         "button_yes": "是的",
         "button_no": "不",
-        "checkbox_label_html": "我同意 <a href=\"\/pages\/cookie-policy\">使用條款<\/a> and <a href=\"\/pages\/cookie-policy\">隱私政策<\/a>"
+        "checkbox_label_html": "我同意 <a href=\"/pages/cookie-policy\">使用條款</a> and <a href=\"/pages/cookie-policy\">隱私政策</a>"
       },
       "contact_confirmation": {
         "post_success": "謝謝您聯絡我們。我們會盡快回复您。",
@@ -199,7 +208,7 @@
   "blogs": {
     "article": {
       "author_on_date_html": "{{ date }} 由 {{ author }} 發布",
-      "author_on_date_carousel_html": "<p class='mb-5'>{{ date }}<\/p><p class='mb-0'>發布者： {{ author }}<\/p>",
+      "author_on_date_carousel_html": "<p class='mb-5'>{{ date }}</p><p class='mb-0'>發布者： {{ author }}</p>",
       "comment_meta_html": "{{ author }} 於 {{ date }}",
       "read_more": "學到更多",
       "tags": "標記：",
@@ -247,9 +256,9 @@
       "shipping_calculator_heading": "估計運費和稅",
       "shipping_calculator_heading_paragraph": "輸入目的地以獲取運輸估算。",
       "shipping_country_title": "國家",
-      "shipping_province_title": "州\/省",
-      "shipping_zip_title": "郵編\/郵政編碼",
-      "shipping_zip_placeholder": "郵編\/郵政編碼",
+      "shipping_province_title": "州/省",
+      "shipping_zip_title": "郵編/郵政編碼",
+      "shipping_zip_placeholder": "郵編/郵政編碼",
       "shipping_calculator_submit_button_label": "計算運費",
       "shipping_calculator_submit_button_label_disabled": "正在計算..",
       "shipping_calculator_data_info": "{{ data }} 有一種運費。",
@@ -447,8 +456,8 @@
     "onboarding": {
       "product_title": "產品標題示例",
       "collection_title": "集合標題示例",
-      "no_content": "本部分當前不包含任何內容。使用邊欄將內容添加到此部分。佈局\/購物車",
-      "no_content_title_html": "添加內容，<span class=\"h4\">please<\/span>!",
+      "no_content": "本部分當前不包含任何內容。使用邊欄將內容添加到此部分。佈局/購物車",
+      "no_content_title_html": "添加內容，<span class=\"h4\">please</span>!",
       "no_content_message": {
         "default": "此部分當前不包含任何內容。使用側邊欄向此部分添加內容。",
         "carousel_products": "此部分當前不包含任何內容。使用側邊欄選擇集合。",
@@ -522,7 +531,7 @@
       "price_tax_included": "(含税)",
       "price_sale_details_html": "您節省了：{{ price }} ({{ procent }}%)",
       "include_taxes": "含稅.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">運費<\/a>是在結帳時計算的。",
+      "shipping_policy_html": "<a href=\"{{ link }}\">運費</a>是在結帳時計算的。",
       "on_sale_from_html": "特價由 {{ price }} 起發售",
       "on_sale": "特價中",
       "from_text_html": "由 {{ price }}",
@@ -551,7 +560,7 @@
       "add_to_cart": {
         "title": "添加到購物車",
         "added": "添加",
-        "sold_out": "賣完了\/補貨中",
+        "sold_out": "賣完了/補貨中",
         "select_options": "查看選項",
         "pre_order": "預購",
         "select_options_mobile": "選擇選項"
@@ -687,8 +696,53 @@
       "check_other_stores": "檢查其他商店的可用性",
       "pick_up_available": "提供接送服務",
       "pick_up_currently_unavailable": "目前無法取件",
-      "pick_up_available_at_html": "可在 <strong>{{ location_name }}<\/strong>",
-      "pick_up_unavailable_at_html": "取件目前不可用 <strong>{{ location_name }}<\/strong>"
+      "pick_up_available_at_html": "可在 <strong>{{ location_name }}</strong>",
+      "pick_up_unavailable_at_html": "取件目前不可用 <strong>{{ location_name }}</strong>"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }

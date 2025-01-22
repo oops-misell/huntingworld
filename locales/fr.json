@@ -1,5 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
+    "404": {
+      "title": "404 - Page non trouvée",
+      "subtext_html": "La page que vous avez demandée n'existe pas. Cliquez <a href=\"/collections/all\">ici</a> pour retourner sur la boutique.",
+      "title_large": "404",
+      "button": "RETOUR"
+    },
     "accessibility": {
       "skip_to_content": "Passer au contenu",
       "unit_price_separator": "per",
@@ -22,12 +37,6 @@
       "tags": "Mots clés \"{{ tags }}\"",
       "page": "Page {{ page }}"
     },
-    "404": {
-      "title": "404 - Page non trouvée",
-      "subtext_html": "La page que vous avez demandée n'existe pas. Cliquez <a href=\"\/collections\/all\">ici<\/a> pour retourner sur la boutique.",
-      "title_large": "404",
-      "button": "RETOUR"
-    },
     "password_page": {
       "opening_soon": "Bientôt ouvert",
       "spread_the_word": "Passez le mot",
@@ -40,7 +49,7 @@
       "signup_form_email_placeholder": "Votre courriel",
       "signup_form_submit": "Soumettre",
       "signup_form_success": "Nous vous ferons parvenir un courriel juste avant l'ouverture!",
-      "admin_link_html": "Êtes-vous le propriétaire de la boutique? <a href=\"\/admin\">Connectez-vous ici<\/a>.",
+      "admin_link_html": "Êtes-vous le propriétaire de la boutique? <a href=\"/admin\">Connectez-vous ici</a>.",
       "password_link": "Entrer avec un mot de passe",
       "powered_by_shopify_html": "Cette boutique sera propulsée par {{ shopify }}"
     },
@@ -180,7 +189,7 @@
       "search": {
         "view_all_products": "Voir tous les produits",
         "empty": "Pas de résultat",
-        "empty_html": "Rechercher \"<span>{{ result }}<\/span>\""
+        "empty_html": "Rechercher \"<span>{{ result }}</span>\""
       },
       "sidebar": {
         "button_close": "FERMER"
@@ -200,7 +209,7 @@
         "title_html": "Avez-vous 21 ans ou plus <br> ou avez-vous une carte médicale?",
         "button_yes": "OUI",
         "button_no": "NON",
-        "checkbox_label_html": "Je suis d'accord avec le <a href=\"\/pages\/cookie-policy\">CONDITIONS D'UTILISATION<\/a> and <a href=\"\/pages\/cookie-policy\">POLITIQUE DE CONFIDENTIALITÉ<\/a>"
+        "checkbox_label_html": "Je suis d'accord avec le <a href=\"/pages/cookie-policy\">CONDITIONS D'UTILISATION</a> and <a href=\"/pages/cookie-policy\">POLITIQUE DE CONFIDENTIALITÉ</a>"
       },
       "contact_confirmation": {
         "post_success": "Merci de nous avoir contacté. Nous vous répondrons dans les plus brefs délais.",
@@ -226,7 +235,7 @@
       "author_on_date_html": "Publié par {{ author }} le {{ date }}",
       "comment_meta_html": "{{ author }} le {{ date }}",
       "read_more": "Plus",
-      "author_on_date_carousel_html": "<p class='mb-5'>{{ date }}<\/p><p class='mb-0'>Posted by {{ author }}<\/p> ",
+      "author_on_date_carousel_html": "<p class='mb-5'>{{ date }}</p><p class='mb-0'>Posted by {{ author }}</p> ",
       "tags": "TAGS",
       "share": "PARTAGER",
       "prev_post": "Post Précédent",
@@ -268,7 +277,7 @@
       "checkout": "Procéder au paiement",
       "empty": "Votre panier est vide.",
       "cookies_required": "Activer les cookies pour utiliser le panier",
-      "continue_browsing_html": "<a href=\"\/collections\/all\">Retourner au magasinage<\/a>.",
+      "continue_browsing_html": "<a href=\"/collections/all\">Retourner au magasinage</a>.",
       "item_quantity": "Quantité de l'article",
       "savings": "Vous économisez",
       "sidebar_title": "TOTAL DU PANIER",
@@ -281,9 +290,9 @@
       "shipping_calculator_heading": "Estimation des frais de livraison et des taxes",
       "shipping_calculator_heading_paragraph": "Entrez votre adresse pour avoir une estimation des frais de livraison",
       "shipping_country_title": "PAYS",
-      "shipping_province_title": "ETAT \/ DEPARTEMENT",
-      "shipping_zip_title": "ZIP \/ CODE POSTAL",
-      "shipping_zip_placeholder": "ZIP \/ CODE POSTAL",
+      "shipping_province_title": "ETAT / DEPARTEMENT",
+      "shipping_zip_title": "ZIP / CODE POSTAL",
+      "shipping_zip_placeholder": "ZIP / CODE POSTAL",
       "shipping_calculator_submit_button_label": "Calculer les frais de livraison",
       "shipping_calculator_submit_button_label_disabled": "Calcul en cours..",
       "shipping_calculator_data_info": "Il n'y a pas de frais de livraison valable pour {{ data }}. ",
@@ -493,7 +502,7 @@
       "product_title": "Titre du produit",
       "collection_title": "Titre de la collection",
       "no_content": "Cette section ne contient actuellement aucun contenu. Ajoutez-en en utilisant la barre latérale.",
-      "no_content_title_html": "Ajouter du contenu, <span class=\"h4\">please<\/span>!",
+      "no_content_title_html": "Ajouter du contenu, <span class=\"h4\">please</span>!",
       "no_content_message": {
         "default": "Cette section n'inclut actuellement aucun contenu. Ajoutez du contenu à cette section à l'aide de la barre latérale.",
         "carousel_products": "Cette section n'inclut actuellement aucun contenu. Sélectionnez la collection à l'aide de la barre latérale.",
@@ -658,7 +667,7 @@
       "button_full_details": "VOIR TOUS LES DÉTAILS",
       "include_taxes": "Taxe inclu.",
       "unit_price_label": "Prix ​​unitaire",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping<\/a> calculé à la caisse.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculé à la caisse.",
       "notes_label": "Remarques",
       "notes_placeholder": "Écrivez ici vos notes pour la commande",
       "availability_value_in_stock_without_counter": "En stock",
@@ -764,8 +773,53 @@
       "check_other_stores": "Vérifier la disponibilité dans d'autres magasins",
       "pick_up_available": "Ramassage disponible",
       "pick_up_currently_unavailable": "Ramassage actuellement indisponible",
-      "pick_up_available_at_html": "Ramassage disponible à <strong>{{ location_name }}<\/strong>",
-      "pick_up_unavailable_at_html": "Ramassage actuellement indisponible à <strong>{{ location_name }}<\/strong>"
+      "pick_up_available_at_html": "Ramassage disponible à <strong>{{ location_name }}</strong>",
+      "pick_up_unavailable_at_html": "Ramassage actuellement indisponible à <strong>{{ location_name }}</strong>"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }

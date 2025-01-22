@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "1586279708879": {
@@ -18,9 +27,9 @@
           "type": "slick_slide",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/st241030pc_1.jpg",
+            "image": "shopify://shop_images/st241030pc_1.jpg",
             "image_size": 900,
-            "image_mobile": "shopify:\/\/shop_images\/st241030sp.jpg",
+            "image_mobile": "shopify://shop_images/st241030sp.jpg",
             "image_mobile_size": 550,
             "image_position_x": 50,
             "color_image_mask": "",
@@ -59,9 +68,9 @@
           "type": "slick_slide",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/descente241113pc.jpg",
+            "image": "shopify://shop_images/descente241113pc.jpg",
             "image_size": 1400,
-            "image_mobile": "shopify:\/\/shop_images\/descente241113sp_8b5c8aad-a9ac-4ecc-932a-e2dbc4573c20.jpg",
+            "image_mobile": "shopify://shop_images/descente241113sp_8b5c8aad-a9ac-4ecc-932a-e2dbc4573c20.jpg",
             "image_mobile_size": 550,
             "image_position_x": 50,
             "color_image_mask": "",
@@ -100,9 +109,9 @@
           "type": "slick_slide",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/holiday241127pc.jpg",
+            "image": "shopify://shop_images/holiday241127pc.jpg",
             "image_size": 1400,
-            "image_mobile": "shopify:\/\/shop_images\/holiday241113sp.jpg",
+            "image_mobile": "shopify://shop_images/holiday241113sp.jpg",
             "image_mobile_size": 550,
             "image_position_x": 50,
             "color_image_mask": "",
@@ -175,7 +184,7 @@
           "type": "promobox",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/mens241030.jpg",
+            "image": "shopify://shop_images/mens241030.jpg",
             "image_size": 250,
             "image_mobile_size": 200,
             "image_position_x": 50,
@@ -224,7 +233,7 @@
           "type": "promobox",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/womens241030.jpg",
+            "image": "shopify://shop_images/womens241030.jpg",
             "image_size": 250,
             "image_mobile_size": 200,
             "image_position_x": 50,
@@ -273,7 +282,7 @@
           "type": "promobox",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/bag241120.jpg",
+            "image": "shopify://shop_images/bag241120.jpg",
             "image_size": 250,
             "image_mobile_size": 200,
             "image_position_x": 50,
@@ -322,7 +331,7 @@
           "type": "promobox",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/slg241120_28a37518-4351-4342-b502-256a379e2f66.jpg",
+            "image": "shopify://shop_images/slg241120_28a37518-4351-4342-b502-256a379e2f66.jpg",
             "image_size": 250,
             "image_mobile_size": 200,
             "image_position_x": 50,
@@ -371,7 +380,7 @@
           "type": "promobox",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/wear241120.jpg",
+            "image": "shopify://shop_images/wear241120.jpg",
             "image_size": 1450,
             "image_mobile_size": 550,
             "image_position_x": 50,
@@ -420,7 +429,7 @@
           "type": "promobox",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/Picture_travel241030_jpg.png",
+            "image": "shopify://shop_images/Picture_travel241030_jpg.png",
             "image_size": 1450,
             "image_mobile_size": 550,
             "image_position_x": 50,
@@ -469,7 +478,7 @@
           "type": "promobox",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/Picture_gift241106_jpg.png",
+            "image": "shopify://shop_images/Picture_gift241106_jpg.png",
             "image_size": 250,
             "image_mobile_size": 200,
             "image_position_x": 50,
@@ -518,7 +527,7 @@
           "type": "promobox",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/Picture_spo241030_jpg.png",
+            "image": "shopify://shop_images/Picture_spo241030_jpg.png",
             "image_size": 1450,
             "image_mobile_size": 550,
             "image_position_x": 50,
@@ -578,7 +587,7 @@
         "h2 span {font-size: 20px;}"
       ],
       "settings": {
-        "title": "<p>アイテムを探す<\/p>",
+        "title": "<p>アイテムを探す</p>",
         "container": "boxed",
         "size_of_columns": "4",
         "size_of_columns_mobile": "2",
@@ -608,9 +617,9 @@
           "type": "promobox",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/silvertag241106.jpg",
+            "image": "shopify://shop_images/silvertag241106.jpg",
             "image_size": 1000,
-            "image_mobile": "shopify:\/\/shop_images\/Article_Thumnail.png",
+            "image_mobile": "shopify://shop_images/Article_Thumnail.png",
             "image_mobile_size": 550,
             "image_position_x": 50,
             "color_image_mask": "",
@@ -658,9 +667,9 @@
           "type": "promobox",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/cbdl241030.jpg",
+            "image": "shopify://shop_images/cbdl241030.jpg",
             "image_size": 1450,
-            "image_mobile": "shopify:\/\/shop_images\/Article_Thumnail.png",
+            "image_mobile": "shopify://shop_images/Article_Thumnail.png",
             "image_mobile_size": 550,
             "image_position_x": 50,
             "color_image_mask": "",
@@ -708,9 +717,9 @@
           "type": "promobox",
           "settings": {
             "url": "",
-            "image": "shopify:\/\/shop_images\/buttuesurpass241030.jpg",
+            "image": "shopify://shop_images/buttuesurpass241030.jpg",
             "image_size": 1450,
-            "image_mobile": "shopify:\/\/shop_images\/Article_Thumnail.png",
+            "image_mobile": "shopify://shop_images/Article_Thumnail.png",
             "image_mobile_size": 550,
             "image_position_x": 50,
             "color_image_mask": "",
@@ -764,7 +773,7 @@
         "h2 span {font-size: 21px; font-weight: 700;}"
       ],
       "settings": {
-        "title": "<p>SPECIAL SERIES<\/p>",
+        "title": "<p>SPECIAL SERIES</p>",
         "container": "fullwidth",
         "size_of_columns": "3",
         "size_of_columns_mobile": "1",
@@ -794,7 +803,7 @@
           "type": "collection",
           "settings": {
             "title": "",
-            "collection": "おすすめアイテム"
+            "collection": "recommend"
           }
         }
       },

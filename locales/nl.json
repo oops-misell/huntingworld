@@ -1,5 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
+    "404": {
+      "title": "404 Pagina niet gevonden",
+      "subtext_html": "De pagina die u zocht bestaat niet. Klik <a href=\"/collections/all\">hier</a> om verder te shoppen.",
+      "title_large": "404",
+      "button": "GA TERUG"
+    },
     "accessibility": {
       "skip_to_content": "Verder naar inhoud",
       "unit_price_separator": "per",
@@ -22,12 +37,6 @@
       "tags": "Getagd \"{{ tags }}\"",
       "page": "Pagina {{ page }}"
     },
-    "404": {
-      "title": "404 Pagina niet gevonden",
-      "subtext_html": "De pagina die u zocht bestaat niet. Klik <a href=\"\/collections\/all\">hier<\/a> om verder te shoppen.",
-      "title_large": "404",
-      "button": "GA TERUG"
-    },
     "password_page": {
       "opening_soon": "Binnenkort open",
       "spread_the_word": "Vertel het verder",
@@ -40,7 +49,7 @@
       "signup_form_email_placeholder": "Uw e-mail",
       "signup_form_submit": "Bevestig",
       "signup_form_success": "We zullen u een e-mail sturen net voor we open gaan!",
-      "admin_link_html": "Ben u de eigenaar van deze shop? <a href=\"\/admin\">hier inloggen<\/a>",
+      "admin_link_html": "Ben u de eigenaar van deze shop? <a href=\"/admin\">hier inloggen</a>",
       "password_link": "Login met wachtwoord",
       "powered_by_shopify_html": "Deze shop zal worden ondersteund door {{ shopify }}"
     },
@@ -169,7 +178,7 @@
       },
       "search": {
         "view_all_products": "Bekijk alle producten",
-        "empty_html": "Zoeken  \"<span>{{ result }}<\/span>\""
+        "empty_html": "Zoeken  \"<span>{{ result }}</span>\""
       },
       "sidebar": {
         "button_close": "DICHTBIJ"
@@ -178,7 +187,7 @@
         "title_html": "Ben je 21 jaar of ouder <br>of heb je een medische kaart?",
         "button_yes": "JA",
         "button_no": "NEE",
-        "checkbox_label_html": "Ik ga akkoord met de <a href=\"\/pages\/cookie-policy\">GEBRUIKSVOORWAARDEN<\/a> and <a href=\"\/pages\/cookie-policy\">PRIVACYBELEID<\/a>"
+        "checkbox_label_html": "Ik ga akkoord met de <a href=\"/pages/cookie-policy\">GEBRUIKSVOORWAARDEN</a> and <a href=\"/pages/cookie-policy\">PRIVACYBELEID</a>"
       },
       "contact_confirmation": {
         "post_success": "Bedankt dat u contact met ons heeft opgenomen. We komen zo snel mogelijk bij je terug.",
@@ -204,7 +213,7 @@
       "author_on_date_html": "Geplaats door {{ author }} op {{ date }}",
       "comment_meta_html": "{{ author }} op {{ date }}",
       "read_more": "Lees verder",
-      "author_on_date_carousel_html": "<p class='mb-5'>{{ date }}<\/p><p class='mb-0'>Gepost door {{ author }}<\/p>",
+      "author_on_date_carousel_html": "<p class='mb-5'>{{ date }}</p><p class='mb-0'>Gepost door {{ author }}</p>",
       "tags": "TAGS:",
       "share": "DEEL:",
       "prev_post": "Vorige post",
@@ -246,7 +255,7 @@
       "checkout": "Plaats bestelling",
       "empty": "Uw winkelmandje is momenteel leeg.",
       "cookies_required": "Gelieve cookies te activeren om het winkelmandje te gebruiken",
-      "continue_browsing_html": "Bekijk <a href=\"\/collections\/all\">alle producten<\/a>.",
+      "continue_browsing_html": "Bekijk <a href=\"/collections/all\">alle producten</a>.",
       "item_quantity": "Hoeveelheid",
       "savings": "U bespaart",
       "sidebar_title": "TOTAAL WINKELWAGEN",
@@ -259,9 +268,9 @@
       "shipping_calculator_heading": "Schatting verzendkosten en BTW",
       "shipping_calculator_heading_paragraph": "Voer uw bestemming in om een ​​schatting van de verzending te krijgen.",
       "shipping_country_title": "LAND",
-      "shipping_province_title": "STAAT\/PROVINCIE",
-      "shipping_zip_title": "ZIP\/POSTCODE",
-      "shipping_zip_placeholder": "ZIP\/POSTCODE",
+      "shipping_province_title": "STAAT/PROVINCIE",
+      "shipping_zip_title": "ZIP/POSTCODE",
+      "shipping_zip_placeholder": "ZIP/POSTCODE",
       "shipping_calculator_submit_button_label": "Bereken verzending",
       "shipping_calculator_submit_button_label_disabled": "Berekenen..",
       "shipping_calculator_data_info": "Er is één verzendtarief beschikbaar voor {{ data }}.",
@@ -471,7 +480,7 @@
       "product_title": "Product Titel Voorbeeld",
       "collection_title": "Collectie Titel Voorbeeld",
       "no_content": "Dit onderdeel heeft momenteel geen inhoud. Voeg inhoud toe aan dit onderdeel aan de hand van de zijbalk.",
-      "no_content_title_html": "Content toevoegen, <span class=\"h4\">please<\/span>!",
+      "no_content_title_html": "Content toevoegen, <span class=\"h4\">please</span>!",
       "no_content_message": {
         "default": "Dit gedeelte bevat momenteel geen inhoud. Voeg inhoud toe aan deze sectie met behulp van de zijbalk.",
         "carousel_products": "Dit gedeelte bevat momenteel geen inhoud. Selecteer collectie met behulp van de zijbalk.",
@@ -562,7 +571,7 @@
       "price_sale_details_html": "U bespaart: {{ price }} ({{ procent }}%)",
       "include_taxes": "Inclusief belasting.",
       "unit_price_label": "Stuksprijs",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping<\/a> berekend bij het afrekenen",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> berekend bij het afrekenen",
       "notes_label": "Opmerkingen",
       "notes_placeholder": "Schrijf hier uw notities voor de bestelling",
       "share": "Deel:",
@@ -678,8 +687,8 @@
       "check_other_stores": "Check beschikbaarheid bij andere winkels",
       "pick_up_available": "Ophalen mogelijk",
       "pick_up_currently_unavailable": "Ophalen momenteel niet mogelijk",
-      "pick_up_available_at_html": "Afhalen mogelijk bij <strong>{{ location_name }}<\/strong>",
-      "pick_up_unavailable_at_html": "Ophalen momenteel niet mogelijk bij <strong>{{ location_name }}<\/strong>"
+      "pick_up_available_at_html": "Afhalen mogelijk bij <strong>{{ location_name }}</strong>",
+      "pick_up_unavailable_at_html": "Ophalen momenteel niet mogelijk bij <strong>{{ location_name }}</strong>"
     }
   },
   "wishlist_page": {
@@ -721,6 +730,51 @@
       "amazon": "Amazon",
       "apple": "Apple",
       "google": "Google"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }

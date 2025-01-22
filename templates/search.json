@@ -22,6 +22,7 @@
         },
         "cbf3063e-b967-4ad4-8568-229aa6d29069": {
           "type": "subscription",
+          "disabled": true,
           "settings": {
             "title": "メルマガ購読",
             "default_state": "without_title",
@@ -79,9 +80,9 @@
         "34475937-29d8-4140-aca5-34e23c33b896"
       ],
       "settings": {
-        "container": "fullwidth",
+        "container": "boxed",
         "products_per_page": 12,
-        "search_show_only_products": false,
+        "search_show_only_products": true,
         "enable_default_filtering": true,
         "show_selected_filters_counter": true,
         "show_filter_product_count": true,

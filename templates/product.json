@@ -130,6 +130,18 @@
           "type": "border",
           "settings": {}
         },
+        "custom_liquid_FpVjRh": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'product-pico-measures' %}"
+          }
+        },
+        "custom_liquid_PrwNGh": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'product-pico-material' %}"
+          }
+        },
         "social_share_buttons": {
           "type": "social_share_buttons",
           "settings": {}
@@ -141,6 +153,19 @@
         "stock_countdown_gn9eKT": {
           "type": "stock_countdown",
           "settings": {}
+        },
+        "storecrm_storecrm_button_jYbEk8": {
+          "type": "shopify://apps/storecrm/blocks/storecrm-button/61f75760-de02-4da7-8f69-87797e71e697",
+          "settings": {
+            "button_type": "wishlist-button",
+            "product": "{{product}}"
+          }
+        },
+        "storecrm_storecrm_restock_t4wHPi": {
+          "type": "shopify://apps/storecrm/blocks/storecrm-restock/61f75760-de02-4da7-8f69-87797e71e697",
+          "settings": {
+            "product": "{{product}}"
+          }
         }
       },
       "block_order": [
@@ -161,9 +186,13 @@
         "border_Y7zjan",
         "custom_liquid_8RPkFr",
         "border_EmYyyW",
+        "custom_liquid_FpVjRh",
+        "custom_liquid_PrwNGh",
         "social_share_buttons",
         "b95e0337-3417-425c-b5e6-70dff5cb6e55",
-        "stock_countdown_gn9eKT"
+        "stock_countdown_gn9eKT",
+        "storecrm_storecrm_button_jYbEk8",
+        "storecrm_storecrm_restock_t4wHPi"
       ],
       "settings": {
         "variant_add_cart": true,

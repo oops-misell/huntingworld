@@ -1,5 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
+    "404": {
+      "title_large": "404",
+      "title": "הדף לא נמצא",
+      "subtext_html": "חיפשנו בכל מקום אחר דף זה. האם אתה בטוח שכתובת האתר נכונה? צרו קשר עם בעל האתר.",
+      "button": "תחזור"
+    },
     "accessibility": {
       "skip_to_content": "דלג לתוכן",
       "unit_price_separator": "per",
@@ -21,12 +36,6 @@
     "meta": {
       "tags": "מתויג \"{{ tags }}\"",
       "page": "עמוד {{ page }}"
-    },
-    "404": {
-      "title_large": "404",
-      "title": "הדף לא נמצא",
-      "subtext_html": "חיפשנו בכל מקום אחר דף זה. האם אתה בטוח שכתובת האתר נכונה? צרו קשר עם בעל האתר.",
-      "button": "תחזור"
     },
     "social": {
       "share_on_facebook": "שתף",
@@ -154,7 +163,7 @@
       "search": {
         "view_all_products": "צפה בכל המוצרים",
         "empty": "תוצאה ריקה",
-        "empty_html": "חפש \"<span>{{ result }}<\/span>\""
+        "empty_html": "חפש \"<span>{{ result }}</span>\""
       },
       "sidebar": {
         "button_close": "סגור"
@@ -174,7 +183,7 @@
         "title_html": "האם אתה בן 21 ומעלה <br> או שיש לך כרטיס רפואי?",
         "button_yes": "כן",
         "button_no": "לא",
-        "checkbox_label_html": "אני מסכים ל <a href=\"\/pages\/cookie-policy\">תנאי שימוש<\/a> and <a href=\"\/pages\/cookie-policy\">מדיניות פרטיות<\/a>"
+        "checkbox_label_html": "אני מסכים ל <a href=\"/pages/cookie-policy\">תנאי שימוש</a> and <a href=\"/pages/cookie-policy\">מדיניות פרטיות</a>"
       },
       "contact_confirmation": {
         "post_success": "תודה שפנית אלינו. אנו נחזור אליך בהקדם האפשרי.",
@@ -320,8 +329,8 @@
         "address2_label": "דירה, סוויטה וכו '.",
         "optional_address2_label": "דירה, סוויטה וכו '(לא חובה)",
         "city_label": "עיר",
-        "country_label": "מדינה \/ אזור",
-        "country_code": "קוד מדינה \/ אזור",
+        "country_label": "מדינה / אזור",
+        "country_code": "קוד מדינה / אזור",
         "province_label": "מחוז",
         "province_placeholder": "מחוז",
         "county_label": "מחוז",
@@ -336,8 +345,8 @@
         "governorate_placeholder": "נפת",
         "emirate_label": "אמירות",
         "emirate_placeholder": "אמירות",
-        "state_and_territory_label": "מדינה \/ שטח",
-        "state_and_territory_placeholder": "מדינה \/ שטח",
+        "state_and_territory_label": "מדינה / שטח",
+        "state_and_territory_placeholder": "מדינה / שטח",
         "phone_label": "מכשיר טלפון",
         "optional_phone_label": "טלפון אופציונלי)",
         "phone_placeholder": "מכשיר טלפון",
@@ -406,10 +415,10 @@
         "gift_card_has_been_applied": "כרטיס מתנה הוחל",
         "gift_card_has_been_removed": "כרטיס המתנה הוסר",
         "discount_already_applied": "בהזמנה זו הוחל הנחה. אינך יכול להוסיף הנחה נוספת.",
-        "cart_does_not_meet_discount_requirements_notice": "<strong>{{ code }}<\/strong> קוד ההנחה אינו תקף עבור הפריטים בעגלה שלך",
-        "discount_requires_customer_notice": "הזן את פרטי המשלוח שלך כדי להחיל את ה- <strong>{{ code }}<\/strong> קוד הנחה",
-        "customer_does_not_meet_discount_requirements_notice": "<strong>{{ code }}<\/strong> קוד הנחה אינו זמין עבורך כרגע",
-        "shipping_information_does_not_meet_discount_requirements_notice": "<strong>{{ code }}<\/strong> קוד הנחה אינו זמין עבור כתובת המשלוח שלך\n",
+        "cart_does_not_meet_discount_requirements_notice": "<strong>{{ code }}</strong> קוד ההנחה אינו תקף עבור הפריטים בעגלה שלך",
+        "discount_requires_customer_notice": "הזן את פרטי המשלוח שלך כדי להחיל את ה- <strong>{{ code }}</strong> קוד הנחה",
+        "customer_does_not_meet_discount_requirements_notice": "<strong>{{ code }}</strong> קוד הנחה אינו זמין עבורך כרגע",
+        "shipping_information_does_not_meet_discount_requirements_notice": "<strong>{{ code }}</strong> קוד הנחה אינו זמין עבור כתובת המשלוח שלך\n",
         "customer_already_used_once_per_customer_discount_notice": "קוד ההנחה {{code}} כבר נעשה בשימוש",
         "subtotal_label": "רמה חלקית",
         "shipping_label": "משלוח",
@@ -495,16 +504,16 @@
         "card_security_notice": "כל העסקאות מאובטחות ומוצפנות.",
         "name_on_card_label": "שם בכרטיס",
         "name_on_card_placeholder": "שם בכרטיס",
-        "card_expiry_label": "תאריך תפוגה (MM \/ YY)",
-        "card_expiry_placeholder": "תאריך תפוגה (MM \/ YY)",
+        "card_expiry_label": "תאריך תפוגה (MM / YY)",
+        "card_expiry_placeholder": "תאריך תפוגה (MM / YY)",
         "card_verification_value_label": "קוד אבטחה",
         "card_verification_value_placeholder": "קוד אבטחה",
         "card_expiry_date_explanation": "תאריך תפוגה של הכרטיס בפורמט: חודש, חודש, שנה, שנה",
         "card_verification_value_explanation": "קוד אבטחה בן שלוש ספרות נמצא בדרך כלל בגב הכרטיס. בכרטיסי אמריקן אקספרס יש קוד בן 4 ספרות הממוקם בחזית.",
         "card_verification_value_explanation_amex": "קוד אבטחה בן 4 ספרות בחזית הכרטיס",
         "card_verification_value_explanation_other": "קוד אבטחה בן שלוש ספרות בגב הכרטיס",
-        "card_start_label": "תאריך ההנפקה (MM \/ YY)",
-        "card_start_placeholder": "תאריך ההנפקה (MM \/ YY)",
+        "card_start_label": "תאריך ההנפקה (MM / YY)",
+        "card_start_placeholder": "תאריך ההנפקה (MM / YY)",
         "card_issue_number_label": "Issue number",
         "card_issue_number_placeholder": "Issue number",
         "card_change_label": "שינוי",
@@ -514,7 +523,7 @@
         "pay_with_payment_method": "לשלם עם {{ payment_method }}",
         "same_billing_address_label": "זהה לכתובת המשלוח",
         "different_billing_address_label": "השתמש בכתובת חיוב שונה",
-        "free_order_notice_html": "ההזמנה שלך היא <strong> חינם <\/ strong>. אין צורך בתשלום.",
+        "free_order_notice_html": "ההזמנה שלך היא <strong> חינם </ strong>. אין צורך בתשלום.",
         "express_checkout_free_order": "לא תחויב בהזמנה בחינם",
         "order_covered_by_gift_cards_notice": {
           "one": "ההזמנה שלך מכוסה בכרטיס המתנה שלך.",
@@ -528,8 +537,8 @@
         "no_js_credit_card_fields_redirect_hint": "תנותב אותך להוסיף את פרטי התשלום שלך.",
         "card_fields_container_prefix": "מיכל שדה עבור:",
         "card_fields_unavailable_html": {
-          "one": "תשלומי כרטיסי אשראי וכרטיס חיוב אינם זמינים כעת.<br><a href=\"javascript:window.location.reload();\">רענן עמוד זה<\/a> או נסה שוב מאוחר יותר.\n",
-          "other": "תשלומי כרטיסי אשראי וכרטיס חיוב אינם זמינים כעת.<br><a href=\"javascript:window.location.reload();\">רענן עמוד זה<\/a> או נסה אמצעי תשלום אחר.\n"
+          "one": "תשלומי כרטיסי אשראי וכרטיס חיוב אינם זמינים כעת.<br><a href=\"javascript:window.location.reload();\">רענן עמוד זה</a> או נסה שוב מאוחר יותר.\n",
+          "other": "תשלומי כרטיסי אשראי וכרטיס חיוב אינם זמינים כעת.<br><a href=\"javascript:window.location.reload();\">רענן עמוד זה</a> או נסה אמצעי תשלום אחר.\n"
         },
         "card_fields_processing_error": "הייתה בעיה בעיבוד התשלום. נסה אמצעי תשלום אחר או נסה שוב מאוחר יותר.",
         "technical_error": "לא ניתן לעבד תשלומים כרגע בגלל בעיה טכנית. נסה שוב בעוד מספר דקות.",
@@ -546,7 +555,7 @@
       },
       "payment_summary": {
         "gift_card_current_balance_notice": "איזון שוטף {{ amount }}\n",
-        "credit_card_expires_on_notice": "פג תוקף בתאריך {{ month }}\/{{ year }}\n",
+        "credit_card_expires_on_notice": "פג תוקף בתאריך {{ month }}/{{ year }}\n",
         "express_payment_gateway_label": "אקספרס",
         "manual_payment_gateway_label": "מדריך ל",
         "billing_address_title": "כתובת לחיוב",
@@ -563,14 +572,14 @@
         "address_address1_blank": "הכנס כתובת",
         "address_address2_blank": "הכנס לדירה, סוויטה וכו '.",
         "address_city_blank": "כנסו לעיר",
-        "address_country_blank": "בחר מדינה \/ אזור",
-        "address_country_not_supported": "אנחנו לא שולחים כרגע לארץ \/ אזור זה. הזן כתובת למשלוח חדשה ונסה שוב.",
-        "address_province_blank": "בחר מדינה \/ מחוז",
+        "address_country_blank": "בחר מדינה / אזור",
+        "address_country_not_supported": "אנחנו לא שולחים כרגע לארץ / אזור זה. הזן כתובת למשלוח חדשה ונסה שוב.",
+        "address_province_blank": "בחר מדינה / מחוז",
         "address_company_blank": "הזן שם חברה",
         "address_phone_blank": "הזן מספר טלפון חוקי",
-        "address_zip_blank": "הזן מיקוד \/ מיקוד",
-        "address_zip_invalid_for_country": "הזן מיקוד חוקי \/ מיקוד עבור {{ country }}",
-        "address_zip_invalid_for_country_and_province": "הזן מיקוד חוקי \/ מיקוד עבור {{ province }}, {{ country }}",
+        "address_zip_blank": "הזן מיקוד / מיקוד",
+        "address_zip_invalid_for_country": "הזן מיקוד חוקי / מיקוד עבור {{ country }}",
+        "address_zip_invalid_for_country_and_province": "הזן מיקוד חוקי / מיקוד עבור {{ province }}, {{ country }}",
         "credit_card_name_blank": "הזן את שמך בדיוק כמו שכתוב בכרטיס שלך",
         "credit_card_name_invalid": "הזן את שמך בדיוק כמו שכתוב בכרטיס שלך",
         "credit_card_number_invalid": "הזן מספר כרטיס תקף",
@@ -831,7 +840,7 @@
         "description_html": "בפעם הבאה שתבדוק כאן או על חנויות אחרות המופעלות על ידי Shopify, תקבל קוד בהודעת טקסט לרכישה מאובטחת באמצעות Shopify Pay.",
         "mobile_phone_icon_alt": "טלפון נייד",
         "mobile_phone_number": "מספר טלפון נייד",
-        "terms_and_privacy_html": "על ידי המשך אתה מסכים ל- Shopify Pay <a class=\"link--muted\" data-modal data-remember-policy-link=\"privacy_policy\" title=\"Shopify Pay Privacy Policy\" href=\"{{ privacy_href }}\">מדיניות פרטיות<\/a> and <a class=\"link--muted\" data-modal data-remember-policy-link=\"terms\" title=\"Shopify Pay Terms of Service\" href=\"{{ terms_href }}\">תנאי השירות<\/a>.",
+        "terms_and_privacy_html": "על ידי המשך אתה מסכים ל- Shopify Pay <a class=\"link--muted\" data-modal data-remember-policy-link=\"privacy_policy\" title=\"Shopify Pay Privacy Policy\" href=\"{{ privacy_href }}\">מדיניות פרטיות</a> and <a class=\"link--muted\" data-modal data-remember-policy-link=\"terms\" title=\"Shopify Pay Terms of Service\" href=\"{{ terms_href }}\">תנאי השירות</a>.",
         "modal": {
           "guest": {
             "title": "קופה מהירה",
@@ -928,7 +937,7 @@
       "prefecture": "פריפקטורה",
       "province": "מחוז",
       "state": "מדינה",
-      "state_and_territory": "מדינה \/ שטח",
+      "state_and_territory": "מדינה / שטח",
       "county": "מחוז",
       "emirate": "אמירות",
       "governorate": "נפת",
@@ -985,7 +994,7 @@
       "expired": "פג תוקף",
       "invalid_start_date_or_issue_number_for_debit": "יש צורך בתאריך התחלה או מספר גיליון חוקי",
       "invalid_expiry_year": "אינה שנת תפוגה תקפה",
-      "reset_password_html": "כתובת דוא\"ל זו כבר משויכת לחשבון. אם חשבון זה שלך, אתה יכול לעשות זאת <a href=\"\/account\/login#recover\">לאפס את הסיסמה שלך<\/a>\n",
+      "reset_password_html": "כתובת דוא\"ל זו כבר משויכת לחשבון. אם חשבון זה שלך, אתה יכול לעשות זאת <a href=\"/account/login#recover\">לאפס את הסיסמה שלך</a>\n",
       "verify_email": "שלחנו דוא\"ל אל {{ customer_email }}לחץ על הקישור המצורף כדי לאמת את כתובת הדוא\"ל שלך.\n"
     },
     "notices": {
@@ -1031,7 +1040,7 @@
           "declined": "תשלום נדחה",
           "inventory": "פריטים לא זמינים",
           "fraud": "צו הונאה",
-          "customer": "הלקוח שינה \/ ביטל את ההזמנה",
+          "customer": "הלקוח שינה / ביטל את ההזמנה",
           "other": "אחר"
         }
       },
@@ -1045,7 +1054,7 @@
         "too_many_line_items_error": "העגלה שלך לא יכולה להכיל יותר מ- {{ max }} פריטים.",
         "link_expired": "פג הקישור",
         "link_no_longer_exists": "הקישור כבר לא קיים.",
-        "stock_problems_html": "פריט אחד או יותר אינם זמינים עוד. סיפקנו <a href='{{ link }}'>עגלה מעודכנת<\/a>.\n",
+        "stock_problems_html": "פריט אחד או יותר אינם זמינים עוד. סיפקנו <a href='{{ link }}'>עגלה מעודכנת</a>.\n",
         "changed": "העגלה הוחלפה",
         "items_changed": "פריט אחד או יותר השתנה.",
         "product_sold_out": "המוצר '{{ name }}' כבר אזל.\n",
@@ -1099,7 +1108,7 @@
   "blogs": {
     "article": {
       "author_on_date_html": "{{ date }} פורסם על ידי {{ author }}\n",
-      "author_on_date_carousel_html": "<p class='mb-5'>{{ date }}<\/p><p class='mb-0'>פורסם על ידי {{ author }}<\/p>",
+      "author_on_date_carousel_html": "<p class='mb-5'>{{ date }}</p><p class='mb-0'>פורסם על ידי {{ author }}</p>",
       "comment_meta_html": "{{ author }} על {{ date }}",
       "read_more": "למד עוד",
       "tags": "תגיות:",
@@ -1147,9 +1156,9 @@
       "shipping_calculator_heading": "הערכת משלוח ומס",
       "shipping_calculator_heading_paragraph": "הזן את היעד שלך כדי לקבל הערכת משלוח.",
       "shipping_country_title": "מדינה",
-      "shipping_province_title": "מדינה \/ פרובינציה",
-      "shipping_zip_title": "קוד מיקוד \/ דואר",
-      "shipping_zip_placeholder": "קוד מיקוד \/ דואר",
+      "shipping_province_title": "מדינה / פרובינציה",
+      "shipping_zip_title": "קוד מיקוד / דואר",
+      "shipping_zip_placeholder": "קוד מיקוד / דואר",
       "shipping_calculator_submit_button_label": "חישוב משלוח",
       "shipping_calculator_submit_button_label_disabled": "מחושב ..",
       "shipping_calculator_data_info": "יש מחיר משלוח אחד זמין עבור {{ data }}.",
@@ -1252,7 +1261,7 @@
       "city": "עיר",
       "country": "מדינה",
       "province": "מחוז",
-      "zip": "מיקוד \/ מיקוד",
+      "zip": "מיקוד / מיקוד",
       "phone": "מכשיר טלפון",
       "set_default": "הגדר ככתובת ברירת מחדל",
       "add": "הוסף כתובת",
@@ -1348,7 +1357,7 @@
       "collection_title": "דוגמת כותרת אוסף",
       "product_title": "דוגמא לכותרת מוצר",
       "no_content": "קטע זה אינו כולל כרגע שום תוכן. הוסף תוכן לקטע זה באמצעות סרגל הצד.",
-      "no_content_title_html": "הוסף תוכן, <span class=\"h4\">please<\/span>!",
+      "no_content_title_html": "הוסף תוכן, <span class=\"h4\">please</span>!",
       "no_content_message": {
         "default": "חלק זה אינו כולל כרגע תוכן כלשהו. הוסף תוכן לקטע זה באמצעות סרגל הצד.",
         "carousel_products": "חלק זה אינו כולל כרגע תוכן כלשהו. בחר אוסף באמצעות סרגל הצד.",
@@ -1508,7 +1517,7 @@
       "button_full_details": "צפו בפרטים מלאים",
       "include_taxes": "מס כלול.",
       "unit_price_label": "מחיר ליחידה",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping<\/a> מחושב בקופה.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> מחושב בקופה.",
       "notes_label": "הערות",
       "notes_placeholder": "כתוב כאן את ההערות שלך עבור ההזמנה",
       "availability_value_in_stock_without_counter": "במלאי",
@@ -1587,8 +1596,53 @@
       "check_other_stores": "בדוק זמינות בחנויות אחרות",
       "pick_up_available": "איסוף זמין",
       "pick_up_currently_unavailable": "איסוף לא זמין כרגע",
-      "pick_up_available_at_html": "איסוף זמין ב <strong>{{ location_name }}<\/strong>",
-      "pick_up_unavailable_at_html": "איסוף אינו זמין כעת ב- <strong>{{ location_name }}<\/strong>"
+      "pick_up_available_at_html": "איסוף זמין ב <strong>{{ location_name }}</strong>",
+      "pick_up_unavailable_at_html": "איסוף אינו זמין כעת ב- <strong>{{ location_name }}</strong>"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }
