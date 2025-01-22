@@ -1,0 +1,31 @@
+{% comment %}
+  テンプレート: Brand Silver Tug Page
+  説明: ナビメニューを非表示にしたカスタムページテンプレート
+{% endcomment %}
+
+{% layout 'theme' %}
+
+<style>
+  /* ナビメニューを非表示にする */
+  .header__menu-btn,
+  .header__content,
+  .header-wrapper--border-bottom,
+  .header__spacer,
+  .breadcrumbs {
+    display: none !important;
+  }
+  
+  /* メインコンテンツの余白を削除 */
+  .main-page-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  /* ページ幅の制限を解除 */
+  .page-width {
+    padding: 0;
+    max-width: none;
+  }
+</style>
+
+{% section 'brand-silver-tug' %}
