@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "style": {
+      "type": "brand-silver-tug-style",
+      "settings": {}
+    },
+    "main": {
+      "type": "brand-silver-tug",
+      "settings": {}
+    }
+  },
+  "order": [
+    "style",
+    "main"
+  ]
+}

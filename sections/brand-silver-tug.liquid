@@ -73,48 +73,34 @@
 
 {% schema %}
 {
-  "name": "t:sections.main-hero.name",
+  "name": "Brand Hero",
+  "class": "section-brand-hero",
   "settings": [
     {
       "type": "image_picker",
       "id": "image_desktop",
-      "label": {
-        "en": "Desktop Image",
-        "ja": "デスクトップ用画像"
-      }
+      "label": "デスクトップ用画像"
     },
     {
       "type": "image_picker", 
       "id": "image_mobile",
-      "label": {
-        "en": "Mobile Image",
-        "ja": "モバイル用画像"
-      }
+      "label": "モバイル用画像"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": {
-        "en": "Heading",
-        "ja": "見出し"
-      },
+      "label": "見出し",
       "default": "Brand Silver Tug"
     },
     {
       "type": "richtext",
       "id": "text",
-      "label": {
-        "en": "Text Content",
-        "ja": "テキストコンテンツ"
-      }
+      "label": "テキストコンテンツ"
     }
   ],
   "presets": [
     {
-      "name": {
-        "en": "Brand Hero",
-        "ja": "ブランドヒーロー"
-      }
+      "name": "ブランドヒーロー"
     }
   ]
 }
