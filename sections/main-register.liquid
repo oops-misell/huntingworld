@@ -182,25 +182,43 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    // フィールドの取得
     const genderField = document.getElementById('RegisterForm-Gender');
     const birthdateField = document.getElementById('RegisterForm-Birthdate');
     const dmField = document.getElementById('accepts-dm');
-    const noteField = document.getElementById('customer-note');
+    const marketingField = document.getElementById('accepts-marketing');
     const form = document.querySelector('form');
 
     function updateNote() {
-      const gender = genderField.value || 'null';
-      const birthdate = birthdateField.value || 'null';
-      const dmConsent = dmField.checked ? 'yes' : 'no';
+      const noteParts = [];
+      
+      // 性別（必須項目）
+      noteParts.push(`Gender: ${genderField?.value || 'not specified'}`);
 
-      let note = `Gender: ${gender}, DM: ${dmConsent}, Birthday: ${birthdate}`;
-      noteField.value = note;
+      // 生年月日（必須項目）
+      noteParts.push(`Birthday: ${birthdateField?.value || 'not specified'}`);
+
+      // DM設定（テーマ設定で非表示の場合はfalse）
+      const dmValue = dmField ? (dmField.checked ? 'true' : 'false') : 'false';
+      noteParts.push(`DM: ${dmValue}`);
+
+      // マーケティング設定（テーマ設定で非表示の場合はfalse）
+      const marketingValue = marketingField ? (marketingField.checked ? 'true' : 'false') : 'false';
+      noteParts.push(`Marketing: ${marketingValue}`);
+
+      // noteFieldの処理
+      const noteField = document.getElementById('customer-note');
+      if (noteField) {
+        noteField.value = noteParts.join(', ');
+      }
     }
 
-    genderField.addEventListener('change', updateNote);
-    birthdateField.addEventListener('change', updateNote);
-    dmField.addEventListener('change', updateNote);
-    form.addEventListener('submit', updateNote);
+    // イベントリスナーの設定
+    if (genderField) genderField.addEventListener('change', updateNote);
+    if (birthdateField) birthdateField.addEventListener('change', updateNote);
+    if (dmField) dmField.addEventListener('change', updateNote);
+    if (marketingField) marketingField.addEventListener('change', updateNote);
+    if (form) form.addEventListener('submit', updateNote);
 
     // 初期状態の反映
     updateNote();
