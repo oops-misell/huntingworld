@@ -182,45 +182,78 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // フィールドの取得
-    const genderField = document.getElementById('RegisterForm-Gender');
-    const birthdateField = document.getElementById('RegisterForm-Birthdate');
-    const dmField = document.getElementById('accepts-dm');
-    const marketingField = document.getElementById('accepts-marketing');
-    const form = document.querySelector('form');
-
+    // Null安全なフィールド取得関数
+    const getField = id => document.getElementById(id) || null;
+  
+    const fields = {
+      gender: getField('RegisterForm-Gender'),
+      birthdate: getField('RegisterForm-Birthdate'),
+      dm: getField('accepts-dm'),
+      marketing: getField('accepts-marketing'),
+      note: getField('customer-note'),
+      form: getField('create_customer')
+    };
+  
+    function validateForm() {
+      // 必須フィールドチェック
+      if (!fields.gender?.value || fields.gender.value === '') {
+        alert('性別を選択してください');
+        return false;
+      }
+      if (!fields.birthdate?.value) {
+        alert('生年月日を入力してください');
+        return false;
+      }
+      return true;
+    }
+  
     function updateNote() {
       const noteParts = [];
       
-      // 性別（必須項目）
-      noteParts.push(`Gender: ${genderField?.value || 'not specified'}`);
-
-      // 生年月日（必須項目）
-      noteParts.push(`Birthday: ${birthdateField?.value || 'not specified'}`);
-
-      // DM設定（テーマ設定で非表示の場合はfalse）
-      const dmValue = dmField ? (dmField.checked ? 'true' : 'false') : 'false';
-      noteParts.push(`DM: ${dmValue}`);
-
-      // マーケティング設定（テーマ設定で非表示の場合はfalse）
-      const marketingValue = marketingField ? (marketingField.checked ? 'true' : 'false') : 'false';
-      noteParts.push(`Marketing: ${marketingValue}`);
-
-      // noteFieldの処理
-      const noteField = document.getElementById('customer-note');
-      if (noteField) {
-        noteField.value = noteParts.join(', ');
+      // 性別（選択必須）
+      if (fields.gender?.value) {
+        noteParts.push(`Gender: ${fields.gender.value}`);
+      }
+  
+      // 生年月日（入力必須）
+      if (fields.birthdate?.value) {
+        noteParts.push(`Birthday: ${fields.birthdate.value}`);
+      }
+  
+      // DM設定（表示されている場合のみ）
+      if (fields.dm) {
+        noteParts.push(`DM: ${fields.dm.checked ? 'yes' : 'no'}`);
+      }
+  
+      // マーケティング設定（表示されている場合のみ）
+      if (fields.marketing) {
+        noteParts.push(`Marketing: ${fields.marketing.checked ? 'yes' : 'no'}`);
+      }
+  
+      if (fields.note) {
+        fields.note.value = noteParts.join(', ');
       }
     }
-
-    // イベントリスナーの設定
-    if (genderField) genderField.addEventListener('change', updateNote);
-    if (birthdateField) birthdateField.addEventListener('change', updateNote);
-    if (dmField) dmField.addEventListener('change', updateNote);
-    if (marketingField) marketingField.addEventListener('change', updateNote);
-    if (form) form.addEventListener('submit', updateNote);
-
-    // 初期状態の反映
+  
+    // イベントリスナー設定
+    Object.values(fields).forEach(field => {
+      if (field && field !== fields.note && field !== fields.form) {
+        field.addEventListener('change', updateNote);
+      }
+    });
+  
+    // フォーム送信処理
+    if (fields.form) {
+      fields.form.addEventListener('submit', function(e) {
+        updateNote(); // 最終更新
+        if (!validateForm()) {
+          e.preventDefault();
+          return false;
+        }
+      });
+    }
+  
+    // 初期化処理
     updateNote();
   });
 </script>
