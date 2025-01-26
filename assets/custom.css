@@ -3,7 +3,7 @@
   font-family: "sweet-sans-pro", "Noto Sans JP", sans-serif;
 }
 .btn {
-  font-weight: 400
+  font-weight: 400;
 }
 .blog-list-item__date,
 .misell-blog-list-tag {
@@ -36,6 +36,14 @@
   font-family: "sweet-sans-pro", "Noto Sans JP", sans-serif;
   text-align: center;
 }
+@media (max-width: 767px) {
+  .blog-list-item__info p.mb-10 {
+    text-align: center;
+  }
+  h4.blog-list-item__title.mb-10 {
+    text-align: center;
+  }
+}
 
 /* header */
 .header__tape p {
@@ -52,6 +60,7 @@
 @media (width < 768px) {
   .header__tape p {
     font-size: 10px;
+    line-height: 1.5;
   }
   .header__line-top {
     margin-top: 0;
@@ -145,6 +154,9 @@
   }
   .blog-list-width-image .blog-list-item__info {
     margin-top: 20px;
+  }
+  .blog-list-item__info .col-12.text-left.d-flex.flex-column.align-items-start {
+    align-items: center !important;
   }
 } 
 
