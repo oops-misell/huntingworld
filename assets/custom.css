@@ -85,7 +85,6 @@
   }
   .header__line-top .container .header__sidebar {
     order: 2;
-    padding-right: 30px;
   }
   .header__line-top .container .header__btn-menu {
     order: 3;
@@ -135,6 +134,9 @@
 .btn.btn--secondary {
   background: #fff;
   color: #333 !important;
+}
+.btn.btn--secondary:hover {
+  color: #fff !important;
 }
 
 /* 画像付きブログリスト */
@@ -318,3 +320,33 @@ a.header__btn-search.d-none.d-lg-flex.align-items-lg-center.ml-25.ml-lg-15.js-po
   }
 }
 
+
+/* カート画面 ボタン左右調整 */
+@media screen and (min-width: 30em) {
+    .css-1y73ecj, .css-eo6hoi {
+        max-width: 200px;
+    }
+}
+
+/* スライダー ピンチZoom使用可能に */
+.sticky-sidebar, .product-gallery, .product-gallery__content {
+  -ms-touch-action: auto !important;
+  touch-action: auto !important;
+}
+
+/* トップ・スライダー ピンチZoom使用可能に*/
+.header, .home-builder, .promobox, .slider, .slider__slick {
+  -ms-touch-action: auto !important;
+  touch-action: auto !important;
+}
+.product-gallery__fullscreen_item .rimage__img {
+  -ms-touch-action: auto !important;
+  touch-action: auto !important;
+}
+
+/* 商品ページ ピンチZoom使用可能に */
+.gallery-mobile-zoom__image {
+    transform-origin: center;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
