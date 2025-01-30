@@ -301,3 +301,20 @@
 .product-page-info__button-add-to-cart  span.btn__text  {
   font-size: 12px !important;
 }
+
+/* 検索ボタン 非表示 */
+a.header__btn-search.d-none.d-lg-flex.align-items-lg-center.ml-25.ml-lg-15.js-popup-button {
+  display: none !important;
+}
+
+/* トップ・リンクボタン */
+.promobox__content .h2 {
+  font-size: 39px;
+  line-height: 1.1;
+}
+@media (max-width: 767px) {
+  .promobox__content .h2 {
+    font-size: 33px;
+  }
+}
+
