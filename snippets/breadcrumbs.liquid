@@ -1,63 +1,112 @@
 {%- unless template == 'index' -%}
-    {%- if settings.layout_show_breadcrumbs -%}
-        <div class="breadcrumbs pt-15">
-            <div {% if template.name == 'collection' and section.settings.container != blank %}{% render 'layout-get-container-class', fullwidth_need_paddings: true %}{% else %}class="container"{% endif %}>
-                <ul class="list-unstyled d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <li><a href="/" >{{ 'layout.breadcrumbs.home' | t }}</a></li>
-                    {%- if template contains 'page' -%}
-                        <li><span>{{ page.title }}</span></li>
-                    {%- elsif template contains 'product' -%}
-                        {%- if collection.url -%}
-                            <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
-                        {%- endif -%}
-                        <li><span>{{ product.title }}</span></li>
-                    {%- elsif template.name == 'collection' and collection.handle -%}
-                        {%- if current_tags -%}
-                            {%- assign exceptions_filters = 'custom-filter|only_available=|page=' | split: '|' -%}
-                            {%- assign correct_filters = 'page=|tag=|vendor=|type=|title=|price=' | split: '|' -%}
-                            {%- assign filtered_current_tags = '' -%}
-                            {%- for tag in current_tags -%}
-                                {%- assign changed_tag = tag -%}
-                                {%- for filter in exceptions_filters -%}
-                                    {%- if changed_tag contains filter -%}
-                                        {%- assign changed_tag = null -%}
-                                        {%- break -%}
-                                    {%- endif -%}
-                                {%- endfor -%}
-                                {%- for filter in correct_filters -%}
-                                    {%- if changed_tag contains filter -%}
-                                        {%- assign changed_tag = changed_tag | remove: filter -%}
-                                        {%- break -%}
-                                    {%- endif -%}
-                                {%- endfor -%}
-                                {%- if changed_tag != null -%}
-                                    {% capture filtered_current_tags %}{{ filtered_current_tags }}{% if filtered_current_tags != '' %}|{% endif %}{{ changed_tag }}{% endcapture %}
-                                {%- endif -%}
-                            {%- endfor -%}
-                            {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
-                            <li>{{ collection.title | link_to: url }}</li>
-                            {%- if filtered_current_tags != '' -%}
-                                {%- assign filtered_current_tags = filtered_current_tags | split: '|' -%}
-                                <li><span>{{ filtered_current_tags | join: ' + ' }}</span></li>
-                            {%- endif -%}
-                        {%- else -%}
-                            <li><span>{{ collection.title }}</span></li>
-                        {%- endif -%}
-                    {%- elsif template == 'blog' -%}
-                        {%- if current_tags -%}
-                            <li>{{ blog.title | link_to: blog.url }}</li>
-                            <li><span>{{ current_tags | join: ' + '}}</span></li>
-                        {%- else -%}
-                            <li><span>{{ blog.title }}</span></li>
-                        {%- endif -%}
-                    {%- elsif template == 'article' -%}
-                        <li>{{ blog.title | link_to: blog.url }}</li>
-                        <li><span>{{ article.title }}</span></li>
-                    {%- else -%}
-                        <li><span>{{ page_title }}</span></li>
-                    {%- endif -%}
-                </ul>
-            </div>
-        </div>
-    {%- endif -%}
+   {%- if settings.layout_show_breadcrumbs -%}
+       <div class="breadcrumbs pt-15">
+           <div {% if template.name == 'collection' and section.settings.container != blank %}{% render 'layout-get-container-class', fullwidth_need_paddings: true %}{% else %}class="container"{% endif %}>
+               <ul class="list-unstyled d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                   <li><a href="/" >{{ 'layout.breadcrumbs.home' | t }}</a></li>
+
+                   {%- if template.name == 'collection' and collection.handle -%}
+                       {%- assign current_collection = collection -%}
+                       {%- assign breadcrumb_item_list = nil -%}
+                       {%- for i in (1..5) -%}
+                           {%- if current_collection == nil -%}
+                               {%- break -%}
+                           {%- endif -%}
+                           {%- capture breadcrumb_item -%}
+                               {%- if forloop.index == 1 -%}
+                                   {{ current_collection.title }}
+                               {%- else -%}
+                                   <a href="{{ current_collection.url }}">{{ current_collection.title }}</a>
+                               {%- endif -%}
+                           {%- endcapture -%}
+                           {%- assign breadcrumb_item_list = breadcrumb_item_list | append: breadcrumb_item | append: ',' -%}
+                           {%- unless current_collection.metafields.custom._parent_collection == nil -%}
+                               {%- assign current_collection = current_collection.metafields.custom._parent_collection.value -%}
+                           {%- else -%}
+                               {%- assign current_collection = nil -%}
+                           {%- endunless -%}
+                       {%- endfor -%}
+
+                       {%- if current_tags -%}
+                           {%- assign exceptions_filters = 'custom-filter|only_available=|page=' | split: '|' -%}
+                           {%- assign correct_filters = 'page=|tag=|vendor=|type=|title=|price=' | split: '|' -%}
+                           {%- assign filtered_current_tags = '' -%}
+                           {%- for tag in current_tags -%}
+                               {%- assign changed_tag = tag -%}
+                               {%- for filter in exceptions_filters -%}
+                                   {%- if changed_tag contains filter -%}
+                                       {%- assign changed_tag = null -%}
+                                       {%- break -%}
+                                   {%- endif -%}
+                               {%- endfor -%}
+                               {%- for filter in correct_filters -%}
+                                   {%- if changed_tag contains filter -%}
+                                       {%- assign changed_tag = changed_tag | remove: filter -%}
+                                       {%- break -%}
+                                   {%- endif -%}
+                               {%- endfor -%}
+                               {%- if changed_tag != null -%}
+                                   {% capture filtered_current_tags %}{{ filtered_current_tags }}{% if filtered_current_tags != '' %}|{% endif %}{{ changed_tag }}{% endcapture %}
+                               {%- endif -%}
+                           {%- endfor -%}
+
+                           {%- assign breadcrumb_items = breadcrumb_item_list | split: ',' | reverse -%}
+                           {%- for breadcrumb_item in breadcrumb_items -%}
+                               {%- if breadcrumb_item != '' -%}
+                                   <li>{{ breadcrumb_item }}</li>
+                               {%- endif -%}
+                           {%- endfor -%}
+
+                           {%- if filtered_current_tags != '' -%}
+                               {%- assign filtered_current_tags = filtered_current_tags | split: '|' -%}
+                               <li><span>{{ filtered_current_tags | join: ' + ' }}</span></li>
+                           {%- endif -%}
+                       {%- else -%}
+                           {%- assign breadcrumb_items = breadcrumb_item_list | split: ',' | reverse -%}
+                           {%- for breadcrumb_item in breadcrumb_items -%}
+                               {%- if breadcrumb_item != '' -%}
+                                   <li>{{ breadcrumb_item }}</li>
+                               {%- endif -%}
+                           {%- endfor -%}
+                       {%- endif -%}
+
+                   {%- elsif template contains 'page' -%}
+                       <li><span>{{ page.title }}</span></li>
+                   {%- elsif template contains 'product' -%}
+                       {%- comment -%}コレクションの順序付けのための配列作成（_display_order が 0 のものを除外）{%- endcomment -%}
+                       {% assign collections_with_order = '' %}
+                       {% for collection in product.collections %}
+                           {% assign order = collection.metafields.custom._display_order | plus: 0 | default: 999 %}
+                           {% if order > 0 %}
+                               {% assign padded_order = order | append: '' | prepend: '000' | slice: -3, 3 %}
+                               {% assign collection_with_order = padded_order | append: '::' | append: collection.title | append: '::' | append: collection.url %}
+                               {% assign collections_with_order = collections_with_order | append: '|' | append: collection_with_order %}
+                           {% endif %}
+                       {% endfor %}
+                       {% assign sorted_collections = collections_with_order | split: '|' | sort %}
+
+                       {% for collection_string in sorted_collections %}
+                           {% if collection_string != blank %}
+                               {% assign collection_parts = collection_string | split: '::' %}
+                               <li><a href="{{ collection_parts[2] }}">{{ collection_parts[1] }}</a></li>
+                           {% endif %}
+                       {% endfor %}
+                       <li><span>{{ product.title }}</span></li>
+                   {%- elsif template == 'blog' -%}
+                       {%- if current_tags -%}
+                           <li>{{ blog.title | link_to: blog.url }}</li>
+                           <li><span>{{ current_tags | join: ' + '}}</span></li>
+                       {%- else -%}
+                           <li><span>{{ blog.title }}</span></li>
+                       {%- endif -%}
+                   {%- elsif template == 'article' -%}
+                       <li>{{ blog.title | link_to: blog.url }}</li>
+                       <li><span>{{ article.title }}</span></li>
+                   {%- else -%}
+                       <li><span>{{ page_title }}</span></li>
+                   {%- endif -%}
+               </ul>
+           </div>
+       </div>
+   {%- endif -%}
 {%- endunless -%}
