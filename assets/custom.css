@@ -9,7 +9,7 @@
 .misell-blog-list-tag {
   font-family: "sweet-sans-pro", "Noto Sans JP", sans-serif;
   font-weight: 700;
-  border-color: #C7C9C7 !important;
+  border-color: #c7c9c7 !important;
   font-size: 14px;
 }
 .blog-list-item__title {
@@ -57,7 +57,7 @@
   border: none;
   padding-bottom: 10px !important;
 }
-@media (width < 768px) {
+@media (width < 1025px) {
   .header__tape p {
     font-size: 10px;
     line-height: 1.5;
@@ -71,7 +71,7 @@
   .header__line-bottom {
     padding-bottom: 0px !important;
   }
- 
+
   .header__line-top .container .header__logo {
     order: 1;
   }
@@ -200,7 +200,7 @@
   color: #fff;
 }
 .footer__custom-html .footer__section-content > ul > li {
-    padding-left: 0 !important; 
+  padding-left: 0 !important;
 }
 .footer__custom-html .footer__section-content > ul > li:before {
   margin: 0 !important;
@@ -227,13 +227,13 @@
     grid-template-columns: 3fr 2fr 1fr;
     grid-template-rows: repeat(3, auto);
   }
-  
+
   .footer-pc-grid-item-01 {
     max-width: none;
     grid-column: 2 / 4;
     grid-row: 2 / 3;
   }
-  
+
   .footer-pc-grid-item-02 {
     max-width: none;
     grid-column: 1 / 2;
@@ -246,23 +246,23 @@
   .footer-pc-grid-item-02 .footer__menus {
     display: contents;
   }
-  
+
   .footer-pc-grid-item-02 .col-lg {
     display: grid;
     grid-template-rows: auto 1fr;
   }
-  
+
   .footer-pc-grid-item-02 :nth-child(3 of .col-lg),
   .footer-pc-grid-item-02 :nth-child(4 of .col-lg) {
     grid-row: 2 / 3;
   }
-  
+
   .footer-pc-grid-item-03 {
     max-width: none;
     grid-column: 2 / 3;
     grid-row: 1 / 2;
   }
-  
+
   .footer-pc-grid-item-04 {
     max-width: none;
     grid-column: 3 / 4;
@@ -370,4 +370,32 @@ a.header__btn-search.d-none.d-lg-flex.align-items-lg-center.ml-25.ml-lg-15.js-po
 /* スライダーのタッチ操作を維持 */
 .slick-list {
   touch-action: pan-y pinch-zoom !important;
+}
+
+/* ナビゲーションポップアップの幅調整 */
+.popup-navigation.js-popup-navigation {
+  width: 80%;
+  margin: 0;
+  height: 90vh;
+}
+@media (width < 375px) {
+  .popup-navigation.js-popup-navigation {
+    width: 90%;
+  }
+}
+
+/* ポップアップ本体の位置調整 */
+.popup__body[data-js-popup-name="navigation"] {
+  margin-left: 0;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* モバイルメニューの位置調整 */
+@media (width < 1025px) {
+  .popup__body[data-js-popup-name="navigation"] {
+    left: 0;
+    transform: none;
+    max-width: 100%;
+  }
 }
