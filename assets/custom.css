@@ -189,6 +189,22 @@ h6,
 }
 
 /* フッター */
+/* フッターを常に下部に固定 */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+#footer {
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
 #footer .footer__border-top,
 #footer .footer__border-bottom,
 #footer .footer__border {
