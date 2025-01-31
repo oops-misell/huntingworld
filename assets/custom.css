@@ -478,3 +478,8 @@ a.header__btn-search.d-none.d-lg-flex.align-items-lg-center.ml-25.ml-lg-15.js-po
   justify-content: center;
   min-height: 300px;
 }
+
+/* 商品ページ ボタンの高さ調整 */
+.product-page-info__button-add-to-cart .btn:not(.btn--size-large) {
+  min-height: 40px;
+}
