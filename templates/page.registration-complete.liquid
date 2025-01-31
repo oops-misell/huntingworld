@@ -1,0 +1,42 @@
+<div class="registration-complete-page">
+  <div class="container text-center py-60">
+    <div class="registration-complete-message mb-40">
+      <h1 class="h3 mb-20">会員登録完了</h1>
+      <p>会員登録が完了しました。引き続きお買い物をお楽しみください。</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 3秒後にトップページへリダイレクト
+  setTimeout(function () {
+    window.location.href = '/';
+  }, 3000);
+</script>
+
+<style>
+  .registration-complete-page {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .registration-complete-message {
+    background: #f8fff8;
+    border: 1px solid #d6e9c6;
+    padding: 30px;
+    border-radius: 4px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .registration-complete-message h1 {
+    color: #3c763d;
+  }
+
+  .registration-complete-message p {
+    color: #3c763d;
+    margin: 0;
+  }
+</style>

@@ -3,6 +3,7 @@
   <div class="container">
     <h1 class="h3 mt-30 mb-40 text-center">{{ 'customer.register.title' | t }}</h1>
     {% form 'create_customer' %}
+      <input type="hidden" name="return_to" value="/pages/registration-complete">
 
       <p class="notice">必須入力項目 *</p>
       
