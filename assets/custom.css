@@ -422,6 +422,12 @@ a.header__btn-search.d-none.d-lg-flex.align-items-lg-center.ml-25.ml-lg-15.js-po
   .collections__sidebar--width-md {
     width: 240px;
   }
+  /* メインコンテンツエリアの幅を調整 */
+  .collections__body.col {
+    flex: 1;
+    max-width: calc(100% - 240px);
+    padding-left: 30px;
+  }
 }
 
 /* パンくずの位置調整 */
@@ -429,4 +435,30 @@ a.header__btn-search.d-none.d-lg-flex.align-items-lg-center.ml-25.ml-lg-15.js-po
   .breadcrumbs ul {
     justify-content: left !important;
   }
+}
+
+/* 検索結果が0件の場合、左サイドバーを非表示 */
+.template-search
+  .collections__main:has(.collections__empty)
+  + .collections__sidebar {
+  display: none;
+}
+
+/* 検索結果が0件の場合、メインコンテンツを全幅表示 */
+.template-search .collections__main:has(.collections__empty) {
+  width: 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+/* 検索結果が0件の場合、「買い物を続ける」ボタンを中央寄せ */
+.template-search
+  .collections__main:has(.collections__empty)
+  .collection-product-grid--empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
 }
