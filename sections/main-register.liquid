@@ -3,6 +3,9 @@
   <div class="container">
     <h1 class="h3 mt-30 mb-40 text-center">{{ 'customer.register.title' | t }}</h1>
     {% form 'create_customer' %}
+
+      <p class="notice">必須入力項目 *</p>
+      
       {% if shop.locale == 'ja' %}
         <label for="LastName" class="label-required">{{ 'customer.register.last_name_title' | t }}</label>
         <input type="text"
@@ -55,6 +58,9 @@
              required="required">
       {% include 'form-get-message' %}
 
+      <p class="notice" style="text-align: right; line-height: 0; font-size: 12px;">※5～40文字以内で入力してください</p>
+      <p class="notice" style="text-align: right; line-height: 0; font-size: 12px;">※半角英字と半角数字を含めてください</p>
+
 {% comment %} ▼▼▼追加設定 ※カスタムメタフィールドへはFlowで飛ばしている▼▼▼ {% endcomment %}
   <div class="birthday-field">
     <label for="RegisterForm-Birthdate" class="label-required">生年月日</label>
@@ -103,6 +109,7 @@
       </p>
       <p>再入荷やコラボレーション、限定アイテムなどの新作情報、店舗イベント、フェアやセールオファーをいち早くお届けいたします。</p>
       <p class="notice">※「docomo.ne.jp」、「ezweb.ne.jp」、「softbank.ne.jp」などのキャリアメールをご利用の方には、 迷惑メール対策（セキュリティ設定など）によりメールが届かない場合があります。 「@huntingworld.com」をドメイン指定受信リストに追加していただきますようお願いいたします。</p>
+      <p class="notice">※ご登録完了後、ご入力頂いたメールアドレスに、ご登録の確認メールをお送りいたします。（ご登録前にメールの受信設定のご確認をお願いいたします）</p>
     </div>
   {% endif %}
 
