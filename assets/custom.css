@@ -71,9 +71,7 @@
   .header__line-bottom {
     padding-bottom: 0px !important;
   }
-  .header__line-top .container {
-
-  }
+ 
   .header__line-top .container .header__logo {
     order: 1;
   }
@@ -128,7 +126,6 @@
 .mianvisual .slick-dots {
   display: none !important;
 }
-
 
 /* ボタン */
 .btn.btn--secondary {
@@ -300,7 +297,7 @@
 }
 
 /* 商品ページ */
-.product-page-info__button-add-to-cart  span.btn__text  {
+.product-page-info__button-add-to-cart span.btn__text {
   font-size: 12px !important;
 }
 
@@ -320,33 +317,57 @@ a.header__btn-search.d-none.d-lg-flex.align-items-lg-center.ml-25.ml-lg-15.js-po
   }
 }
 
-
 /* カート画面 ボタン左右調整 */
 @media screen and (min-width: 30em) {
-    .css-1y73ecj, .css-eo6hoi {
-        max-width: 200px;
-    }
+  .css-1y73ecj,
+  .css-eo6hoi {
+    max-width: 200px;
+  }
 }
 
 /* スライダー ピンチZoom使用可能に */
-.sticky-sidebar, .product-gallery, .product-gallery__content {
-  -ms-touch-action: auto !important;
-  touch-action: auto !important;
+.sticky-sidebar,
+.product-gallery,
+.product-gallery__content,
+.product-gallery__main,
+.product-gallery__main_slider,
+.product-gallery__main_item,
+.rimage,
+.rimage__img,
+.slider__slick,
+.js-slider-tracking,
+.slick-initialized,
+.slick-slider {
+  -ms-touch-action: manipulation !important;
+  touch-action: manipulation !important;
 }
 
-/* トップ・スライダー ピンチZoom使用可能に*/
-.header, .home-builder, .promobox, .slider, .slider__slick {
-  -ms-touch-action: auto !important;
-  touch-action: auto !important;
-}
-.product-gallery__fullscreen_item .rimage__img {
-  -ms-touch-action: auto !important;
-  touch-action: auto !important;
+/* 商品ページ メインギャラリーのピンチズーム対応 */
+.product-gallery__main_item,
+.product-gallery__main_item .rimage,
+.product-gallery__main_item .rimage__img {
+  touch-action: pan-x pan-y pinch-zoom !important;
 }
 
-/* 商品ページ ピンチZoom使用可能に */
-.gallery-mobile-zoom__image {
-    transform-origin: center;
-    transition: transform 0.1s ease-out;
-    will-change: transform;
+/* スライダー画像のズーム設定 */
+.product-gallery__main_item img,
+.rimage__img,
+.product-gallery__zoom_image {
+  transform-origin: 0 0; /* 任意の位置からズームできるように変更 */
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+  max-width: none;
+}
+
+/* ズーム時のスクロール対応 */
+.product-gallery__zoom.is-zooming,
+.product-gallery__fullscreen.is-zooming,
+.product-gallery__main_slider.is-zooming {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* スライダーのタッチ操作を維持 */
+.slick-list {
+  touch-action: pan-y pinch-zoom !important;
 }
