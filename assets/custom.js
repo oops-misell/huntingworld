@@ -20,3 +20,18 @@ function initContinueShopping() {
 
 // ボタンが表示されるまで定期的にチェック
 const checkInterval = setInterval(initContinueShopping, 100);
+
+// メール認証メッセージのスタイル変更
+function styleVerificationMessage() {
+  const messageElement = document.querySelector(".shopify-challenge__message");
+  if (messageElement) {
+    messageElement.style.backgroundColor = "#5789ca";
+    messageElement.style.color = "#ffffff";
+    messageElement.style.padding = "15px";
+    messageElement.style.borderRadius = "4px";
+    messageElement.style.marginBottom = "20px";
+  }
+}
+
+// DOMContentLoadedイベントで実行
+document.addEventListener("DOMContentLoaded", styleVerificationMessage);
