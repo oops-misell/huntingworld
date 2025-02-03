@@ -126,6 +126,12 @@ h6,
     margin-top: 5px;
   }
 }
+.header__tape {
+  min-height: 40px;
+}
+.header__tape p {
+  font-size: 13px;
+}
 
 /* mainvisual */
 .mianvisual .promobox__content.absolute-stretch {
