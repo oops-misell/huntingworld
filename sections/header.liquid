@@ -1005,8 +1005,8 @@
             <div class="d-none js-header-tape" data-js-show-once="{{ header_tape_show_once }}" data-js-delay="{{ block.settings.delay }}" data-js-cookies-life="{{ header_tape_cookies_life }}">
                 <div class="header__tape header__tape--style-{{ block.settings.style }} d-flex py-5">
                     <div class="container d-flex flex-center">
-                        <div class="position-relative d-flex align-items-center px-35">
-                            <p class="m-0 px-10 px-lg-0 text-center">{{ block.settings.content }}</p>
+                        <div class="position-relative d-flex align-items-center px-0 px-lg-35">
+                            <p class="m-0 px-0 px-lg-0 text-center">{{ block.settings.content }}</p>
                             <i class="header__tape-close position-absolute right-0 cursor-pointer" data-js-action="close">{% render 'icon-theme-190' %}</i>
                         </div>
                     </div>
@@ -1038,7 +1038,7 @@
         {%- endfor -%}
         {%- capture btn_menu_html -%}
             {%- if section.settings.menu != blank or section.settings.vertical_menu != blank -%}
-                <span class="header__btn-menu d-flex align-items-center d-lg-none ml-30 cursor-pointer js-popup-button" data-js-popup-button="navigation">
+                <span class="header__btn-menu d-flex align-items-center d-lg-none ml-25 cursor-pointer js-popup-button" data-js-popup-button="navigation">
                     {%- if settings.search_show -%}
                         <i class="mt-3">{% render 'icon-hw-search2' %}</i>
                     {%- else -%}
@@ -1117,7 +1117,7 @@
         {%- endcapture -%}
         {%- capture btn_wishlist_html -%}
             {%- if settings.wishlist_type == 'default' -%}
-                <div class="ml-25 ml-lg-15">
+                <div class="ml-20 ml-lg-15">
                     <a href="#" class="header__btn-wishlist d-flex align-items-center position-relative text-nowrap js-popup-button" data-js-popup-button="wishlist"{% if need_sticky_sidebar %} data-js-sticky-replace-element="wishlist"{% endif %}
                         {%- if settings.tooltips_enable and header_enable_tooltips %}
                             data-js-tooltip
@@ -1141,7 +1141,7 @@
             {%- endif -%}
         {%- endcapture -%}
         {%- capture wishlist_hunting_world -%}
-            <a href="https://hunting-world-online-store.myshopify.com/apps/obake/favorites" class="header__btn-wishlist d-flex align-items-center position-relative text-nowrap js-popup-button ml-25 ml-lg-15" >
+            <a href="https://hunting-world-online-store.myshopify.com/apps/obake/favorites" class="header__btn-wishlist d-flex align-items-center position-relative text-nowrap js-popup-button ml-20 ml-lg-15" >
                 <i>
                     <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-theme-180" viewBox="0 0 24 24"><path d="M21.486,6.599c-0.286-0.696-0.703-1.318-1.25-1.865c-0.56-0.56-1.191-0.979-1.895-1.26s-1.423-0.42-2.158-0.42
                     s-1.458,0.14-2.168,0.42s-1.345,0.7-1.904,1.26c-0.026,0.039-0.056,0.075-0.088,0.107s-0.068,0.068-0.107,0.107
@@ -1368,7 +1368,7 @@
         {%- endcapture -%}
         {%- capture services_html -%}
             {%- if settings.services_show_header_button -%}
-                <a href="{%- if settings.services_header_button_link != blank -%}{{ settings.services_header_button_link }}{% else %}/pages/customer-service {%- endif -%}" class="header__btn-services position-relative d-flex{% if section.settings.type == '5' or section.settings.type == '6' or section.settings.type == '7' %} d-lg-none{% endif %} align-items-center ml-25 ml-lg-15 js-popup-button"
+                <a href="{%- if settings.services_header_button_link != blank -%}{{ settings.services_header_button_link }}{% else %}/pages/customer-service {%- endif -%}" class="header__btn-services position-relative d-flex{% if section.settings.type == '5' or section.settings.type == '6' or section.settings.type == '7' %} d-lg-none{% endif %} align-items-center ml-20 ml-lg-15 js-popup-button"
                    data-js-popup-button="services"
                    {%- if settings.tooltips_enable and header_enable_tooltips %}
                        data-js-tooltip
