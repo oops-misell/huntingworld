@@ -1,0 +1,222 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_gCeBxg": {
+      "type": "custom-liquid",
+      "settings": {
+        "liquid": "<style>\n#MainContent {\n    background: #000;\n    color: #fff;\n    letter-spacing: 0.5px;\n}\n.breadcrumbs{\ndisplay:none;\n}\npicture source,\npicture {\n    display: contents;\n}\npicture img {\n    height: auto;\n    overflow-wrap: anywhere;\n    object-fit: cover;\n    object-position: center;\n    border-radius: inherit;\n    -webkit-user-select: none;\n    user-select: none;\n    -webkit-touch-callout: none;\n    grid-area: full-start / full-start / full-end / full-end;\n    min-width: 100%;\n    min-height: 100%;\n    max-height: 100%;\n}\n</style>\n<script src=\"https://code.jquery.com/jquery-3.6.0.min.js\"></script>"
+      }
+    },
+    "mv_JBjmhK": {
+      "type": "mv",
+      "custom_css": [
+        "{padding-block-end: 100px;}",
+        "@media screen and (max-width: 699px) {{padding-block-end: 60px; }}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ph_main.jpg",
+        "mobile_image": "shopify://shop_images/ph_main_sp.jpg",
+        "url": "",
+        "text": "購入する"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        ".container {padding-top: 0 !important;}",
+        "h1 {color: #fff; font-size: 28px; letter-spacing: 2px;}",
+        "@media screen and (max-width: 699px) {h1 {margin-bottom: 28px; font-size: 24px; line-height: 1.5; }}"
+      ],
+      "settings": {
+        "show_title": true,
+        "show_content": false
+      }
+    },
+    "misell_rich_text_WAzPMT": {
+      "type": "misell-rich-text",
+      "blocks": {
+        "text_N7tNEP": {
+          "type": "text",
+          "settings": {
+            "text": "<p>「シルバータグ」 レーベルを象徴する 「シリウス」。<br/>もっとも明るく輝く一等星の名を冠したこのシリーズから、<br/>ハンティングワールド初のハードシェルトロリーバッグが誕生した。</p>",
+            "text_size": 16,
+            "line_height": 24,
+            "text_weight": "400",
+            "text_color": "#000000"
+          }
+        }
+      },
+      "block_order": ["text_N7tNEP"],
+      "custom_css": [
+        "p {color: #fff !important;}",
+        ".rich-text__text p {line-height: 1.8;}",
+        "@media screen and (max-width: 699px) {.rich-text {padding-top: 0; padding-bottom: 60px; }.rich-text__text p{ text-align: left;}.rich-text__text p br:nth-child(2){display:none;}}"
+      ],
+      "settings": {
+        "container": "container",
+        "text_alignment": "center",
+        "vertical_alignment": "center",
+        "content_height": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "background_color": "",
+        "padding_top": 8,
+        "padding_bottom": 100,
+        "customization_class": ""
+      }
+    },
+    "mv_3QRdXL": {
+      "type": "mv",
+      "custom_css": [
+        "{padding-inline: 4%; margin-block-end: 120px;}",
+        "@media screen and (max-width: 699px) {{padding-inline: 0; margin-block-end: 0; }}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ph_01.jpg",
+        "mobile_image": "shopify://shop_images/ph_01_sp.jpg",
+        "url": "https://huntingworld.com/disp/CSfDispListPage_001.jsp?q=%83V%83%8A%83E%83X",
+        "text": "購入する"
+      }
+    },
+    "image_with_text_rXFXKA": {
+      "type": "image-with-text",
+      "custom_css": [
+        "{margin-block-end: 120px;}",
+        "@media screen and (max-width: 699px) {{padding-inline: 0; margin-block-end: 60px; }.container{padding-inline: 0;}}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/ph_02.jpg",
+        "mobile_image": "shopify://shop_images/ph_02_sp.jpg",
+        "url": "",
+        "content": "<p>伝統的な金属加工技術である「 槌目」 から着想を得た</p><p>正六角形の意匠は、 伝統と革新の象徴。<br/>それは、 蜂の巣から雪の結晶、 土星の北極の雪にいたるまで</p><p>自然が創り出すもっとも調和の取れた構造であり</p><p>自然への飽くなき好奇心を表したものである。</p>"
+      }
+    },
+    "image_two_Xm3ybG": {
+      "type": "image-two",
+      "blocks": {
+        "image_8ydyeJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ph_03.jpg",
+            "mobile_image": "shopify://shop_images/ph_03_sp.jpg",
+            "url": "https://huntingworld.com/f/dsg-2627488",
+            "text": ""
+          }
+        },
+        "image_LYitwx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ph_04.jpg",
+            "mobile_image": "shopify://shop_images/ph_04_sp.jpg",
+            "url": "https://huntingworld.com/f/dsg-2627487",
+            "text": "購入する"
+          }
+        }
+      },
+      "block_order": ["image_8ydyeJ", "image_LYitwx"],
+      "custom_css": [
+        "{margin-block-end: 120px;}",
+        "@media screen and (max-width: 699px) {{margin-block-end: 60px; }}"
+      ],
+      "settings": {}
+    },
+    "ac_N3NbLa": {
+      "type": "ac",
+      "blocks": {
+        "image_Ht3J63": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ph_05_01.jpg",
+            "mobile_image": "shopify://shop_images/ph_05_1sp.jpg",
+            "title": "01. レザーハンドル",
+            "text": "<p>ブランドアイコンのひとつであるヌメ革を使ったサイドハンドルはプリミティブな構造でありながら、引き出しやすく仕舞いこみやすさを考慮した仕様。</p>"
+          }
+        },
+        "image_rwLJMF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ph_05_02.jpg",
+            "mobile_image": "shopify://shop_images/ph_05_2sp.jpg",
+            "title": "02. フラッシュサーフェス",
+            "text": "<p>ミニマルなデザインを追求した「フラッシュサーフェス」。障害物に接触するリスクを最小限に抑え、天面に置いた荷物を安定して走行できるなど、機能面でも効果を発揮。</p>"
+          }
+        },
+        "image_A3PPQ8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ph_05_03.jpg",
+            "mobile_image": "shopify://shop_images/ph_05_3sp.jpg",
+            "title": "03. タイヤ&ホイール",
+            "text": "<p>通常よりも径が大きく、広幅の太いタイヤを付けたベアリング式のホイールで構成したキャスター。多少の悪路であっても快適に走行することに配慮したスペック。</p>"
+          }
+        },
+        "image_PLjqt6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ph_05_04.jpg",
+            "mobile_image": "shopify://shop_images/ph_05_4sp.jpg",
+            "title": "04. ロゴデザイン",
+            "text": "<p>「クラシックとモダンの融合」というテーマを象徴するべく、このシリーズのためにアレンジしたロゴタイプをボディ正面上部にさりげなく配置。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_Ht3J63",
+        "image_rwLJMF",
+        "image_A3PPQ8",
+        "image_PLjqt6"
+      ],
+      "custom_css": [
+        "{margin-block-end: 120px;}",
+        "@media screen and (max-width: 699px) {{padding-inline: 10px; margin-block-end: 68px; }}"
+      ],
+      "settings": {
+        "title-main": "象徴的な意匠"
+      }
+    },
+    "product_list_JRzbjL": {
+      "type": "product-list",
+      "custom_css": [
+        "{padding-block-end: 160px;}",
+        "@media screen and (max-width: 699px) {{padding-block-end: 80px; }}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "view_all_url": "",
+        "product_list": ["6109100201", "6109100108"],
+        "layout": "carousel",
+        "card_size_mobile": "small",
+        "card_size": "small",
+        "show_highlight_products": true,
+        "show_promo_info": false,
+        "image_ratio": "fill",
+        "promo_title": "A headline to grab attention",
+        "content": "<p>Use this card with an image to highlight your product list or introduce a promotion.</p>",
+        "link_url": "",
+        "button_label": "Button",
+        "color_scheme": "2",
+        "button_style": "btn btn--primary"
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_gCeBxg",
+    "mv_JBjmhK",
+    "main",
+    "misell_rich_text_WAzPMT",
+    "mv_3QRdXL",
+    "image_with_text_rXFXKA",
+    "image_two_Xm3ybG",
+    "ac_N3NbLa",
+    "product_list_JRzbjL"
+  ]
+}
