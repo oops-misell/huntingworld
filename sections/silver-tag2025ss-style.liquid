@@ -1,0 +1,24 @@
+{% comment %}
+  セクション: Silver Tag 2025SS スタイル
+  説明: Silver Tag 2025SS用のカスタムCSSスタイルを適用するためのセクション
+{% endcomment %}
+
+<style>
+  {%- if section.settings.custom_css -%}
+    {{ section.settings.custom_css }}
+  {%- endif -%}
+</style>
+
+{% schema %}
+{
+  "name": "Silver Tag 2025SSスタイル",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "custom_css",
+      "label": "カスタムCSS",
+      "default": "/* ヘッダーメニューを非表示 */\n.header__menu-btn,\n.header__content,\n.header-wrapper--border-bottom,\n.header__spacer {\n  display: none !important;\n}\n\n/* パンくずリストを非表示 */\n.breadcrumbs {\n  display: none !important;\n}\n\n/* メインコンテンツの余白を削除 */\n.main-page-content {\n  margin-top: 0 !important;\n  padding-top: 0 !important;\n}\n\n/* ページタイトルを非表示 */\n.page-title {\n  display: none !important;\n}\n\n/* ページ幅の制限を解除 */\n.page-width {\n  padding: 0;\n  max-width: none;\n}"
+    }
+  ]
+}
+{% endschema %}

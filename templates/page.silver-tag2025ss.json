@@ -9,10 +9,28 @@
  */
 {
   "sections": {
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        ".container {padding-top: 0 !important;}",
+        "h1 {color: #fff; font-size: 28px; letter-spacing: 2px;}",
+        "@media screen and (max-width: 699px) {h1 {margin-bottom: 28px; font-size: 24px; line-height: 1.5; }}"
+      ],
+      "settings": {
+        "show_title": true,
+        "show_content": false
+      }
+    },
+    "silver_style": {
+      "type": "silver-tag2025ss-style",
+      "settings": {
+        "custom_css": "#MainContent {\n    background: #000;\n    color: #fff;\n    letter-spacing: 0.5px;\n}\n.breadcrumbs{\ndisplay:none;\n}\npicture source,\npicture {\n    display: contents;\n}\npicture img {\n    height: auto;\n    overflow-wrap: anywhere;\n    object-fit: cover;\n    object-position: center;\n    border-radius: inherit;\n    -webkit-user-select: none;\n    user-select: none;\n    -webkit-touch-callout: none;\n    grid-area: full-start / full-start / full-end / full-end;\n    min-width: 100%;\n    min-height: 100%;\n    max-height: 100%;\n}"
+      }
+    },
     "custom_liquid_gCeBxg": {
       "type": "custom-liquid",
       "settings": {
-        "liquid": "<style>\n#MainContent {\n    background: #000;\n    color: #fff;\n    letter-spacing: 0.5px;\n}\n.breadcrumbs{\ndisplay:none;\n}\npicture source,\npicture {\n    display: contents;\n}\npicture img {\n    height: auto;\n    overflow-wrap: anywhere;\n    object-fit: cover;\n    object-position: center;\n    border-radius: inherit;\n    -webkit-user-select: none;\n    user-select: none;\n    -webkit-touch-callout: none;\n    grid-area: full-start / full-start / full-end / full-end;\n    min-width: 100%;\n    min-height: 100%;\n    max-height: 100%;\n}\n</style>\n<script src=\"https://code.jquery.com/jquery-3.6.0.min.js\"></script>"
+        "liquid": "<script src=\"https://code.jquery.com/jquery-3.6.0.min.js\"></script>"
       }
     },
     "mv_JBjmhK": {
@@ -26,18 +44,6 @@
         "mobile_image": "shopify://shop_images/ph_main_sp.jpg",
         "url": "",
         "text": "購入する"
-      }
-    },
-    "main": {
-      "type": "main-page",
-      "custom_css": [
-        ".container {padding-top: 0 !important;}",
-        "h1 {color: #fff; font-size: 28px; letter-spacing: 2px;}",
-        "@media screen and (max-width: 699px) {h1 {margin-bottom: 28px; font-size: 24px; line-height: 1.5; }}"
-      ],
-      "settings": {
-        "show_title": true,
-        "show_content": false
       }
     },
     "misell_rich_text_WAzPMT": {
@@ -209,9 +215,10 @@
     }
   },
   "order": [
+    "main",
+    "silver_style",
     "custom_liquid_gCeBxg",
     "mv_JBjmhK",
-    "main",
     "misell_rich_text_WAzPMT",
     "mv_3QRdXL",
     "image_with_text_rXFXKA",
