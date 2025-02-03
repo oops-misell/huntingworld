@@ -8,9 +8,11 @@
 </div>
 
 <script>
-  // 3秒後にトップページへリダイレクト
+  // 3秒後に直前のページへリダイレクト（直前のページが無ければホームページに遷移）
   setTimeout(function () {
-    window.location.href = '/';
+    // document.referrer が存在する場合は、そこへ遷移。なければ '/' を遷移先に設定
+    var previousURL = document.referrer && document.referrer.length ? document.referrer : '/';
+    window.location.href = previousURL;
   }, 3000);
 </script>
 
