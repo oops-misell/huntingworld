@@ -46,7 +46,6 @@ function styleVerificationMessage() {
 // DOMContentLoadedイベントで実行
 document.addEventListener("DOMContentLoaded", styleVerificationMessage);
 
-
 document.addEventListener("DOMContentLoaded", function () {
   // 対象のURLを指定
   const targetLinks = [
@@ -60,6 +59,21 @@ document.addEventListener("DOMContentLoaded", function () {
     if (targetLinks.includes(link.href)) {
       link.setAttribute("target", "_blank");
       link.setAttribute("rel", "noopener noreferrer"); // セキュリティ対策
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const messageElements = document.querySelectorAll(
+    "#create_customer > div.note.note--error > ul > li"
+  );
+  messageElements.forEach((element) => {
+    if (
+      element.textContent.includes(
+        "会員登録を完了するために必要なメールを送信しました。"
+      )
+    ) {
+      element.style.backgroundColor = "#135CFE";
     }
   });
 });
