@@ -495,9 +495,7 @@ a.header__btn-search.d-none.d-lg-flex.align-items-lg-center.ml-25.ml-lg-15.js-po
   display: none;
 }
 
-#create_customer
-  > div.note.note--error
-  > ul
-  > li:contains("会員登録を完了するために必要なメールを送信しました。") {
-  background-color: #135cfe !important;
+/* 会員登録フォーム メッセージの背景色変更 */
+.note--error[style*="background-color: rgb(19, 92, 254)"]:before {
+  background-color: #135CFE !important;
 }

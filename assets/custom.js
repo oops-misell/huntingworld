@@ -67,13 +67,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const messageElements = document.querySelectorAll(
     "#create_customer > div.note.note--error > ul > li"
   );
+  const messageModal = document.querySelector(
+    "#create_customer > div.note.note--error"
+  );
   messageElements.forEach((element) => {
     if (
       element.textContent.includes(
         "会員登録を完了するために必要なメールを送信しました。"
       )
     ) {
-      element.style.backgroundColor = "#135CFE";
+      messageModal.style.backgroundColor = "#135CFE";
+      messageModal.style.setProperty('border-bottom-color', '#135CFE');
     }
   });
 });
