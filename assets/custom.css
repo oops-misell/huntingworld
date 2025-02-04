@@ -151,13 +151,13 @@ h6,
 }
 
 /* ボタン */
-.btn.btn--secondary {
+/* .btn.btn--secondary {
   background: #fff;
   color: #333 !important;
 }
 .btn.btn--secondary:hover {
   color: #fff !important;
-}
+} */
 
 /* 画像付きブログリスト */
 .blog-list-width-image h2.h4 {
@@ -487,10 +487,17 @@ a.header__btn-search.d-none.d-lg-flex.align-items-lg-center.ml-25.ml-lg-15.js-po
 
 /* 商品ページ ボタンの高さ調整 */
 .product-page-info__button-add-to-cart .btn:not(.btn--size-large) {
-  min-height: 40px;
+  min-height: 46px;
 }
 
 /* お問い合わせフォーム ボタンのアイコン非表示 */
 .contact-form .btn.btn--secondary .icon {
   display: none;
+}
+
+#create_customer
+  > div.note.note--error
+  > ul
+  > li:contains("会員登録を完了するために必要なメールを送信しました。") {
+  background-color: #135cfe !important;
 }
