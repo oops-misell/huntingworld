@@ -499,3 +499,8 @@ a.header__btn-search.d-none.d-lg-flex.align-items-lg-center.ml-25.ml-lg-15.js-po
 .note--error[style*="background-color: rgb(19, 92, 254)"]:before {
   background-color: #135CFE !important;
 }
+
+/* メニューの2階層目のインデント調整 */
+.menu__dropdown .menu__item--has-children > a {
+  padding-left: 1.5em;  /* または必要な余白の量 */
+}
