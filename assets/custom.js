@@ -45,3 +45,21 @@ function styleVerificationMessage() {
 
 // DOMContentLoadedイベントで実行
 document.addEventListener("DOMContentLoaded", styleVerificationMessage);
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  // 対象のURLを指定
+  const targetLinks = [
+    "https://www.rakuten.co.jp/hunting-world-/",
+    "https://store.shopping.yahoo.co.jp/huntingworld/",
+    "https://ec.jal.co.jp/shop/c/cbl/",
+  ];
+
+  // メニュー内のすべてのリンクを取得
+  document.querySelectorAll("a").forEach((link) => {
+    if (targetLinks.includes(link.href)) {
+      link.setAttribute("target", "_blank");
+      link.setAttribute("rel", "noopener noreferrer"); // セキュリティ対策
+    }
+  });
+});
